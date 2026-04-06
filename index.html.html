@@ -1369,12 +1369,13 @@
       botMsg.className = 'msg msg-bot';
       botMsg.textContent = reply;
       messages.appendChild(botMsg);
-    } catch {
+    } catch(error) {
       typing.remove();
       const errMsg = document.createElement('div');
       errMsg.className = 'msg msg-bot';
-      errMsg.textContent = '⚠️ Could not connect to AI assistant. Please try again later.';
+      errMsg.textContent = '⚠️ Could not connect to AI assistant. Error: ' + error.message;
       messages.appendChild(errMsg);
+      console.error('AI Chat error:', error);
     }
     messages.scrollTop = messages.scrollHeight;
   }

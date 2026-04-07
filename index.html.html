@@ -667,17 +667,106 @@
     .toast.show { transform:translateY(0); opacity:1; }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    /* ─── HAMBURGER MENU ─────────────────────────────────────── */
+    .hamburger {
+      display:none; flex-direction:column; gap:5px;
+      cursor:pointer; padding:8px; border:none; background:transparent;
+    }
+    .hamburger span {
+      display:block; width:24px; height:2px;
+      background:var(--white); border-radius:2px;
+      transition:all .3s;
+    }
+    .mobile-menu {
+      display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+      background:rgba(8,9,26,0.97); backdrop-filter:blur(20px);
+      z-index:200; flex-direction:column;
+      align-items:center; justify-content:center; gap:32px;
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a {
+      font-family:var(--font-h); font-weight:700; font-size:1.4rem;
+      color:var(--white); text-decoration:none;
+      transition:color .2s;
+    }
+    .mobile-menu a:hover { color:var(--neon); }
+    .mobile-menu-close {
+      position:absolute; top:24px; right:24px;
+      background:transparent; border:none; color:var(--white);
+      font-size:1.8rem; cursor:pointer;
+    }
+    .mobile-cta {
+      background:linear-gradient(135deg,var(--neon),var(--mint));
+      color:var(--navy) !important; font-weight:700 !important;
+      padding:14px 36px; border-radius:50px; font-size:1rem !important;
+    }
+
+    /* ─── TABLET ─────────────────────────────────────────────── */
     @media(max-width:900px){
-      .hero-grid,.demo-wrap,.ai-wrap,.calc-wrap,.about-wrap { grid-template-columns:1fr; }
+      .hero-grid,.demo-wrap,.ai-wrap,.calc-outer,.about-wrap { grid-template-columns:1fr; }
       .hero-visual { display:none; }
-      .features-grid,.pricing-grid { grid-template-columns:1fr 1fr; }
+      .features-grid { grid-template-columns:1fr 1fr; }
+      .pricing-grid { grid-template-columns:1fr; max-width:480px; }
       .footer-grid { grid-template-columns:1fr 1fr; }
       .nav-links { display:none; }
+      .hamburger { display:flex; }
+      #hero { padding:100px 5% 60px; }
+      .hero-title { font-size:clamp(1.6rem,4vw,2.2rem); }
+      .tip-grid { grid-template-columns:1fr 1fr; }
     }
+
+    /* ─── MOBILE ─────────────────────────────────────────────── */
     @media(max-width:600px){
-      .features-grid,.pricing-grid { grid-template-columns:1fr; }
-      .footer-grid { grid-template-columns:1fr; }
-      .hero-stats { flex-wrap:wrap; gap:20px; }
+      /* Nav */
+      nav { padding:14px 5%; }
+
+      /* Hero */
+      #hero { padding:90px 5% 50px; min-height:auto; }
+      .hero-title { font-size:1.6rem; line-height:1.2; }
+      .hero-sub { font-size:.95rem; }
+      .hero-actions { flex-direction:column; gap:12px; }
+      .hero-actions a { width:100%; justify-content:center; text-align:center; }
+      .btn-primary, .btn-secondary { width:100%; justify-content:center; font-size:.9rem; padding:14px 20px; }
+
+      /* Sections */
+      #features, #demo, #ai-chat, #calculator, #pricing, #about, #cta { padding:60px 5%; }
+      .section-title { font-size:1.3rem !important; }
+      .section-sub { font-size:.9rem; }
+
+      /* Features */
+      .features-grid { grid-template-columns:1fr; gap:14px; }
+      .feat-card { padding:22px 20px; }
+
+      /* Demo */
+      .demo-browser { display:none; }
+      .browser-dash-preview { grid-template-columns:1fr 1fr; }
+
+      /* Pricing */
+      .pricing-grid { grid-template-columns:1fr; max-width:100%; }
+      .price-card { padding:28px 22px; }
+
+      /* Calculator */
+      .calc-outer { grid-template-columns:1fr; gap:20px; }
+      .calc-panel { padding:22px 18px; }
+      .tip-grid { grid-template-columns:1fr 1fr; gap:10px; }
+
+      /* AI Chat */
+      .chat-box { height:360px; }
+
+      /* CTA */
+      .cta-inner { padding:50px 24px; }
+      .cta-inner h2 { font-size:1.3rem; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns:1fr; gap:28px; }
+      .footer-bottom { flex-direction:column; gap:8px; text-align:center; }
+
+      /* General spacing */
+      .container { padding:0 4%; }
+      .section-label { font-size:.72rem; }
+
+      /* Pricing tabs fix */
+      .pet-toggle { flex-direction:row; }
     }
 
     /* ─── SCROLL REVEAL ──────────────────────────────────────── */
@@ -701,7 +790,20 @@
     <a href="#ai-chat">AI Tips</a>
     <a href="https://app.mypetdex.app" target="_blank" class="nav-cta">Get Started →</a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
+  <a href="#features" onclick="toggleMenu()">Features</a>
+  <a href="#demo" onclick="toggleMenu()">Demo</a>
+  <a href="#ai-chat" onclick="toggleMenu()">AI Tips</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="https://app.mypetdex.app" target="_blank" class="mobile-cta" onclick="toggleMenu()">Get Started Free →</a>
+</div>
 
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║            HERO              ║ -->
@@ -1210,6 +1312,13 @@
 <div class="toast" id="toast"></div>
 
 <script>
+  /* ── MOBILE MENU ── */
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+
   /* ── SCROLL REVEAL ── */
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {

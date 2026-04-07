@@ -704,7 +704,8 @@
     /* ─── TABLET ─────────────────────────────────────────────── */
     @media(max-width:900px){
       .hero-grid,.demo-wrap,.ai-wrap,.calc-outer,.about-wrap { grid-template-columns:1fr; }
-      .hero-visual { display:none; }
+      .hero-visual { display:flex; justify-content:center; order:-1; margin-bottom:10px; }
+      .hero-visual img { max-width:100%; border-radius:16px; }
       .features-grid { grid-template-columns:1fr 1fr; }
       .pricing-grid { grid-template-columns:1fr; max-width:480px; }
       .footer-grid { grid-template-columns:1fr 1fr; }

@@ -494,7 +494,7 @@
     .radio-label input[type=radio]:checked + span { color:var(--white); }
     /* life stage select */
     .calc-select {
-      width:100%; background:rgba(255,255,255,0.05);
+      width:100%; background:#0d0f26;
       border:1px solid var(--border); border-radius:10px;
       padding:10px 14px; color:var(--white);
       font-family:var(--font-b); font-size:.9rem;
@@ -502,6 +502,9 @@
       cursor:pointer; transition:border-color .2s;
     }
     .calc-select:focus { border-color:var(--neon); }
+    .calc-select option {
+      background:#0d0f26; color:var(--white);
+    }
     .calc-label { font-size:.78rem; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; display:block; }
     /* optional field */
     .optional-input {
@@ -1129,67 +1132,91 @@
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║           PRICING            ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<section id="pricing">
+<<section id="pricing">
   <div class="container">
     <div class="pricing-header reveal">
       <div class="section-label">💰 Simple Pricing</div>
-      <h2 class="section-title">Start free. Stay as long as you want.</h2>
-      <p class="section-sub" style="margin:0 auto;">No credit card required for your free trial. Cancel anytime.</p>
+      <h2 class="section-title">Start free. Upgrade when you're ready.</h2>
+      <p class="section-sub" style="margin:0 auto;">No credit card required. Cancel anytime.</p>
     </div>
-    <div class="pricing-grid">
-      <!-- Pet Owner -->
+
+    <!-- Billing Toggle -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin:32px 0 48px;">
+      <span id="toggle-monthly" style="font-family:var(--font-b);font-size:.95rem;color:var(--text);font-weight:700;cursor:pointer;" onclick="setBilling('monthly')">Monthly</span>
+      <div onclick="switchBilling()" style="width:46px;height:24px;background:rgba(185,127,255,0.2);border:1px solid rgba(185,127,255,0.4);border-radius:12px;position:relative;cursor:pointer;" id="toggle-track">
+        <div id="toggle-thumb" style="width:18px;height:18px;background:#b97fff;border-radius:50%;position:absolute;top:2px;left:3px;transition:transform .3s;"></div>
+      </div>
+      <span id="toggle-yearly" style="font-family:var(--font-b);font-size:.95rem;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setBilling('yearly')">
+        Yearly <span style="font-size:.7rem;font-weight:700;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;padding:2px 8px;border-radius:10px;">Save 20%</span>
+      </span>
+    </div>
+
+    <div class="pricing-grid" style="grid-template-columns:repeat(3,1fr);">
+
+      <!-- FREE -->
+      <div class="price-card reveal">
+        <div class="price-tier">Free</div>
+        <div class="price-amount"><sup>$</sup>0</div>
+        <div class="price-period">forever</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><strong>1 pet</strong> profile</li>
+          <li>Vaccine &amp; health records</li>
+          <li>Email reminders</li>
+          <li>Local provider search</li>
+          <li>Photo uploads</li>
+          <li class="muted">✗ AI pet assistant</li>
+          <li class="muted">✗ Pet recipes</li>
+          <li class="muted">✗ Priority support</li>
+          <li class="muted">✗ Early features</li>
+          <li class="muted">✗ Yearly billing</li>
+        </ul>
+        <a href="https://app.mypetdex.app" target="_blank" class="btn-secondary" style="display:flex;justify-content:center;">Get Started Free</a>
+      </div>
+
+      <!-- PLUS -->
       <div class="price-card featured reveal">
         <div class="popular-badge">Most Popular</div>
-        <div class="price-tier">Pet Owner</div>
-        <div class="price-amount"><sup>$</sup>5</div>
-        <div class="price-period">per month · after 30-day free trial</div>
+        <div class="price-tier">Plus</div>
+        <div class="price-amount"><sup>$</sup><span id="plus-price">3</span></div>
+        <div class="price-period">per month</div>
         <div class="price-divider"></div>
         <ul class="price-features">
-          <li>Unlimited pet profiles</li>
-          <li>Vaccine & health records</li>
+          <li><strong>3 pets</strong></li>
+          <li>Vaccine &amp; health records</li>
           <li>Email reminders</li>
-          <li>AI pet assistant</li>
           <li>Local provider search</li>
-          <li>Pet recipes library</li>
           <li>Photo uploads</li>
-          <li>Calorie calculator</li>
+          <li>AI pet assistant</li>
+          <li>Pet recipes</li>
+          <li class="muted">✗ Priority support</li>
+          <li class="muted">✗ Early features</li>
+          <li>Yearly billing option</li>
         </ul>
-        <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="display:flex;justify-content:center;">Start Free Trial →</a>
+        <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="display:flex;justify-content:center;">Start Plus →</a>
       </div>
 
-      <!-- Provider -->
+      <!-- FAMILY -->
       <div class="price-card reveal">
-        <div class="price-tier">Service Provider</div>
-        <div class="price-amount" style="font-size:1rem;padding-top:6px;line-height:1.4;">Commission<br/><span style="font-size:.75rem;font-weight:400;color:var(--muted);">per booking</span></div>
-        <div class="price-period">5% per booking · no monthly fee</div>
+        <div class="price-tier">Family</div>
+        <div class="price-amount"><sup>$</sup><span id="family-price">5</span></div>
+        <div class="price-period">per month</div>
         <div class="price-divider"></div>
         <ul class="price-features">
-          <li>Free to list your services</li>
-          <li>Provider dashboard</li>
-          <li>Booking management</li>
-          <li>Local pet owner reach</li>
-          <li>Profile & reviews</li>
-          <li class="muted">No upfront costs</li>
+          <li><strong>Unlimited pets</strong></li>
+          <li>Vaccine &amp; health records</li>
+          <li>Email reminders</li>
+          <li>Local provider search</li>
+          <li>Photo uploads</li>
+          <li>AI pet assistant</li>
+          <li>Pet recipes</li>
+          <li>Priority support</li>
+          <li>Early features</li>
+          <li>Yearly billing option</li>
         </ul>
-        <a href="https://app.mypetdex.app/provider-signup" target="_blank" class="btn-secondary" style="display:flex;justify-content:center;">List Your Services →</a>
+        <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="display:flex;justify-content:center;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;">Start Family →</a>
       </div>
 
-      <!-- Shelter -->
-      <div class="price-card reveal">
-        <div class="price-tier">Shelter / Rescue</div>
-        <div class="price-amount" style="font-size:1.6rem;color:var(--mint);">Free</div>
-        <div class="price-period">Always free · forever</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li>Shelter dashboard</li>
-          <li>Post adoptable pets</li>
-          <li>Manage applications</li>
-          <li>Community visibility</li>
-          <li>No fees, ever</li>
-          <li class="muted">501(c)(3) friendly</li>
-        </ul>
-        <a href="https://app.mypetdex.app/shelter-signup" target="_blank" class="btn-secondary" style="display:flex;justify-content:center;">Register Shelter →</a>
-      </div>
     </div>
   </div>
 </section>
@@ -1493,6 +1520,20 @@
   document.getElementById('chatInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') sendChat();
   });
+  // Billing toggle
+let billingMode = 'monthly';
+function setBilling(mode) {
+  billingMode = mode;
+  const thumb = document.getElementById('toggle-thumb');
+  document.getElementById('toggle-monthly').style.color = mode === 'monthly' ? 'var(--text)' : 'var(--muted)';
+  document.getElementById('toggle-yearly').style.color = mode === 'yearly' ? 'var(--text)' : 'var(--muted)';
+  thumb.style.transform = mode === 'yearly' ? 'translateX(22px)' : 'translateX(0)';
+  document.getElementById('plus-price').textContent = mode === 'yearly' ? '2.40' : '3';
+  document.getElementById('family-price').textContent = mode === 'yearly' ? '4' : '5';
+}
+function switchBilling() {
+  setBilling(billingMode === 'monthly' ? 'yearly' : 'monthly');
+}
 </script>
 </body>
 </html>

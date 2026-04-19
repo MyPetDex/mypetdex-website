@@ -1427,7 +1427,7 @@
     if(document.getElementById('currentCalVal').textContent==='—') document.getElementById('results-placeholder').style.display='block';
   }
 
-  function calcCalories() {
+function calcCalories() {
     const rawWeight = parseFloat(document.getElementById('calcWeight').value);
     if (!rawWeight || rawWeight <= 0) { showToast('Please enter your pet\'s weight.'); return; }
 
@@ -1437,21 +1437,33 @@
     const lifeActivity = document.getElementById('calcLifeActivity').value;
     const currentCalInput = parseFloat(document.getElementById('calcCurrentCal').value);
 
-    // RER
+    // RER (NRC/AAFCO standard)
     const rer = 70 * Math.pow(kg, 0.75);
-    // Life factor
-    let lf = 1.0;
-    if(lifeActivity==='puppy') lf = petType==='cat'?2.5:2.0;
-    else if(lifeActivity==='senior') lf = 0.8;
-    else if(lifeActivity==='pregnant') lf = 1.8;
-    else if(lifeActivity==='nursing') lf = 2.5;
-    else if(lifeActivity==='adult_low') lf = 0.8;
-    else if(lifeActivity==='adult_mod') lf = 1.0;
-    else if(lifeActivity==='adult_high') lf = 1.4;
-    // Neuter factor
-    if(repro==='neutered' && lifeActivity.startsWith('adult')) lf *= 0.9;
+
+    // Life stage + activity multipliers (matches app formula exactly)
+    const neutered = repro === 'neutered';
+    let lf = 1.6;
+
+    if (lifeActivity === 'puppy') {
+      lf = kg < 2 ? 3.0 : kg < 10 ? 2.5 : 2.0;
+    } else if (lifeActivity === 'senior') {
+      lf = neutered ? 1.2 : 1.4;
+    } else if (lifeActivity === 'pregnant') {
+      lf = 2.0;
+    } else if (lifeActivity === 'nursing') {
+      lf = petType === 'cat' ? 2.5 : 3.0;
+    } else if (lifeActivity === 'adult_low') {
+      lf = neutered ? 1.2 : 1.4;
+    } else if (lifeActivity === 'adult_mod') {
+      lf = neutered ? 1.4 : 1.6;
+    } else if (lifeActivity === 'adult_high') {
+      lf = neutered ? 1.6 : 1.8;
+    } else if (lifeActivity === 'adult_vhigh') {
+      lf = neutered ? 1.8 : 2.0;
+    }
+
     // BCS adjustment
-    const bcsAdj = bcsFactor[bcs]||1.0;
+    const bcsAdj = bcsFactor[bcs] || 1.0;
     const recommended = Math.round(rer * lf);
     const adjusted = Math.round(recommended * bcsAdj);
 

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – MyPetDex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #08091a;
+      --navy2: #0d0f26;
+      --purple: #1a1040;
+      --neon: #b97fff;
+      --mint: #3dffc8;
+      --pink: #ff6ef7;
+      --white: #f0eeff;
+      --muted: #8a82b0;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(185,127,255,0.18);
+      --font-h: 'Outfit', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+      --radius: 18px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: var(--neon); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    body::before {
+      content:'';
+      position:fixed;inset:0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events:none;
+      z-index:0;
+      opacity:.4;
+    }
+
+    nav {
+      position: sticky; top: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 5%;
+      background: rgba(8,9,26,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .nav-logo .paw { font-size:1.6rem; filter: drop-shadow(0 0 8px var(--neon)); }
+    .nav-logo .brand {
+      font-family: var(--font-h);
+      font-weight: 800; font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--neon), var(--mint));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-back {
+      font-size: .88rem; color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 18px; border-radius: 50px;
+      transition: color .2s, border-color .2s;
+    }
+    .nav-back:hover { color: var(--white); border-color: var(--neon); text-decoration: none; }
+
+    .hero-bg {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(185,127,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(61,255,200,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    main {
+      position: relative; z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 5% 100px;
+    }
+
+    .page-label {
+      display: inline-flex; align-items:center; gap:8px;
+      background: rgba(185,127,255,0.12);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 5px 16px;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--white) 60%, var(--neon));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .effective-date {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--mint);
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .highlight-box {
+      background: rgba(61,255,200,0.06);
+      border: 1px solid rgba(61,255,200,0.2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+    }
+    .highlight-box p {
+      color: var(--white);
+      margin: 0;
+      font-size: .95rem;
+    }
+    .highlight-box strong { color: var(--mint); }
+
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px 5%;
+      text-align: center;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--neon); }
+    .footer-heart { color: #ff6ef7; }
+
+    @media(max-width:600px) {
+      main { padding: 40px 5% 80px; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero-bg"></div>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <span class="paw">🐾</span>
+    <span class="brand">MyPetDex</span>
+  </a>
+  <a href="/" class="nav-back">← Back to Home</a>
+</nav>
+
+<main>
+  <div class="page-label">🔒 Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="effective-date">Effective Date: April 1, 2026</p>
+
+  <div class="highlight-box">
+    <p><strong>The short version:</strong> Your data is 100% private. We never sell your personal information or your pet's information to anyone — not advertisers, not third parties, not anyone.</p>
+  </div>
+
+  <div class="section">
+    <h2>📋 Overview</h2>
+    <p>MyPetDex ("we," "us," or "our") is committed to protecting your privacy. This policy describes how we collect, use, and protect your personal information when you use the MyPetDex platform.</p>
+  </div>
+
+  <div class="section">
+    <h2>📥 Information We Collect</h2>
+    <p>We collect information you provide when creating an account, including your name, email address, city, state, and pet information (such as breed, age, weight, vaccines, and reminders). We also collect usage data to improve the app experience.</p>
+    <p>We do <strong style="color:var(--white);">not</strong> collect payment information, government IDs, or precise GPS location.</p>
+  </div>
+
+  <div class="section">
+    <h2>🔧 How We Use Your Information</h2>
+    <p>We use your data solely to provide our services — including displaying your pet profiles, sending reminders and notifications you have requested, and showing local service providers near you. We also use it to communicate important updates about your account.</p>
+  </div>
+
+  <div class="section">
+    <h2>🤝 Data Sharing</h2>
+    <p>We do not sell your personal data. We may share data with essential service providers (such as Firebase for data storage and EmailJS for notifications) solely to operate the platform. We will never share your data with advertisers or marketing companies.</p>
+  </div>
+
+  <div class="section">
+    <h2>✅ Your Rights</h2>
+    <p>You may request access to, correction of, or deletion of your personal data at any time by contacting us at <a href="mailto:help@mypetdex.app">help@mypetdex.app</a>. You can also delete your account directly from your account settings in the app.</p>
+  </div>
+
+  <div class="section">
+    <h2>🛡️ Data Security</h2>
+    <p>We use industry-standard encryption, Firebase Authentication, Firestore Security Rules, and HTTPS to protect your data. Only you can access your personal information and pet records. No system is 100% secure, and we encourage you to use a strong, unique password.</p>
+  </div>
+
+  <div class="section">
+    <h2>🍪 Cookies</h2>
+    <p>We use essential cookies only to maintain your login session and app functionality. We do not use tracking or advertising cookies.</p>
+  </div>
+
+  <div class="section">
+    <h2>👶 Children's Privacy</h2>
+    <p>MyPetDex is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately.</p>
+  </div>
+
+  <div class="section">
+    <h2>🔄 Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via email or in-app notification. Continued use of MyPetDex after changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>📬 Contact</h2>
+    <p>For privacy questions or data requests, contact us at <a href="mailto:help@mypetdex.app">help@mypetdex.app</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 MyPetDex. All rights reserved. Made with <span class="footer-heart">♥</span> for pets everywhere.</p>
+  <p style="margin-top:8px;"><a href="/">Home</a> · <a href="/terms.html">Terms of Service</a> · <a href="mailto:help@mypetdex.app">Contact</a></p>
+</footer>
+
+</body>
+</html>

@@ -104,7 +104,7 @@
       font-weight: 600;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--neon);
+      color: #3B82F6;
       margin-bottom: 20px;
     }
     .section-title {
@@ -137,7 +137,7 @@
     .hero-badge {
       background: rgba(59,130,246,0.12);
       border: 1px solid rgba(59,130,246,0.3);
-      color: var(--mint);
+      color: #3B82F6;
       padding: 4px 12px; border-radius:50px;
       font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
     }
@@ -148,7 +148,7 @@
       line-height: 1.25;
       margin-bottom: 24px;
     }
-    .hero-title .accent {
+    .hero-title .accent { color:#3B82F6;
       background: linear-gradient(135deg, var(--neon) 0%, var(--mint) 100%);
       color: #FFFFFF;
     }
@@ -182,7 +182,7 @@
       transition: border-color .2s, background .2s;
       cursor:pointer;
     }
-    .btn-secondary:hover { border-color:var(--neon); background:rgba(185,127,255,0.08); }
+    .btn-secondary:hover { border-color:#3B82F6; background:rgba(185,127,255,0.08); }
     .hero-stats { display:flex; gap:32px; margin-top:50px; }
     .stat { display:flex; flex-direction:column; }
     .stat-num {
@@ -238,7 +238,7 @@
       flex:1; background:rgba(61,255,200,0.08);
       border:1px solid rgba(61,255,200,0.2);
       border-radius:10px; padding:10px 8px;
-      text-align:center; font-size:.7rem; color:var(--mint);
+      text-align:center; font-size:.7rem; color:#3B82F6;
     }
     .phone-chip span { display:block; font-size:1.1rem; margin-bottom:2px; }
     .phone-reminder {
@@ -306,14 +306,14 @@
       border-radius:var(--radius); padding:28px;
       margin-top:28px;
     }
-    .demo-creds h4 { font-family:var(--font-h); font-weight:700; font-size:.9rem; margin-bottom:16px; color:var(--mint); }
+    .demo-creds h4 { font-family:var(--font-h); font-weight:700; font-size:.9rem; margin-bottom:16px; color:#3B82F6; }
     .cred-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); }
     .cred-row:last-child { border:none; }
     .cred-label { font-size:.82rem; color:#FFFFFF; }
     .cred-val {
       font-family:monospace; font-size:.85rem;
       background:rgba(61,255,200,0.08); border:1px solid rgba(61,255,200,0.2);
-      padding:3px 10px; border-radius:6px; color:var(--mint);
+      padding:3px 10px; border-radius:6px; color:#3B82F6;
     }
     .demo-browser {
       background:#FFFFFF; border:1px solid var(--border);
@@ -342,8 +342,8 @@
     }
     .dash-tile-label { font-size:.72rem; color:var(--muted); margin-bottom:6px; }
     .dash-tile-val { font-family:var(--font-h); font-weight:700; font-size:1.1rem; }
-    .dash-tile-val.green { color:var(--mint); }
-    .dash-tile-val.purple { color:var(--neon); }
+    .dash-tile-val.green { color:#3B82F6; }
+    .dash-tile-val.purple { color:#3B82F6; }
 
     /* ─── AI CHAT ────────────────────────────────────────────── */
     #ai-chat { padding:100px 5%; }
@@ -365,7 +365,7 @@
       font-size:1rem;
     }
     .chat-title { font-family:var(--font-h); font-weight:700; font-size:.9rem; }
-    .chat-status { font-size:.72rem; color:var(--mint); }
+    .chat-status { font-size:.72rem; color:#3B82F6; }
     .chat-messages { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:12px; }
     .chat-messages::-webkit-scrollbar { width:4px; }
     .chat-messages::-webkit-scrollbar-track { background:transparent; }
@@ -406,7 +406,7 @@
       font-family:var(--font-b); font-size:.87rem;
       outline:none; transition:border-color .2s;
     }
-    .chat-input:focus { border-color:var(--neon); }
+    .chat-input:focus { border-color:#3B82F6; }
     .chat-input::placeholder { color:var(--muted); }
     .chat-send {
       background:linear-gradient(135deg,var(--neon),var(--mint));
@@ -440,7 +440,7 @@
       cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center; gap:6px;
     }
     .pet-btn.active {
-      background:var(--neon); color:var(--navy); border-color:var(--neon);
+      background:var(--neon); color:var(--navy); border-color:#3B82F6;
     }
     /* weight row */
     .weight-row { display:flex; gap:8px; margin-bottom:20px; }
@@ -451,21 +451,21 @@
       font-family:var(--font-b); font-size:.9rem;
       outline:none; transition:border-color .2s;
     }
-    .weight-input:focus { border-color:var(--neon); }
+    .weight-input:focus { border-color:#3B82F6; }
     .unit-toggle { display:flex; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
     .unit-btn {
       padding:0 16px; background:transparent; color:var(--muted);
       font-family:var(--font-b); font-size:.85rem; font-weight:600;
       border:none; cursor:pointer; transition:all .15s;
     }
-    .unit-btn.active { background:rgba(185,127,255,0.2); color:var(--neon); }
+    .unit-btn.active { background:rgba(185,127,255,0.2); color:#3B82F6; }
     /* BCS slider */
     .bcs-row { margin-bottom:20px; }
     .bcs-label-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
     .bcs-label { font-size:.8rem; color:var(--muted); font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
     .bcs-badge {
       font-size:.78rem; font-weight:700; padding:2px 10px; border-radius:50px;
-      background:rgba(61,255,200,0.12); color:var(--mint); border:1px solid rgba(61,255,200,0.25);
+      background:rgba(61,255,200,0.12); color:#3B82F6; border:1px solid rgba(61,255,200,0.25);
     }
     .bcs-slider {
       -webkit-appearance:none; width:100%; height:5px;
@@ -485,7 +485,7 @@
       display:flex; align-items:center; gap:8px;
       font-size:.85rem; color:var(--muted); cursor:pointer;
     }
-    .radio-label input[type=radio] { accent-color:var(--neon); }
+    .radio-label input[type=radio] { accent-color:#3B82F6; }
     .radio-label input[type=radio]:checked + span { color:#1E293B; }
     /* life stage select */
     .calc-select {
@@ -496,7 +496,7 @@
       outline:none; appearance:none; margin-bottom:20px;
       cursor:pointer; transition:border-color .2s;
     }
-    .calc-select:focus { border-color:var(--neon); }
+    .calc-select:focus { border-color:#3B82F6; }
     .calc-select option {
       background:#F5F8FF; color:#1E293B;
     }
@@ -510,7 +510,7 @@
       outline:none; transition:border-color .2s; margin-bottom:6px;
     }
     .optional-input::placeholder { color:var(--muted); font-size:.85rem; }
-    .optional-input:focus { border-color:var(--neon); }
+    .optional-input:focus { border-color:#3B82F6; }
     /* results panel */
     .results-tabs { display:flex; border-bottom:1px solid var(--border); margin-bottom:20px; }
     .results-tab {
@@ -519,14 +519,14 @@
       color:var(--muted); border-bottom:2px solid transparent;
       transition:all .2s; letter-spacing:.05em; text-transform:uppercase;
     }
-    .results-tab.active { color:var(--neon); border-bottom-color:var(--neon); }
+    .results-tab.active { color:#3B82F6; border-bottom-color:#3B82F6; }
     .results-placeholder { text-align:center; padding:30px 20px; color:var(--muted); font-size:.9rem; }
     .results-placeholder span { font-size:1.3rem; margin-right:6px; }
     .result-number {
       font-family:var(--font-h); font-weight:800; font-size:2.2rem;
       color:#1E293B; text-align:center; padding:16px 0 8px;
     }
-    .result-unit { font-size:.85rem; color:var(--mint); text-align:center; margin-bottom:16px; }
+    .result-unit { font-size:.85rem; color:#3B82F6; text-align:center; margin-bottom:16px; }
     .result-note { font-size:.78rem; color:var(--muted); text-align:center; line-height:1.6; padding:0 10px 12px; }
     .calc-disclaimer { font-size:.72rem; color:var(--muted); border-top:1px solid var(--border); padding-top:12px; margin-top:12px; line-height:1.6; }
     /* nutrition tips */
@@ -568,7 +568,7 @@
     .price-divider { height:1px; background:var(--border); margin-bottom:24px; }
     .price-features { list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:32px; }
     .price-features li { display:flex; align-items:center; gap:10px; font-size:.88rem; }
-    .price-features li::before { content:'✓'; color:var(--mint); font-weight:700; flex-shrink:0; }
+    .price-features li::before { content:'✓'; color:#3B82F6; font-weight:700; flex-shrink:0; }
     .price-features li.muted::before { content:'–'; color:var(--muted); }
     .price-features li.muted { color:var(--muted); }
 
@@ -687,7 +687,7 @@
       color:#1E293B; text-decoration:none;
       transition:color .2s;
     }
-    .mobile-menu a:hover { color:var(--neon); }
+    .mobile-menu a:hover { color:#3B82F6; }
     .mobile-menu-close {
       position:absolute; top:24px; right:24px;
       background:transparent; border:none; color:#1E293B;
@@ -823,8 +823,8 @@
           Health records, vaccine reminders, local service providers, AI-powered tips, and adoption resources — all in one place. Built by a pet owner, for pet owners.
         </p>
         <div class="hero-actions">
-          <a href="https://app.mypetdex.app" target="_blank" class="btn-primary">Get Started Free 🐾</a>
-          <a href="#demo" class="btn-secondary">See Demo →</a>
+          <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="color:#FFFFFF;">Get Started Free 🐾</a>
+          <a href="#demo" class="btn-secondary" style="color:#1E293B;border-color:#3B82F6;">See Demo →</a>
         </div>
 
       </div>
@@ -889,7 +889,7 @@
   <div class="container">
     <div class="features-header reveal">
       <div class="section-label">✨ Everything You Need</div>
-      <h2 class="section-title">Built for every pet parent</h2>
+      <h2 class="section-title" style="color:#1E293B;">Built for every pet parent</h2>
       <p class="section-sub">From health tracking to local service discovery — MyPetDex covers every corner of your pet's life.</p>
     </div>
     <div class="features-grid">
@@ -950,10 +950,10 @@
     <div class="demo-wrap">
       <div class="reveal">
         <div class="section-label">🎯 Try It Now</div>
-        <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);">Explore the live app</h2>
+        <h2 class="section-title" style="color:#1E293B;" style="font-size:clamp(1.6rem,3vw,2.2rem);">Explore the live app</h2>
         <p class="section-sub">Click below to explore MyPetDex — no sign-up required. See pet profiles, reminders, local providers, and the AI assistant all in action.</p>
         <br/>
-        <a href="https://app.mypetdex.app?demo=true" target="_blank" class="btn-primary" style="display:inline-flex;">Open Demo App →</a>
+        <a href="https://app.mypetdex.app?demo=true" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:inline-flex;">Open Demo App →</a>
       </div>
 
       <div class="reveal">
@@ -966,7 +966,7 @@
           </div>
           <div class="browser-body">
             <div style="font-family:var(--font-h);font-weight:700;font-size:.9rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
-              <span>🐾</span> Welcome back! You have <span style="color:var(--mint)">2 reminders</span> this week.
+              <span>🐾</span> Welcome back! You have <span style="color:#3B82F6">2 reminders</span> this week.
             </div>
             <div class="browser-dash-preview">
               <div class="dash-tile">
@@ -1004,14 +1004,14 @@
     <div class="ai-wrap">
       <div class="reveal">
         <div class="section-label">🤖 AI Powered</div>
-        <h2 class="section-title">Your personal<br/>pet expert</h2>
+        <h2 class="section-title" style="color:#1E293B;">Your personal<br/>pet expert</h2>
         <p class="section-sub">Ask anything — diet, training, symptoms, breeds, first aid. Our AI assistant gives instant, thoughtful answers tailored to your pet.</p>
         <br/>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px;">
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:var(--mint);">✓</span> "What foods are toxic for dogs?"</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:var(--mint);">✓</span> "How much should a 40lb dog eat per day?"</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:var(--mint);">✓</span> "Tips for training a high-energy puppy"</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:var(--mint);">✓</span> "My cat is vomiting — what should I check?"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "What foods are toxic for dogs?"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "How much should a 40lb dog eat per day?"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "Tips for training a high-energy puppy"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "My cat is vomiting — what should I check?"</li>
         </ul>
       </div>
       <div class="reveal">
@@ -1043,7 +1043,7 @@
   <div class="container">
     <div class="features-header reveal" style="margin-bottom:40px;">
       <div class="section-label">🧮 Free Tool</div>
-      <h2 class="section-title">Pet Calorie Calculator</h2>
+      <h2 class="section-title" style="color:#1E293B;">Pet Calorie Calculator</h2>
       <p class="section-sub" style="margin:0 auto;">Based on RER = 70×(BW kg)^0.75 — the Pet Nutrition Alliance standard. Results are estimates; always confirm with your vet.</p>
     </div>
     <div class="calc-outer reveal">
@@ -1079,7 +1079,7 @@
             <span>1 Thin</span><span>3 Underweight</span><span>5 Ideal</span><span>7 Overweight</span><span>9 Obese</span>
           </div>
         </div>
-        <div id="bcsMsg" style="background:rgba(61,255,200,0.08);border:1px solid rgba(61,255,200,0.2);border-radius:8px;padding:8px 12px;font-size:.8rem;color:var(--mint);margin-bottom:18px;">
+        <div id="bcsMsg" style="background:rgba(61,255,200,0.08);border:1px solid rgba(61,255,200,0.2);border-radius:8px;padding:8px 12px;font-size:.8rem;color:#3B82F6;margin-bottom:18px;">
           ✅ Your pet is at an ideal weight! Maintain current feeding.
         </div>
 
@@ -1110,7 +1110,7 @@
         <span class="calc-label">Current Daily Calories <span style="text-transform:none;letter-spacing:0;font-weight:400;">(optional)</span></span>
         <input class="optional-input" type="number" id="calcCurrentCal" placeholder="Leave blank if unknown" min="0" />
 
-        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:8px;" onclick="calcCalories()">Calculate 🧮</button>
+        <button class="btn-primary" style="color:#FFFFFF;" style="width:100%;justify-content:center;margin-top:8px;" onclick="calcCalories()">Calculate 🧮</button>
       </div>
 
       <!-- RIGHT: results + tips -->
@@ -1174,7 +1174,7 @@
   <div class="container">
     <div class="pricing-header reveal">
       <div class="section-label">💰 Simple Pricing</div>
-      <h2 class="section-title">Start free. Upgrade when you're ready.</h2>
+      <h2 class="section-title" style="color:#1E293B;">Start free. Upgrade when you're ready.</h2>
       <p class="section-sub" style="margin:0 auto;">No credit card required. Cancel anytime.</p>
     </div>
 
@@ -1209,7 +1209,7 @@
           <li class="muted">✗ Early features</li>
           <li class="muted">✗ Yearly billing</li>
         </ul>
-        <a href="https://app.mypetdex.app" target="_blank" class="btn-secondary" style="display:flex;justify-content:center;">Get Started Free</a>
+        <a href="https://app.mypetdex.app" target="_blank" class="btn-secondary" style="color:#1E293B;border-color:#3B82F6;" style="display:flex;justify-content:center;">Get Started Free</a>
       </div>
 
       <!-- PLUS -->
@@ -1231,7 +1231,7 @@
           <li class="muted">✗ Early features</li>
           <li>Yearly billing option</li>
         </ul>
-        <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="display:flex;justify-content:center;">Start Plus →</a>
+        <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;">Start Plus →</a>
       </div>
 
       <!-- FAMILY -->
@@ -1252,7 +1252,7 @@
           <li>Early features</li>
           <li>Yearly billing option</li>
         </ul>
-        <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="display:flex;justify-content:center;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;">Start Family →</a>
+        <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;">Start Family →</a>
       </div>
 
     </div>
@@ -1288,7 +1288,7 @@
     <div class="cta-inner reveal">
       <h2>Your pet deserves the best.<br/>Start today — it's free. 🐾</h2>
       <p>Join pet owners and providers already using MyPetDex.</p>
-      <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="display:inline-flex;">Get Started Free →</a>
+      <a href="https://app.mypetdex.app" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:inline-flex;">Get Started Free →</a>
       <div class="cta-note" style="color:#1E293B;">Free plan available · No credit card required · Cancel anytime</div>
     </div>
   </div>

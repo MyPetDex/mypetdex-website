@@ -1517,10 +1517,8 @@ function calcCalories() {
     const adjusted = Math.round(recommended * bcsAdj);
 
     document.getElementById('results-placeholder').style.display='none';
-    document.getElementById('currentCalVal').textContent = !isNaN(currentCalInput) && currentCalInput > 0 ? currentCalInput + ' kcal' : recommended + ' kcal';
-    document.getElementById('currentCalNote').textContent = 'Based on your pet\'s current stats.';
     document.getElementById('recCalVal').textContent = adjusted + ' kcal';
-    document.getElementById('recCalNote').textContent = `Adjusted for BCS ${bcs}/9. Always confirm with your vet.`;
+    document.getElementById('recCalNote').textContent = 'Estimated daily calories based on your pet\'s weight, age and activity level.';
     document.getElementById('results-recommended').style.display = 'block';
   }
 

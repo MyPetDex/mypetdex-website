@@ -1120,7 +1120,6 @@
         <div id="results-placeholder" class="results-placeholder">
           <span>🐾</span> Fill in your pet's info and click Calculate!
         </div>
-        <div id="results-recommended" style="display:none;">
           <div id="results-recommended" style="display:none;">
           <div class="result-number" id="recCalVal">—</div>
           <div class="result-unit">kcal / day — recommended</div>
@@ -1473,7 +1472,7 @@
     document.getElementById('tab-current').className = 'results-tab'+(tab==='current'?' active':'');
     document.getElementById('tab-recommended').className = 'results-tab'+(tab==='recommended'?' active':'');
     document.getElementById('results-current').style.display = (tab==='current'&&document.getElementById('currentCalVal').textContent!=='—') ? 'block' : 'none';
-    document.getElementById('results-recommended').style.display = (tab==='recommended'&&document.getElementById('recCalVal').textContent!=='—') ? 'block' : 'none';
+    document.getElementById('results-recommended').style.display = 'block';
     if(document.getElementById('currentCalVal').textContent==='—') document.getElementById('results-placeholder').style.display='block';
   }
 

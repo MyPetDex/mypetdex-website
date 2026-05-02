@@ -1117,23 +1117,14 @@
       <div class="calc-panel">
         <div class="calc-panel-title"><span>📊</span> Results</div>
 
-        <div class="results-tabs">
-          <div class="results-tab active" id="tab-current" onclick="switchTab('current')">Current</div>
-          <div class="results-tab" id="tab-recommended" onclick="switchTab('recommended')">Recommended</div>
-        </div>
-
         <div id="results-placeholder" class="results-placeholder">
           <span>🐾</span> Fill in your pet's info and click Calculate!
         </div>
-        <div id="results-current" style="display:none;">
-          <div class="result-number" id="currentCalVal">—</div>
-          <div class="result-unit">kcal / day (current)</div>
-          <div class="result-note" id="currentCalNote"></div>
-        </div>
         <div id="results-recommended" style="display:none;">
+          <div id="results-recommended" style="display:none;">
           <div class="result-number" id="recCalVal">—</div>
-          <div class="result-unit">kcal / day (recommended)</div>
-          <div class="result-note" id="recCalNote"></div>
+          <div class="result-unit">kcal / day — recommended</div>
+          <div class="result-note" id="recCalNote">Estimated daily calories based on your pet's weight, age and activity level.</div>
         </div>
 
         <div class="calc-disclaimer">
@@ -1531,8 +1522,7 @@ function calcCalories() {
     document.getElementById('currentCalNote').textContent = 'Based on your pet\'s current stats.';
     document.getElementById('recCalVal').textContent = adjusted + ' kcal';
     document.getElementById('recCalNote').textContent = `Adjusted for BCS ${bcs}/9. Always confirm with your vet.`;
-    document.getElementById('results-current').style.display = activeTab==='current'?'block':'none';
-    document.getElementById('results-recommended').style.display = activeTab==='recommended'?'block':'none';
+    document.getElementById('results-recommended').style.display = 'block';
   }
 
   /* ── AI CHAT ── */

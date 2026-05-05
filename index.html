@@ -1627,6 +1627,21 @@ function calcCalories() {
     const userText = input.value.trim();
     if (!userText) return;
 
+    // 3-question limit
+    const chatCount = parseInt(sessionStorage.getItem('chatCount') || '0');
+    if (chatCount >= 3) {
+      const limitMsg = document.createElement('div');
+      limitMsg.className = 'msg msg-bot';
+      limitMsg.innerHTML = '🐾 You've used your 3 free questions! <a href="https://app.mypetdex.app" style="color:#3B82F6;font-weight:700;">Create a free account</a> to get unlimited AI pet advice in the app!';
+      messages.appendChild(limitMsg);
+      messages.scrollTop = messages.scrollHeight;
+      input.value = '';
+      input.disabled = true;
+      document.getElementById('chatSend').disabled = true;
+      return;
+    }
+    sessionStorage.setItem('chatCount', chatCount + 1);
+
     // User message
     const userMsg = document.createElement('div');
     userMsg.className = 'msg msg-user';

@@ -922,10 +922,14 @@
 
     <!-- Pillar 1: Health & Care -->
     <div style="margin-bottom:40px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-        <span style="font-size:1.5rem;">🩺</span>
-        <h3 style="font-size:1.1rem;font-weight:800;color:#1E293B;margin:0;">Health & Care</h3>
-      </div>
+      <button class="pillar-toggle open" onclick="togglePillar(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.5rem;">🩺</span>
+          <h3 style="font-size:1.1rem;font-weight:800;color:#1E293B;margin:0;">Health & Care</h3>
+        </div>
+        <span class="pillar-arrow">▼</span>
+      </button>
+      <div class="pillar-content open">
       <div class="features-grid">
         <div class="feat-card reveal">
           <div class="feat-icon">💉</div>
@@ -948,14 +952,19 @@
           <p class="feat-desc">Ask anything about pet nutrition, health, training, or behavior. Powered by advanced AI.</p>
         </div>
       </div>
+      </div>
     </div>
 
     <!-- Pillar 2: Nutrition & Daily Life -->
     <div style="margin-bottom:40px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-        <span style="font-size:1.5rem;">🍽️</span>
-        <h3 style="font-size:1.1rem;font-weight:800;color:#1E293B;margin:0;">Nutrition & Daily Life</h3>
-      </div>
+      <button class="pillar-toggle" onclick="togglePillar(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.5rem;">🍽️</span>
+          <h3 style="font-size:1.1rem;font-weight:800;color:#1E293B;margin:0;">Nutrition & Daily Life</h3>
+        </div>
+        <span class="pillar-arrow">▼</span>
+      </button>
+      <div class="pillar-content">
       <div class="features-grid">
         <div class="feat-card reveal">
           <div class="feat-icon">🧮</div>
@@ -968,14 +977,19 @@
           <p class="feat-desc">Discover healthy, homemade meal ideas your dog or cat will love — curated and community-shared.</p>
         </div>
       </div>
+      </div>
     </div>
 
     <!-- Pillar 3: Services & Community -->
     <div style="margin-bottom:40px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-        <span style="font-size:1.5rem;">🏠</span>
-        <h3 style="font-size:1.1rem;font-weight:800;color:#1E293B;margin:0;">Services & Community</h3>
-      </div>
+      <button class="pillar-toggle" onclick="togglePillar(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.5rem;">🏠</span>
+          <h3 style="font-size:1.1rem;font-weight:800;color:#1E293B;margin:0;">Services & Community</h3>
+        </div>
+        <span class="pillar-arrow">▼</span>
+      </button>
+      <div class="pillar-content">
       <div class="features-grid">
         <div class="feat-card reveal">
           <div class="feat-icon">📍</div>
@@ -1730,10 +1744,30 @@ function switchBilling() {
   </div>
 </div>
 <style>
-  @media(max-width:768px) {
+  /* Mobile accordion for features */
+.pillar-toggle { display:none; }
+@media(max-width:768px) {
+  .pillar-toggle {
+    display:flex; align-items:center; justify-content:space-between;
+    width:100%; background:none; border:none; cursor:pointer;
+    padding:0; margin-bottom:0;
+  }
+  .pillar-toggle .pillar-arrow { font-size:1rem; transition:transform .3s; }
+  .pillar-toggle.open .pillar-arrow { transform:rotate(180deg); }
+  .pillar-content { display:none; margin-top:16px; }
+  .pillar-content.open { display:block; }
+}
+@media(max-width:768px) {
     #mobile-cta { display:flex !important; }
     body { padding-bottom:80px; }
   }
 </style>
+<script>
+function togglePillar(btn) {
+  btn.classList.toggle('open');
+  const content = btn.nextElementSibling;
+  content.classList.toggle('open');
+}
+</script>
 </body>
 </html>

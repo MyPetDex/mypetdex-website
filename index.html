@@ -1632,7 +1632,7 @@ function calcCalories() {
     if (chatCount >= 3) {
       const limitMsg = document.createElement('div');
       limitMsg.className = 'msg msg-bot';
-      limitMsg.innerHTML = '🐾 You've used your 3 free questions! <a href="https://app.mypetdex.app" style="color:#3B82F6;font-weight:700;">Create a free account</a> to get unlimited AI pet advice in the app!';
+      limitMsg.innerHTML = "🐾 You have used your 3 free questions! <a href='https://app.mypetdex.app' style='color:#3B82F6;font-weight:700;'>Create a free account</a> to get unlimited AI pet advice in the app!";
       messages.appendChild(limitMsg);
       messages.scrollTop = messages.scrollHeight;
       input.value = '';

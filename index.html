@@ -1413,7 +1413,8 @@
         ✅ Message sent! We'll get back to you within 24 hours.
       </div>
       <div id="contact-error" style="display:none;background:#fee2e2;border:1px solid #f87171;border-radius:12px;padding:16px;text-align:center;color:#991b1b;font-weight:700;margin-bottom:20px;"></div>
-      <form id="contact-form" action="https://formsubmit.co/help@mypetdex.app" method="POST" onsubmit="return validateContactForm()">
+      <form id="contact-form" action="https://formsubmit.co/help@mypetdex.app" method="POST" onsubmit="return submitContactForm(event)">
+        <input type="hidden" name="_next" value="https://home.mypetdex.app#contact">
         <input type="hidden" name="_subject" value="New message from MyPetDex website">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
@@ -1479,16 +1480,33 @@ function updateCharCount(textarea) {
   }
 }
 
-function validateContactForm() {
+function submitContactForm(e) {
+  e.preventDefault();
   const msg = document.getElementById('contact-message').value.trim();
   const errorDiv = document.getElementById('contact-error');
+  const successDiv = document.getElementById('contact-success');
   if (msg.length < 20) {
     errorDiv.textContent = '⚠️ Please provide at least 20 characters in your message.';
     errorDiv.style.display = 'block';
     return false;
   }
   errorDiv.style.display = 'none';
-  return true;
+  const form = document.getElementById('contact-form');
+  const data = new FormData(form);
+  fetch('https://formsubmit.co/ajax/help@mypetdex.app', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: data
+  }).then(res => res.json()).then(data => {
+    successDiv.style.display = 'block';
+    form.reset();
+    document.getElementById('char-count').textContent = '(minimum 20 characters)';
+    document.getElementById('char-count').style.color = '';
+  }).catch(err => {
+    errorDiv.textContent = '⚠️ Something went wrong. Please email us at help@mypetdex.app';
+    errorDiv.style.display = 'block';
+  });
+  return false;
 }
 </script>
 

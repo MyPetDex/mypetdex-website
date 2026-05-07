@@ -2028,14 +2028,7 @@ function animateStats() {
   });
 }
 
-// Trigger stats when visible
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { animateStats(); statsObserver.disconnect(); } });
-}, { threshold: 0.3 });
-const statsSection = document.querySelector('.stats-grid');
-if (statsSection) statsObserver.observe(statsSection);
-
-// Testimonials carousel - 2 per slide, 3 slides total
+// Testimonials carousel
 let currentTestimonial = 0;
 function goToTestimonial(index) {
   currentTestimonial = index;
@@ -2044,6 +2037,20 @@ function goToTestimonial(index) {
   document.querySelectorAll('.t-dot').forEach((d,i) => d.classList.toggle('active', i === index));
 }
 setInterval(() => { goToTestimonial((currentTestimonial + 1) % 3); }, 5000);
+
+// Init on DOM ready
+window.addEventListener('load', () => {
+  // Stats observer
+  const statsSection = document.querySelector('.stats-grid');
+  if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateStats(); statsObserver.disconnect(); } });
+    }, { threshold: 0.1 });
+    statsObserver.observe(statsSection);
+  }
+  // Start AI demo
+  setTimeout(runDemoChat, 2000);
+});
 
 // AI Chat typing animation demo - loops continuously
 const demoConversation = [
@@ -2103,9 +2110,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('chatInput');
   if (input) input.addEventListener('focus', () => { demoPaused = true; });
 });
-
-// Start demo after 2 seconds
-setTimeout(runDemoChat, 2000);
 </script>
 </body>
 </html>

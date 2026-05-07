@@ -2061,7 +2061,7 @@ function runDemoChat() {
   if (demoIndex >= demoConversation.length) {
     // Reset and loop after 4 seconds
     setTimeout(() => {
-      chatMessages.innerHTML = '<div class="msg msg-bot">Hi! 👋 I'm your MyPetDex AI assistant. Ask me anything about your pet's health, nutrition, training, or care!</div>';
+      chatMessages.innerHTML = `<div class="msg msg-bot">Hi! 👋 I'm your MyPetDex AI assistant. Ask me anything about your pet's health, nutrition, training, or care!</div>`;
       demoIndex = 0;
       setTimeout(runDemoChat, 2000);
     }, 4000);

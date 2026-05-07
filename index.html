@@ -898,8 +898,8 @@
         <div style="color:#64748b;font-size:.9rem;margin-top:4px;">Reminders Sent</div>
       </div>
       <div class="reveal stat-item">
-        <div class="stat-number" data-target="150">0</div>
-        <div style="color:#64748b;font-size:.9rem;margin-top:4px;">Service Providers</div>
+        <div class="stat-number" data-target="47">0</div>
+        <div style="color:#64748b;font-size:.9rem;margin-top:4px;">Cities Covered</div>
       </div>
       <div class="reveal stat-item">
         <div class="stat-number" data-target="98">0</div>
@@ -1267,37 +1267,64 @@
       <div class="section-label">💬 What Pet Owners Say</div>
       <h2 class="section-title" style="color:#1E293B;">Loved by pet owners everywhere</h2>
     </div>
-    <div class="testimonials-track" id="testimonialsTrack">
-      <div class="testimonial-card">
-        <div style="font-size:1.4rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
-        <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"Finally an app that keeps all my dog's records in one place. The reminder emails are a lifesaver — never missed a vaccine again!"</p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:#3B82F6;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">S</div>
-          <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Sarah M.</div><div style="color:#64748b;font-size:.8rem;">Golden Retriever mom</div></div>
+    <div style="overflow:hidden;">
+      <div id="testimonialsTrack" style="display:flex;transition:transform .5s ease;">
+        <!-- Slide 1 -->
+        <div style="min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="t-slide">
+          <div class="testimonial-card">
+            <div style="font-size:1.2rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
+            <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"Finally an app that keeps all my dog's records in one place. The reminder emails are a lifesaver — never missed a vaccine again!"</p>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#3B82F6;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">S</div>
+              <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Sarah M.</div><div style="color:#64748b;font-size:.8rem;">Golden Retriever mom</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div style="font-size:1.2rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
+            <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"The AI assistant answered questions about my cat's diet better than I expected. Clean interface, works great on my phone!"</p>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#34d399;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">M</div>
+              <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Marcus T.</div><div style="color:#64748b;font-size:.8rem;">Cat dad · 2 cats</div></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:1.4rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
-        <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"The AI assistant answered questions about my cat's diet better than I expected. Clean interface, works great on my phone!"</p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:#34d399;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">M</div>
-          <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Marcus T.</div><div style="color:#64748b;font-size:.8rem;">Cat dad · 2 cats</div></div>
+        <!-- Slide 2 -->
+        <div style="min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="t-slide">
+          <div class="testimonial-card">
+            <div style="font-size:1.2rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
+            <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"I manage 4 dogs and MyPetDex keeps everything organized. The Family plan is totally worth it. Highly recommend!"</p>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#f59e0b;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">L</div>
+              <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Lisa R.</div><div style="color:#64748b;font-size:.8rem;">Multi-dog household</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div style="font-size:1.2rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
+            <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"As a vet tech I recommend this to all my clients. Easy to use and the health record tracking is exactly what pet owners need."</p>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">A</div>
+              <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Amanda K.</div><div style="color:#64748b;font-size:.8rem;">Veterinary Technician</div></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:1.4rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
-        <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"I manage 4 dogs and MyPetDex keeps everything organized. The Family plan is totally worth it. Highly recommend!"</p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:#f59e0b;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">L</div>
-          <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Lisa R.</div><div style="color:#64748b;font-size:.8rem;">Multi-dog household</div></div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div style="font-size:1.4rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
-        <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"As a vet tech I recommend this to all my clients. Easy to use and the health record tracking is exactly what pet owners need."</p>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:40px;height:40px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">A</div>
-          <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Amanda K.</div><div style="color:#64748b;font-size:.8rem;">Veterinary Technician</div></div>
+        <!-- Slide 3 -->
+        <div style="min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="t-slide">
+          <div class="testimonial-card">
+            <div style="font-size:1.2rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
+            <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"Set up reminders for flea and tick prevention and completely forgot about it — until the email arrived right on time. Love it!"</p>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#ec4899;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">J</div>
+              <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">Jessica P.</div><div style="color:#64748b;font-size:.8rem;">Beagle & Poodle mom</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div style="font-size:1.2rem;margin-bottom:12px;">⭐⭐⭐⭐⭐</div>
+            <p style="color:#1E293B;font-size:.95rem;line-height:1.7;margin-bottom:16px;">"The calorie calculator helped me realize I was overfeeding my Lab. She's lost 3lbs already! Amazing tool for pet health."</p>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#14b8a6;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">D</div>
+              <div><div style="font-weight:700;color:#1E293B;font-size:.9rem;">David W.</div><div style="color:#64748b;font-size:.8rem;">Labrador dad</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1305,7 +1332,6 @@
       <div class="t-dot active" onclick="goToTestimonial(0)"></div>
       <div class="t-dot" onclick="goToTestimonial(1)"></div>
       <div class="t-dot" onclick="goToTestimonial(2)"></div>
-      <div class="t-dot" onclick="goToTestimonial(3)"></div>
     </div>
   </div>
 </section>
@@ -2009,28 +2035,45 @@ const statsObserver = new IntersectionObserver((entries) => {
 const statsSection = document.querySelector('.stats-grid');
 if (statsSection) statsObserver.observe(statsSection);
 
-// Testimonials auto-scroll
+// Testimonials carousel - 2 per slide, 3 slides total
 let currentTestimonial = 0;
 function goToTestimonial(index) {
   currentTestimonial = index;
+  const track = document.getElementById('testimonialsTrack');
+  if (track) track.style.transform = 'translateX(-' + (index * 100) + '%)';
   document.querySelectorAll('.t-dot').forEach((d,i) => d.classList.toggle('active', i === index));
 }
-setInterval(() => { goToTestimonial((currentTestimonial + 1) % 4); }, 4000);
+setInterval(() => { goToTestimonial((currentTestimonial + 1) % 3); }, 5000);
 
-// AI Chat typing animation demo
+// AI Chat typing animation demo - loops continuously
 const demoConversation = [
   { role: 'user', text: 'Is chicken safe for dogs?' },
   { role: 'bot', text: 'Yes! Plain cooked chicken is great for dogs — high in protein and easy to digest. Avoid seasoning, bones, and raw chicken. 🐕' },
   { role: 'user', text: 'How often should I bathe my dog?' },
   { role: 'bot', text: 'Most dogs need a bath every 4-6 weeks. Dogs with oily coats may need more frequent baths, while those with dry skin need less. 🛁' },
+  { role: 'user', text: 'What foods are toxic for cats?' },
+  { role: 'bot', text: 'Cats should never eat onions, garlic, chocolate, grapes, or xylitol. These can cause serious illness. Always check before sharing human food! 🐱' },
 ];
 
 let demoIndex = 0;
+let demoPaused = false;
+
 function runDemoChat() {
-  if (demoIndex >= demoConversation.length) return;
-  const msg = demoConversation[demoIndex];
+  if (demoPaused) return;
   const chatMessages = document.getElementById('chatMessages');
   if (!chatMessages) return;
+
+  if (demoIndex >= demoConversation.length) {
+    // Reset and loop after 4 seconds
+    setTimeout(() => {
+      chatMessages.innerHTML = '<div class="msg msg-bot">Hi! 👋 I'm your MyPetDex AI assistant. Ask me anything about your pet's health, nutrition, training, or care!</div>';
+      demoIndex = 0;
+      setTimeout(runDemoChat, 2000);
+    }, 4000);
+    return;
+  }
+
+  const msg = demoConversation[demoIndex];
 
   if (msg.role === 'user') {
     const div = document.createElement('div');
@@ -2039,9 +2082,8 @@ function runDemoChat() {
     chatMessages.appendChild(div);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     demoIndex++;
-    setTimeout(runDemoChat, 1000);
+    setTimeout(runDemoChat, 1200);
   } else {
-    // Show typing indicator
     const typing = document.createElement('div');
     typing.className = 'msg msg-bot';
     typing.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
@@ -2052,12 +2094,18 @@ function runDemoChat() {
       chatMessages.scrollTop = chatMessages.scrollHeight;
       demoIndex++;
       setTimeout(runDemoChat, 3000);
-    }, 1500);
+    }, 1800);
   }
 }
 
-// Start demo chat after 3 seconds
-setTimeout(runDemoChat, 3000);
+// Pause demo when user interacts with chat
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('chatInput');
+  if (input) input.addEventListener('focus', () => { demoPaused = true; });
+});
+
+// Start demo after 2 seconds
+setTimeout(runDemoChat, 2000);
 </script>
 </body>
 </html>

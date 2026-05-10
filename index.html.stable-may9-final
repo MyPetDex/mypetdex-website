@@ -9,8 +9,8 @@
   <meta name="description" content="MyPetDex is the all-in-one pet care app for health records, reminders, local services, recipes, and adoption. Free plan available – no credit card needed." />
   <meta property="og:title" content="MyPetDex – Your Pet's Complete Digital Home" />
   <meta property="og:description" content="Track vaccines, set reminders, find local vets and groomers, get AI pet tips, and more." />
-  <meta property="og:image" content="https://home.mypetdex.app/images/og-image.png" />
-<meta property="og:url" content="https://home.mypetdex.app/" />
+  <meta property="og:image" content="https://home.mypetdex.app/images/logo.png" />
+  <meta property="og:url" content="https://www.mypetdex.app" />
   <meta property="og:type" content="website" />
 
   <!-- Fonts -->

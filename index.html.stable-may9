@@ -9,8 +9,8 @@
   <meta name="description" content="MyPetDex is the all-in-one pet care app for health records, reminders, local services, recipes, and adoption. Free plan available – no credit card needed." />
   <meta property="og:title" content="MyPetDex – Your Pet's Complete Digital Home" />
   <meta property="og:description" content="Track vaccines, set reminders, find local vets and groomers, get AI pet tips, and more." />
-  <meta property="og:image" content="https://home.mypetdex.app/images/og-image.png" />
-<meta property="og:url" content="https://home.mypetdex.app/" />
+  <meta property="og:image" content="https://mypetdex.app/preview.png" />
+  <meta property="og:url" content="https://www.mypetdex.app" />
   <meta property="og:type" content="website" />
 
   <!-- Fonts -->
@@ -970,15 +970,9 @@
 <section id="features">
   <div class="container">
     <div class="features-header reveal">
-      <div class="section-label">✨ Why Pet Owners Love MyPetDex</div>
+      <div class="section-label">✨ Why MyPetDex</div>
       <h2 class="section-title" style="color:#1E293B;">Everything your pet needs, in one place</h2>
-      <p class="section-sub">Keep all your pet's health records in one place. Never miss vaccines, meds, or vet visits. Find trusted local care fast.</p>
-      <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:24px;margin-bottom:8px;">
-        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ Health records organized</div>
-        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ Never miss a reminder</div>
-        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ Find local care fast</div>
-        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ AI guidance 24/7</div>
-      </div>
+      <p class="section-sub">Three things pet owners told us they needed most — we built all of them.</p>
     </div>
 
     <!-- How it works -->
@@ -1481,7 +1475,7 @@
           <li>Pet recipes</li>
           <li>Yearly billing option</li>
         </ul>
-        <a href="https://app.mypetdex.app?plan=plus" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;">Join Early Access — Try Free →</a>
+        <a href="https://app.mypetdex.app?plan=plus" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;">Start 30-Day Free Trial →</a>
       </div>
 
       <!-- FAMILY -->
@@ -1501,7 +1495,7 @@
           <li>Pet recipes</li>
           <li>Yearly billing option</li>
         </ul>
-        <a href="https://app.mypetdex.app?plan=family" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;">Join Early Access — Try Free →</a>
+        <a href="https://app.mypetdex.app?plan=family" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;">Start 30-Day Free Trial →</a>
       </div>
 
     </div>
@@ -1694,19 +1688,6 @@ function submitContactForm(e) {
 }
 </script>
 
-<!-- Share Section -->
-<section style="padding:60px 5%;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);text-align:center;">
-  <div class="container">
-    <div style="font-size:2rem;margin-bottom:12px;">🐾</div>
-    <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:900;color:#1E293B;margin-bottom:8px;">Know a pet owner who'd love this?</h2>
-    <p style="color:#64748B;font-size:.95rem;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;">Share MyPetDex with friends and help more pets get the care they deserve.</p>
-    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
-      <a href="https://wa.me/?text=${encodeURIComponent('Check out MyPetDex — the complete digital home for your pet! 🐾 home.mypetdex.app')}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;">📱 Share on WhatsApp</a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://home.mypetdex.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#1877F2;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;">📘 Share on Facebook</a>
-      <button onclick="navigator.clipboard.writeText('https://home.mypetdex.app');this.textContent='✓ Copied!';setTimeout(()=>this.textContent='🔗 Copy Link',2000)" style="display:inline-flex;align-items:center;gap:8px;background:#3B82F6;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;font-family:inherit;">🔗 Copy Link</button>
-    </div>
-  </div>
-</section>
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -2101,35 +2082,6 @@ function togglePillar(btn) {
 
 <!-- Scroll progress bar -->
 <div id="progress-bar"></div>
-
-<!-- Cookie Banner -->
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1E293B;color:#fff;padding:16px 24px;z-index:9999;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.2);">
-  <div style="flex:1;min-width:200px;font-size:.85rem;color:#CBD5E1;line-height:1.6;">
-    🍪 We use cookies to improve your experience. By using MyPetDex, you agree to our 
-    <a href="/privacy.html" style="color:#3B82F6;text-decoration:none;font-weight:700;">Privacy Policy</a>.
-  </div>
-  <div style="display:flex;gap:10px;flex-shrink:0;">
-    <button onclick="acceptCookies()" style="background:#3B82F6;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;">Accept All</button>
-    <button onclick="declineCookies()" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:10px 20px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;">Essential Only</button>
-  </div>
-</div>
-<script>
-function acceptCookies() {
-  localStorage.setItem('cookieConsent', 'accepted');
-  document.getElementById('cookie-banner').style.display = 'none';
-}
-function declineCookies() {
-  localStorage.setItem('cookieConsent', 'declined');
-  document.getElementById('cookie-banner').style.display = 'none';
-}
-window.addEventListener('load', function() {
-  if (!localStorage.getItem('cookieConsent')) {
-    setTimeout(function() {
-      document.getElementById('cookie-banner').style.display = 'flex';
-    }, 1500);
-  }
-});
-</script>
 
 <!-- Back to top button -->
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>

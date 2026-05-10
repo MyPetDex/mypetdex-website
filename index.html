@@ -875,7 +875,7 @@
     <div class="hero-grid">
       <div>
         <div class="hero-eyebrow">
-          <span class="hero-badge">🚀 Early Access — Now Open</span><span style="font-size:.78rem;color:#64748b;margin-left:8px;">Join early pet owners testing MyPetDex</span>
+          <span class="hero-badge">🚀 Early Access — Now Open</span><span style="font-size:.78rem;color:#64748b;margin-left:8px;">Join <strong id="user-count">20</strong> pet owners already using MyPetDex</span>
         </div>
         <h1 class="hero-title">
           The complete digital home<br/>
@@ -2318,6 +2318,27 @@ function loadReviews() {
   setInterval(() => goTo((current + 1) % pages), 5000);
 }
 window.addEventListener('load', loadReviews);
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, getCountFromServer } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const app = initializeApp({
+    apiKey: "AIzaSyDaN37qj7QBWN3Ro98KOrhPk5i8rKVnWx8",
+    authDomain: "mypetdex-c4315.firebaseapp.com",
+    projectId: "mypetdex-c4315",
+  });
+
+  const db = getFirestore(app);
+
+  try {
+    const snap = await getCountFromServer(collection(db, "users"));
+    const count = snap.data().count;
+    const el = document.getElementById("user-count");
+    if (el && count > 0) el.textContent = count;
+  } catch(e) {
+    console.log("Counter unavailable");
+  }
 </script>
 </body>
 </html>

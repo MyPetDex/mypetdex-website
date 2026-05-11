@@ -2320,10 +2320,10 @@ function loadReviews() {
 window.addEventListener('load', loadReviews);
 </script>
 <script>
-  fetch("https://firestore.googleapis.com/v1/projects/mypetdex-c4315/databases/(default)/documents/stats/public?key=AIzaSyDaN37qj7QBWN3Ro98KOrhPk5i8rKVnWx8")
+  fetch("https://us-central1-mypetdex-c4315.cloudfunctions.net/getPublicStats")
     .then(r => r.json())
     .then(data => {
-      const count = data.fields?.userCount?.integerValue || data.fields?.userCount?.doubleValue || 20;
+      const count = data.userCount || 20;
       const el = document.getElementById("user-count");
       if (el) el.textContent = count;
     })

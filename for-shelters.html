@@ -12,12 +12,12 @@
 
   <style>
     :root {
-      --green: #4CAF82;
-      --green-dk: #3a9d6e;
-      --blue: #3B82F6;
+      --green: #4486F4;
+      --green-dk: #3570D4;
+      --blue: #4486F4;
       --dark: #1E293B;
       --muted: #64748B;
-      --border: rgba(76,175,130,0.18);
+      --border: rgba(68,134,244,0.18);
       --font-h: 'Outfit', sans-serif;
       --font-b: 'DM Sans', sans-serif;
     }
@@ -29,19 +29,19 @@
 
     /* NAV */
     nav {
-      background: var(--green);
+      background: #4486F4;
       position: sticky; top: 0; z-index: 100;
       padding: 16px 5%;
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
     .nav-logo img { height: 36px; width: 36px; border-radius: 50%; object-fit: contain; }
-    .nav-logo span { font-family: var(--font-h); font-weight: 800; font-size: 1.2rem; color: #fff; }
+    .nav-logo .brand { font-family: var(--font-h); font-weight: 800; font-size: 1.2rem; color: #fff; }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.88rem; font-weight: 500; }
     .nav-links a:hover { color: #fff; }
     .nav-cta {
-      background: #fff; color: var(--green) !important;
+      background: #fff; color: #4486F4 !important;
       font-family: var(--font-h); font-weight: 700;
       padding: 9px 22px; border-radius: 50px;
       transition: opacity .2s;
@@ -50,7 +50,7 @@
 
     /* HERO */
     .hero {
-      background: linear-gradient(160deg, #2d8f60 0%, #4CAF82 60%, #6DD49A 100%);
+      background: linear-gradient(160deg, #3570D4 0%, #4486F4 60%, #6BA8F7 100%);
       color: #fff;
       text-align: center;
       padding: 80px 5% 70px;
@@ -101,7 +101,7 @@
     .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
-      background: #fff; color: var(--green);
+      background: #fff; color: #4486F4;
       font-family: var(--font-h); font-weight: 800; font-size: 1rem;
       padding: 16px 36px; border-radius: 50px;
       box-shadow: 0 8px 28px rgba(0,0,0,0.18);
@@ -112,7 +112,7 @@
 
     /* STATS BAR */
     .stats-bar {
-      background: #F3FBF7;
+      background: #EFF6FF;
       border-bottom: 1px solid var(--border);
       padding: 32px 5%;
     }
@@ -123,7 +123,7 @@
     .stat { text-align: center; }
     .stat-num {
       font-family: var(--font-h); font-weight: 800; font-size: 2rem;
-      color: var(--green);
+      color: #4486F4;
     }
     .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
 
@@ -131,8 +131,8 @@
     .features { padding: 80px 5%; max-width: 1140px; margin: 0 auto; }
     .section-tag {
       display: inline-block;
-      background: rgba(76,175,130,0.12);
-      color: var(--green);
+      background: rgba(68,134,244,0.12);
+      color: #4486F4;
       font-size: 0.75rem; font-weight: 700;
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 4px 14px; border-radius: 50px;
@@ -147,18 +147,18 @@
     .features-header { margin-bottom: 56px; }
     .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .feat-card {
-      border: 1.5px solid #D4EDE2;
+      border: 1.5px solid #DBEAFE;
       border-radius: 18px; padding: 28px 24px;
       transition: border-color .2s, transform .2s, box-shadow .2s;
     }
     .feat-card:hover {
-      border-color: var(--green);
+      border-color: #4486F4;
       transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(76,175,130,0.12);
+      box-shadow: 0 8px 28px rgba(68,134,244,0.12);
     }
     .feat-icon {
       width: 52px; height: 52px;
-      background: rgba(76,175,130,0.1);
+      background: rgba(68,134,244,0.1);
       border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem; margin-bottom: 18px;
@@ -167,14 +167,14 @@
     .feat-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
     /* HOW IT WORKS */
-    .how { background: #F3FBF7; padding: 80px 5%; }
+    .how { background: #EFF6FF; padding: 80px 5%; }
     .how-inner { max-width: 900px; margin: 0 auto; }
     .steps { display: flex; flex-direction: column; gap: 32px; margin-top: 48px; }
     .step { display: flex; gap: 24px; align-items: flex-start; }
     .step-num {
       flex-shrink: 0;
       width: 44px; height: 44px;
-      background: var(--green); color: #fff;
+      background: #4486F4; color: #fff;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-h); font-weight: 800; font-size: 1rem;
@@ -186,7 +186,7 @@
     .animals { padding: 80px 5%; max-width: 1140px; margin: 0 auto; }
     .animal-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
     .animal-chip {
-      background: #F3FBF7;
+      background: #EFF6FF;
       border: 1.5px solid var(--border);
       border-radius: 50px;
       padding: 10px 20px;
@@ -196,7 +196,7 @@
 
     /* FREE BANNER */
     .free-banner {
-      background: linear-gradient(135deg, #4CAF82, #3a9d6e);
+      background: linear-gradient(135deg, #4486F4, #3570D4);
       color: #fff; text-align: center;
       padding: 48px 5%;
       margin: 0;
@@ -213,15 +213,15 @@
     }
     .cta-bottom h2 { font-family: var(--font-h); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 16px; }
     .cta-bottom p { opacity: 0.75; font-size: 1rem; max-width: 480px; margin: 0 auto 36px; line-height: 1.7; }
-    .btn-green {
+    .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--green); color: #fff;
+      background: #4486F4; color: #fff;
       font-family: var(--font-h); font-weight: 800; font-size: 1rem;
       padding: 16px 36px; border-radius: 50px;
-      box-shadow: 0 8px 28px rgba(76,175,130,0.35);
+      box-shadow: 0 8px 28px rgba(68,134,244,0.35);
       transition: transform .2s, box-shadow .2s;
     }
-    .btn-green:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(76,175,130,0.45); }
+    .btn-green:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(68,134,244,0.45); }
 
     /* FOOTER */
     footer {
@@ -253,7 +253,7 @@
 <nav>
   <a href="https://home.mypetdex.app" class="nav-logo">
     <img src="/images/logo.png" alt="MyPetDex" />
-    <span>MyPetDex</span>
+    <span class="brand">MyPetDex</span>
   </a>
   <div class="nav-links">
     <a href="https://home.mypetdex.app#features">Features</a>
@@ -418,7 +418,7 @@
 <div class="cta-bottom">
   <h2>Ready to Find More Loving Homes?</h2>
   <p>Join hundreds of shelters already on MyPetDex connecting with local families. It takes less than 10 minutes to get listed.</p>
-  <a href="https://apps.apple.com/app/mypetdex/id6772248051" class="btn-green">
+  <a href="https://apps.apple.com/app/mypetdex/id6772248051" class="btn-primary">
     📱 Download on App Store — Free
   </a>
   <p style="margin-top:16px;opacity:0.5;font-size:0.85rem;">Available on iPhone · Android coming soon</p>

@@ -12,12 +12,12 @@
 
   <style>
     :root {
-      --blue: #3B82F6;
-      --blue-dk: #2563EB;
+      --blue: #4486F4;
+      --blue-dk: #3570D4;
       --green: #4CAF82;
       --dark: #1E293B;
       --muted: #64748B;
-      --border: rgba(59,130,246,0.15);
+      --border: rgba(68,134,244,0.15);
       --font-h: 'Outfit', sans-serif;
       --font-b: 'DM Sans', sans-serif;
     }
@@ -36,7 +36,7 @@
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
     .nav-logo img { height: 36px; width: 36px; border-radius: 50%; object-fit: contain; }
-    .nav-logo span { font-family: var(--font-h); font-weight: 800; font-size: 1.2rem; color: #fff; }
+    .nav-logo .brand { font-family: var(--font-h); font-weight: 800; font-size: 1.2rem; color: #fff; }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.88rem; font-weight: 500; }
     .nav-links a:hover { color: #fff; }
@@ -50,7 +50,7 @@
 
     /* HERO */
     .hero {
-      background: linear-gradient(160deg, #2563EB 0%, #3B82F6 60%, #60A5FA 100%);
+      background: linear-gradient(160deg, #3570D4 0%, #4486F4 60%, #6BA8F7 100%);
       color: #fff;
       text-align: center;
       padding: 80px 5% 70px;
@@ -131,7 +131,7 @@
     .features { padding: 80px 5%; max-width: 1140px; margin: 0 auto; }
     .section-tag {
       display: inline-block;
-      background: rgba(59,130,246,0.1);
+      background: rgba(68,134,244,0.1);
       color: var(--blue);
       font-size: 0.75rem; font-weight: 700;
       letter-spacing: 0.08em; text-transform: uppercase;
@@ -154,11 +154,11 @@
     .feat-card:hover {
       border-color: var(--blue);
       transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(59,130,246,0.12);
+      box-shadow: 0 8px 28px rgba(68,134,244,0.12);
     }
     .feat-icon {
       width: 52px; height: 52px;
-      background: rgba(59,130,246,0.1);
+      background: rgba(68,134,244,0.1);
       border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem; margin-bottom: 18px;
@@ -203,7 +203,7 @@
       border-radius: 24px;
       padding: 40px 32px;
       margin-top: 40px;
-      box-shadow: 0 8px 40px rgba(59,130,246,0.1);
+      box-shadow: 0 8px 40px rgba(68,134,244,0.1);
     }
     .pricing-badge {
       display: inline-block;
@@ -226,7 +226,7 @@
 
     /* CTA BOTTOM */
     .cta-bottom {
-      background: linear-gradient(135deg, #2563EB, #3B82F6);
+      background: linear-gradient(135deg, #3570D4, #4486F4);
       color: #fff; text-align: center;
       padding: 80px 5%;
     }
@@ -263,7 +263,7 @@
 <nav>
   <a href="https://home.mypetdex.app" class="nav-logo">
     <img src="/images/logo.png" alt="MyPetDex" />
-    <span>MyPetDex</span>
+    <span class="brand">MyPetDex</span>
   </a>
   <div class="nav-links">
     <a href="https://home.mypetdex.app#features">Features</a>

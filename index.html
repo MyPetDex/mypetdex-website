@@ -24,14 +24,14 @@
       --navy:     #F0F7FF;
       --navy2:    #FFFFFF;
       --purple:   #DBEAFE;
-      --neon:     #4486F4;
-      --mint:     #4486F4;
-      --pink:     #6BA8F7;
+      --neon:     #3B82F6;
+      --mint:     #3B82F6;
+      --pink:     #60A5FA;
       --white:    #1E293B;
       --muted:    #64748B;
       --card:     rgba(255,255,255,0.9);
-      --border:   rgba(68,134,244,0.18);
-      --glow:     0 0 40px rgba(68,134,244,0.15);
+      --border:   rgba(59,130,246,0.18);
+      --glow:     0 0 40px rgba(59,130,246,0.15);
       --font-h:   'Outfit', sans-serif;
       --font-b:   'DM Sans', sans-serif;
       --radius:   18px;
@@ -64,7 +64,7 @@
     }
 
     /* ─── NAV ────────────────────────────────────────────────── */
-    nav { background: #4486F4 !important;
+    nav { background: #3B82F6 !important;
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -72,10 +72,12 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-logo { display:flex; align-items:center; gap:10px; }
+    .nav-logo span.paw { font-size:1.6rem; filter: drop-shadow(0 0 8px var(--neon)); }
     .nav-logo span.brand {
       font-family: var(--font-h);
       font-weight: 800; font-size: 1.25rem;
-      color: #FFFFFF;
+
+
     }
     .nav-links { display:flex; gap:28px; align-items:center; }
     .nav-links a { font-size:.88rem; font-weight:500; color:#FFFFFF; transition:color .2s; }
@@ -95,7 +97,7 @@
     .container { max-width: 1140px; margin: 0 auto; padding: 0 5%; }
     .section-label {
       display: inline-flex; align-items:center; gap:8px;
-      background: rgba(68,134,244,0.12);
+      background: rgba(59,130,246,0.12);
       border: 1px solid var(--border);
       border-radius: 50px;
       padding: 5px 16px;
@@ -103,7 +105,7 @@
       font-weight: 600;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: #4486F4;
+      color: #3B82F6;
       margin-bottom: 20px;
     }
     .section-title {
@@ -134,9 +136,9 @@
     .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:2; }
     .hero-eyebrow { display:flex; align-items:center; gap:8px; margin-bottom:20px; }
     .hero-badge {
-      background: rgba(68,134,244,0.12);
-      border: 1px solid rgba(68,134,244,0.3);
-      color: #4486F4;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.3);
+      color: #3B82F6;
       padding: 4px 12px; border-radius:50px;
       font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
     }
@@ -147,7 +149,7 @@
       line-height: 1.25;
       margin-bottom: 24px;
     }
-    .hero-title .accent { color:#4486F4; background:none !important; -webkit-text-fill-color:#4486F4;
+    .hero-title .accent { color:#3B82F6; background:none !important; -webkit-text-fill-color:#3B82F6;
 
 
     }
@@ -162,15 +164,15 @@
     .btn-primary {
       display:inline-flex; align-items:center; gap:8px;
 
-      background: #4486F4; color: #FFFFFF;
+      background: #3B82F6; color: #FFFFFF;
       font-family: var(--font-h);
       font-weight: 700; font-size:.95rem;
       padding: 14px 30px; border-radius:50px;
       transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 0 30px rgba(68,134,244,0.35);
+      box-shadow: 0 0 30px rgba(59,130,246,0.35);
       cursor:pointer; border:none;
     }
-    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 8px 40px rgba(68,134,244,0.45); }
+    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 8px 40px rgba(59,130,246,0.45); }
     .btn-secondary {
       display:inline-flex; align-items:center; gap:8px;
       background: transparent;
@@ -181,7 +183,7 @@
       transition: border-color .2s, background .2s;
       cursor:pointer;
     }
-    .btn-secondary:hover { border-color:#4486F4; background:rgba(68,134,244,0.08); }
+    .btn-secondary:hover { border-color:#3B82F6; background:rgba(59,130,246,0.08); }
     .hero-stats { display:flex; gap:32px; margin-top:50px; }
     .stat { display:flex; flex-direction:column; }
     .stat-num {
@@ -237,11 +239,11 @@
       flex:1; background:rgba(61,255,200,0.08);
       border:1px solid rgba(61,255,200,0.2);
       border-radius:10px; padding:10px 8px;
-      text-align:center; font-size:.7rem; color:#4486F4;
+      text-align:center; font-size:.7rem; color:#3B82F6;
     }
     .phone-chip span { display:block; font-size:1.1rem; margin-bottom:2px; }
     .phone-reminder {
-      margin:0 14px 14px; background:rgba(68,134,244,0.08);
+      margin:0 14px 14px; background:rgba(59,130,246,0.08);
       border:1px solid rgba(185,127,255,0.2);
       border-radius:10px; padding:10px 12px;
       font-size:.72rem; color:var(--muted);
@@ -281,7 +283,7 @@
     }
     .feat-icon {
       width: 52px; height: 52px;
-      background: rgba(68,134,244,0.12);
+      background: rgba(59,130,246,0.12);
       border: 1px solid rgba(185,127,255,0.25);
       border-radius: 14px;
       display:flex; align-items:center; justify-content:center;
@@ -305,14 +307,14 @@
       border-radius:var(--radius); padding:28px;
       margin-top:28px;
     }
-    .demo-creds h4 { font-family:var(--font-h); font-weight:700; font-size:.9rem; margin-bottom:16px; color:#4486F4; }
+    .demo-creds h4 { font-family:var(--font-h); font-weight:700; font-size:.9rem; margin-bottom:16px; color:#3B82F6; }
     .cred-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); }
     .cred-row:last-child { border:none; }
     .cred-label { font-size:.82rem; color:#FFFFFF; }
     .cred-val {
       font-family:monospace; font-size:.85rem;
       background:rgba(61,255,200,0.08); border:1px solid rgba(61,255,200,0.2);
-      padding:3px 10px; border-radius:6px; color:#4486F4;
+      padding:3px 10px; border-radius:6px; color:#3B82F6;
     }
     .demo-browser {
       background:#FFFFFF; border:1px solid var(--border);
@@ -341,8 +343,8 @@
     }
     .dash-tile-label { font-size:.72rem; color:var(--muted); margin-bottom:6px; }
     .dash-tile-val { font-family:var(--font-h); font-weight:700; font-size:1.1rem; }
-    .dash-tile-val.green { color:#4486F4; }
-    .dash-tile-val.purple { color:#4486F4; }
+    .dash-tile-val.green { color:#3B82F6; }
+    .dash-tile-val.purple { color:#3B82F6; }
 
     /* ─── AI CHAT ────────────────────────────────────────────── */
     #ai-chat { padding:100px 5%; }
@@ -364,7 +366,7 @@
       font-size:1rem;
     }
     .chat-title { font-family:var(--font-h); font-weight:700; font-size:.9rem; }
-    .chat-status { font-size:.72rem; color:#4486F4; }
+    .chat-status { font-size:.72rem; color:#3B82F6; }
     .chat-messages { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:12px; }
     .chat-messages::-webkit-scrollbar { width:4px; }
     .chat-messages::-webkit-scrollbar-track { background:transparent; }
@@ -405,7 +407,7 @@
       font-family:var(--font-b); font-size:.87rem;
       outline:none; transition:border-color .2s;
     }
-    .chat-input:focus { border-color:#4486F4; }
+    .chat-input:focus { border-color:#3B82F6; }
     .chat-input::placeholder { color:var(--muted); }
     .chat-send {
       background:linear-gradient(135deg,var(--neon),var(--mint));
@@ -439,7 +441,7 @@
       cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center; gap:6px;
     }
     .pet-btn.active {
-      background:var(--neon); color:var(--navy); border-color:#4486F4;
+      background:var(--neon); color:var(--navy); border-color:#3B82F6;
     }
     /* weight row */
     .weight-row { display:flex; gap:8px; margin-bottom:20px; }
@@ -450,21 +452,21 @@
       font-family:var(--font-b); font-size:.9rem;
       outline:none; transition:border-color .2s;
     }
-    .weight-input:focus { border-color:#4486F4; }
+    .weight-input:focus { border-color:#3B82F6; }
     .unit-toggle { display:flex; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
     .unit-btn {
       padding:0 16px; background:transparent; color:var(--muted);
       font-family:var(--font-b); font-size:.85rem; font-weight:600;
       border:none; cursor:pointer; transition:all .15s;
     }
-    .unit-btn.active { background:rgba(185,127,255,0.2); color:#4486F4; }
+    .unit-btn.active { background:rgba(185,127,255,0.2); color:#3B82F6; }
     /* BCS slider */
     .bcs-row { margin-bottom:20px; }
     .bcs-label-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
     .bcs-label { font-size:.8rem; color:var(--muted); font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
     .bcs-badge {
       font-size:.78rem; font-weight:700; padding:2px 10px; border-radius:50px;
-      background:rgba(61,255,200,0.12); color:#4486F4; border:1px solid rgba(61,255,200,0.25);
+      background:rgba(61,255,200,0.12); color:#3B82F6; border:1px solid rgba(61,255,200,0.25);
     }
     .bcs-slider {
       -webkit-appearance:none; width:100%; height:5px;
@@ -484,7 +486,7 @@
       display:flex; align-items:center; gap:8px;
       font-size:.85rem; color:var(--muted); cursor:pointer;
     }
-    .radio-label input[type=radio] { accent-color:#4486F4; }
+    .radio-label input[type=radio] { accent-color:#3B82F6; }
     .radio-label input[type=radio]:checked + span { color:#1E293B; }
     /* life stage select */
     .calc-select {
@@ -495,7 +497,7 @@
       outline:none; appearance:none; margin-bottom:20px;
       cursor:pointer; transition:border-color .2s;
     }
-    .calc-select:focus { border-color:#4486F4; }
+    .calc-select:focus { border-color:#3B82F6; }
     .calc-select option {
       background:#F5F8FF; color:#1E293B;
     }
@@ -509,7 +511,7 @@
       outline:none; transition:border-color .2s; margin-bottom:6px;
     }
     .optional-input::placeholder { color:var(--muted); font-size:.85rem; }
-    .optional-input:focus { border-color:#4486F4; }
+    .optional-input:focus { border-color:#3B82F6; }
     /* results panel */
     .results-tabs { display:flex; border-bottom:1px solid var(--border); margin-bottom:20px; }
     .results-tab {
@@ -518,14 +520,14 @@
       color:var(--muted); border-bottom:2px solid transparent;
       transition:all .2s; letter-spacing:.05em; text-transform:uppercase;
     }
-    .results-tab.active { color:#4486F4; border-bottom-color:#4486F4; }
+    .results-tab.active { color:#3B82F6; border-bottom-color:#3B82F6; }
     .results-placeholder { text-align:center; padding:30px 20px; color:var(--muted); font-size:.9rem; }
     .results-placeholder span { font-size:1.3rem; margin-right:6px; }
     .result-number {
       font-family:var(--font-h); font-weight:800; font-size:2.2rem;
       color:#1E293B; text-align:center; padding:16px 0 8px;
     }
-    .result-unit { font-size:.85rem; color:#4486F4; text-align:center; margin-bottom:16px; }
+    .result-unit { font-size:.85rem; color:#3B82F6; text-align:center; margin-bottom:16px; }
     .result-note { font-size:.78rem; color:var(--muted); text-align:center; line-height:1.6; padding:0 10px 12px; }
     .calc-disclaimer { font-size:.72rem; color:var(--muted); border-top:1px solid var(--border); padding-top:12px; margin-top:12px; line-height:1.6; }
     /* nutrition tips */
@@ -567,7 +569,7 @@
     .price-divider { height:1px; background:var(--border); margin-bottom:24px; }
     .price-features { list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:32px; }
     .price-features li { display:flex; align-items:center; gap:10px; font-size:.88rem; }
-    .price-features li::before { content:'✓'; color:#4486F4; font-weight:700; flex-shrink:0; }
+    .price-features li::before { content:'✓'; color:#3B82F6; font-weight:700; flex-shrink:0; }
     .price-features li.muted::before { content:'–'; color:var(--muted); }
     .price-features li.muted { color:var(--muted); }
 
@@ -599,7 +601,7 @@
     .cta-note { font-size:.82rem; color:#FFFFFF; margin-top:16px; }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
-    footer { background:#4486F4;
+    footer { background:#3B82F6;
       border-top: 1px solid var(--border);
       padding: 50px 5% 36px;
     }
@@ -674,7 +676,7 @@
       background:var(--white); border-radius:2px;
       transition:all .3s;
     }
-    .mobile-menu { background:#4486F4 !important;
+    .mobile-menu { background:#3B82F6 !important;
       display:none; position:fixed; top:0; left:0; right:0; bottom:0;
       background:rgba(8,9,26,0.97); backdrop-filter:blur(20px);
       z-index:200; flex-direction:column;
@@ -686,7 +688,7 @@
       color:#1E293B; text-decoration:none;
       transition:color .2s;
     }
-    .mobile-menu a:hover { color:#4486F4; }
+    .mobile-menu a:hover { color:#3B82F6; }
     .mobile-menu-close {
       position:absolute; top:24px; right:24px;
       background:transparent; border:none; color:#1E293B;
@@ -715,7 +717,7 @@
     /* ─── MOBILE ─────────────────────────────────────────────── */
     @media(max-width:600px){
       /* Nav */
-      nav { background: #4486F4 !important; padding:14px 5%; }
+      nav { background: #3B82F6 !important; padding:14px 5%; }
 
       /* Hero */
       #hero { padding:90px 5% 50px; min-height:auto; }
@@ -848,9 +850,9 @@
     <a href="#ai-chat">AI Tips</a>
     <a href="#shop">Shop</a>
     <a href="https://home.mypetdex.app/services.html" target="_blank">🛎️ Find Services</a>
-    <a href="/for-providers.html">For Providers</a>
-    <a href="/for-shelters.html">For Shelters</a>
-    <a href="https://apps.apple.com/app/mypetdex/id6772248051" class="nav-cta">📱 Download Free →</a>
+    <a href="https://app.mypetdex.app/sign-in?role=provider">For Providers</a>
+    <a href="https://app.mypetdex.app/sign-in?role=shelter">For Shelters</a>
+    <a href="https://app.mypetdex.app" class="nav-cta">Get Started →</a>
   </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -866,9 +868,9 @@
   <a href="#shop" onclick="toggleMenu()">Shop</a>
   <a href="#pricing" onclick="toggleMenu()">Pricing</a>
   <a href="https://home.mypetdex.app/services.html" target="_blank" onclick="toggleMenu()">🛎️ Find Services</a>
-  <a href="/for-providers.html" onclick="toggleMenu()">🛎️ For Providers</a>
-  <a href="/for-shelters.html" onclick="toggleMenu()">🏠 For Shelters</a>
-  <a href="https://apps.apple.com/app/mypetdex/id6772248051" class="mobile-cta" onclick="toggleMenu()">📱 Download Free</a>
+  <a href="https://app.mypetdex.app/sign-in?role=provider" onclick="toggleMenu()">🛎️ For Providers</a>
+  <a href="https://app.mypetdex.app/sign-in?role=shelter" onclick="toggleMenu()">🏠 For Shelters</a>
+  <a href="https://app.mypetdex.app" class="mobile-cta" onclick="toggleMenu()">🐾 Get Started Free</a>
 </div>
 
 <!-- ╔══════════════════════════════╗ -->
@@ -880,7 +882,7 @@
     <div class="hero-grid">
       <div>
         <div class="hero-eyebrow">
-          <span class="hero-badge">🐾 Now Available on the App Store</span><span style="font-size:.78rem;color:#64748b;margin-left:8px;">Download free for iPhone</span>
+          <span class="hero-badge">🚀 Early Access — Now Open</span><span style="font-size:.78rem;color:#64748b;margin-left:8px;">Join <strong id="user-count">20</strong> pet owners already using MyPetDex</span>
         </div>
         <h1 class="hero-title">
           The complete digital home<br/>
@@ -891,10 +893,10 @@
           <br><br><small style="color:#64748b;">Built by a pet owner, for pet owners.</small>
         </p>
         <div class="hero-actions">
-          <a href="https://apps.apple.com/app/mypetdex/id6772248051" class="btn-primary" style="color:#FFFFFF;">📱 Download on App Store →</a>
-          <a href="#demo" class="btn-secondary" style="color:#1E293B;border-color:#4486F4;">Explore the Demo →</a>
+          <a href="https://app.mypetdex.app" class="btn-primary" style="color:#FFFFFF;">🐾 Join the Early Access Waitlist</a>
+          <a href="#demo" class="btn-secondary" style="color:#1E293B;border-color:#3B82F6;">Explore the Demo →</a>
         </div>
-        <div style="margin-top:12px;font-size:.78rem;color:#64748b;">✓ Free plan available ✓ Free during early access &nbsp;·&nbsp; ✓ No payment due today &nbsp;·&nbsp; ✓ iOS &amp; Android coming soonnbsp;·✓ Free during early access &nbsp;·&nbsp; ✓ No payment due today &nbsp;·&nbsp; ✓ iOS &amp; Android coming soonnbsp; ✓ iOS app live now ✓ Free during early access &nbsp;·&nbsp; ✓ No payment due today &nbsp;·&nbsp; ✓ iOS &amp; Android coming soonnbsp;·✓ Free during early access &nbsp;·&nbsp; ✓ No payment due today &nbsp;·&nbsp; ✓ iOS &amp; Android coming soonnbsp; ✓ Android coming soon</div>
+        <div style="margin-top:12px;font-size:.78rem;color:#64748b;">✓ Free during early access &nbsp;·&nbsp; ✓ No payment due today &nbsp;·&nbsp; ✓ iOS &amp; Android coming soon</div>
 
       </div>
 
@@ -904,7 +906,7 @@
         <div class="orb orb-2"></div>
         <div class="phone-frame">
           <div class="phone-screen">
-            <div style="height:100%;border-radius:44px;overflow:hidden;background:linear-gradient(135deg,#EBF4FF,#F0F6FF);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;"><div style="font-size:48px;">🐾</div><div style="color:#4486F4;font-weight:800;font-size:18px;font-family:Nunito,sans-serif;">MyPetDex</div><div style="color:#64748b;font-size:13px;">Your Pet's Digital Home</div></div>
+            <div style="height:100%;border-radius:44px;overflow:hidden;background:linear-gradient(135deg,#EBF4FF,#F0F6FF);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;"><div style="font-size:48px;">🐾</div><div style="color:#3B82F6;font-weight:800;font-size:18px;font-family:Nunito,sans-serif;">MyPetDex</div><div style="color:#64748b;font-size:13px;">Your Pet's Digital Home</div></div>
 
               <div style="background:#FFFFFF;border-radius:16px;padding:14px;margin-bottom:8px;border:1px solid #E2E8F0;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
                 <div style="display:flex;gap:10px;align-items:center;">
@@ -918,21 +920,21 @@
               </div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
                 <div style="background:#FFFFFF;border-radius:12px;padding:10px;text-align:center;border:1px solid #E2E8F0;">
-                  <div style="color:#4486F4;font-weight:900;font-size:16px;">💉 3</div>
+                  <div style="color:#3B82F6;font-weight:900;font-size:16px;">💉 3</div>
                   <div style="color:#64748b;font-size:10px;">Vaccines</div>
                 </div>
                 <div style="background:#FFFFFF;border-radius:12px;padding:10px;text-align:center;border:1px solid #E2E8F0;">
-                  <div style="color:#4486F4;font-weight:900;font-size:16px;">⏰ 2</div>
+                  <div style="color:#3B82F6;font-weight:900;font-size:16px;">⏰ 2</div>
                   <div style="color:#64748b;font-size:10px;">Reminders</div>
                 </div>
               </div>
               <div style="background:#FFFFFF;border-radius:12px;padding:10px;border:1px solid #E2E8F0;">
                 <div style="color:#1E293B;font-weight:800;font-size:11px;margin-bottom:6px;font-family:'Nunito',sans-serif;">Quick Actions</div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">
-                  <div style="background:#F0F6FF;border-radius:8px;padding:7px;text-align:center;color:#4486F4;font-size:10px;">🛎️ Services</div>
-                  <div style="background:#F0F6FF;border-radius:8px;padding:7px;text-align:center;color:#4486F4;font-size:10px;">🍽️ Recipes</div>
-                  <div style="background:#F0F6FF;border-radius:8px;padding:7px;text-align:center;color:#4486F4;font-size:10px;">❤️ Adopt</div>
-                  <div style="background:#4486F420;border-radius:8px;padding:7px;text-align:center;color:#4486F4;font-size:10px;">🤖 AI Chat</div>
+                  <div style="background:#F0F6FF;border-radius:8px;padding:7px;text-align:center;color:#3B82F6;font-size:10px;">🛎️ Services</div>
+                  <div style="background:#F0F6FF;border-radius:8px;padding:7px;text-align:center;color:#3B82F6;font-size:10px;">🍽️ Recipes</div>
+                  <div style="background:#F0F6FF;border-radius:8px;padding:7px;text-align:center;color:#3B82F6;font-size:10px;">❤️ Adopt</div>
+                  <div style="background:#3B82F620;border-radius:8px;padding:7px;text-align:center;color:#3B82F6;font-size:10px;">🤖 AI Chat</div>
                 </div>
               </div>
               
@@ -960,7 +962,7 @@
       <div class="reveal stat-item">
         <div style="display:flex;align-items:baseline;justify-content:center;gap:4px;">
           <div class="stat-number" data-target="50">0</div>
-          <div style="font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,#4486F4,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"> States</div>
+          <div style="font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,#3B82F6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"> States</div>
         </div>
         <div style="color:#64748b;font-size:.9rem;margin-top:4px;">🗺️ Nationwide Coverage</div>
       </div>
@@ -979,10 +981,10 @@
       <h2 class="section-title" style="color:#1E293B;">Everything your pet needs, in one place</h2>
       <p class="section-sub">Keep all your pet's health records in one place. Never miss vaccines, meds, or vet visits. Find trusted local care fast.</p>
       <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:24px;margin-bottom:8px;">
-        <div style="display:flex;align-items:center;gap:8px;color:#4486F4;font-weight:700;font-size:.9rem;">✅ Health records organized</div>
-        <div style="display:flex;align-items:center;gap:8px;color:#4486F4;font-weight:700;font-size:.9rem;">✅ Never miss a reminder</div>
-        <div style="display:flex;align-items:center;gap:8px;color:#4486F4;font-weight:700;font-size:.9rem;">✅ Find local care fast</div>
-        <div style="display:flex;align-items:center;gap:8px;color:#4486F4;font-weight:700;font-size:.9rem;">✅ AI guidance 24/7</div>
+        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ Health records organized</div>
+        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ Never miss a reminder</div>
+        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ Find local care fast</div>
+        <div style="display:flex;align-items:center;gap:8px;color:#3B82F6;font-weight:700;font-size:.9rem;">✅ AI guidance 24/7</div>
       </div>
     </div>
 
@@ -1099,7 +1101,7 @@
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║          QR FEATURE          ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<section style="padding:80px 5%;background:#4486F4;overflow:hidden;position:relative;">
+<section style="padding:80px 5%;background:#3B82F6;overflow:hidden;position:relative;">
   <!-- Background glow -->
   <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,0.1),transparent 70%);pointer-events:none;"></div>
   <div style="position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,0.08),transparent 70%);pointer-events:none;"></div>
@@ -1115,7 +1117,7 @@
 
         <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:36px;">
           <div style="display:flex;align-items:flex-start;gap:14px;">
-            <div style="width:40px;height:40px;border-radius:12px;background:rgba(68,134,244,0.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">🚨</div>
+            <div style="width:40px;height:40px;border-radius:12px;background:rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">🚨</div>
             <div>
               <div style="color:#FFFFFF;font-weight:700;font-size:.95rem;margin-bottom:4px;">Emergency Info Instantly Visible</div>
               <div style="color:#fff;font-size:.85rem;line-height:1.5;">Feeding instructions, allergies, vet contact — all shown on scan.</div>
@@ -1137,7 +1139,7 @@
           </div>
         </div>
 
-        <a href="https://apps.apple.com/app/mypetdex/id6772248051" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#4486F4;padding:14px 28px;border-radius:14px;font-weight:800;font-size:.95rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+        <a href="https://app.mypetdex.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#3B82F6;padding:14px 28px;border-radius:14px;font-weight:800;font-size:.95rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
           🐾 Get Your Pet's QR Code Free
         </a>
       </div>
@@ -1152,7 +1154,7 @@
               <img src="/images/logo.png" style="width:100%;height:100%;object-fit:cover;"/>
             </div>
             <div style="color:#1E293B;font-weight:900;font-size:1.2rem;margin-bottom:4px;">Dexie</div>
-            <div style="display:inline-block;background:#4486F4;color:#fff;border-radius:20px;padding:3px 12px;font-size:.7rem;font-weight:800;margin-bottom:16px;">Australian Shepherd</div>
+            <div style="display:inline-block;background:#3B82F6;color:#fff;border-radius:20px;padding:3px 12px;font-size:.7rem;font-weight:800;margin-bottom:16px;">Australian Shepherd</div>
 
             <!-- Fake QR code SVG -->
             <div style="background:#FFFFFF;border-radius:16px;padding:16px;margin-bottom:16px;display:inline-block;">
@@ -1161,13 +1163,13 @@
 
             <div style="color:#64748B;font-size:.75rem;margin-bottom:12px;">Scan to see Dexie's full profile</div>
             <div style="display:flex;gap:8px;justify-content:center;">
-              <div style="background:rgba(68,134,244,0.2);border-radius:8px;padding:6px 12px;font-size:.7rem;color:#6BA8F7;font-weight:700;">🚨 Emergency Info</div>
+              <div style="background:rgba(59,130,246,0.2);border-radius:8px;padding:6px 12px;font-size:.7rem;color:#60A5FA;font-weight:700;">🚨 Emergency Info</div>
               <div style="background:rgba(99,102,241,0.2);border-radius:8px;padding:6px 12px;font-size:.7rem;color:#A5B4FC;font-weight:700;">💉 Vaccines</div>
             </div>
           </div>
 
           <!-- Floating badge -->
-          <div style="position:absolute;top:-16px;right:-16px;background:linear-gradient(135deg,#4486F4,#6366f1);border-radius:12px;padding:8px 14px;font-size:.75rem;font-weight:800;color:#fff;box-shadow:0 8px 20px rgba(68,134,244,0.4);">✨ Free for all users</div>
+          <div style="position:absolute;top:-16px;right:-16px;background:linear-gradient(135deg,#3B82F6,#6366f1);border-radius:12px;padding:8px 14px;font-size:.75rem;font-weight:800;color:#fff;box-shadow:0 8px 20px rgba(59,130,246,0.4);">✨ Free for all users</div>
         </div>
       </div>
 
@@ -1204,7 +1206,7 @@
           </div>
           <div class="browser-body">
             <div style="font-family:var(--font-h);font-weight:700;font-size:.9rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
-              👋 Welcome back! You have <span style="color:#4486F4">2 reminders</span> this week.
+              👋 Welcome back! You have <span style="color:#3B82F6">2 reminders</span> this week.
             </div>
             <div class="browser-dash-preview">
               <div class="dash-tile">
@@ -1247,16 +1249,16 @@
 <p style="margin-top:12px;padding:10px 14px;background:#fef9c3;border-left:3px solid #eab308;border-radius:6px;font-size:.8rem;color:#713f12;">⚠️ <strong>Important:</strong> AI responses are informational only and not a substitute for professional veterinary advice. Always consult your vet for medical decisions.</p></p>
         <br/>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px;">
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#4486F4;">✓</span> "What foods are toxic for dogs?"</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#4486F4;">✓</span> "How much should a 40lb dog eat per day?"</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#4486F4;">✓</span> "Tips for training a high-energy puppy"</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#4486F4;">✓</span> "My cat is vomiting — what should I check?"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "What foods are toxic for dogs?"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "How much should a 40lb dog eat per day?"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "Tips for training a high-energy puppy"</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "My cat is vomiting — what should I check?"</li>
         </ul>
       </div>
       <div class="reveal">
         <div class="chat-box">
           <div class="chat-header">
-            <div class="chat-avatar" style="background:#4486F4;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;">AI</div>
+            <div class="chat-avatar" style="background:#3B82F6;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;">AI</div>
             <div>
               <div class="chat-title">PetDex AI Assistant</div>
               <div class="chat-status">● Online</div>
@@ -1287,8 +1289,8 @@
     <div style="font-size:2rem;margin-bottom:12px;">🐾</div>
     <h2 style="font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:#1E293B;margin-bottom:10px;">Coming soon to iOS &amp; Android</h2>
     <p style="color:#64748b;font-size:.95rem;margin-bottom:24px;">Secure your spot today. Early access members receive priority onboarding and exclusive founding member benefits.</p>
-    <a href="https://apps.apple.com/app/mypetdex/id6772248051" style="display:inline-block;background:#4486F4;color:#fff;padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;">📱 Download on App Store →</a>
-    <div style="margin-top:12px;font-size:.78rem;color:#64748b;">✓ Free plan available ✓ No payment due today &nbsp;·&nbsp; ✓ Free during early accessnbsp;·✓ No payment due today &nbsp;·&nbsp; ✓ Free during early accessnbsp; ✓ iOS app live now</div>
+    <a href="https://app.mypetdex.app" style="display:inline-block;background:#3B82F6;color:#fff;padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;">🐾 Secure Your Early Access Spot</a>
+    <div style="margin-top:12px;font-size:.78rem;color:#64748b;">✓ No payment due today &nbsp;·&nbsp; ✓ Free during early access</div>
   </div>
 </section>
 
@@ -1332,7 +1334,7 @@
             <span>1 Thin</span><span>3 Underweight</span><span>5 Ideal</span><span>7 Overweight</span><span>9 Obese</span>
           </div>
         </div>
-        <div id="bcsMsg" style="background:rgba(61,255,200,0.08);border:1px solid rgba(61,255,200,0.2);border-radius:8px;padding:8px 12px;font-size:.8rem;color:#4486F4;margin-bottom:18px;">
+        <div id="bcsMsg" style="background:rgba(61,255,200,0.08);border:1px solid rgba(61,255,200,0.2);border-radius:8px;padding:8px 12px;font-size:.8rem;color:#3B82F6;margin-bottom:18px;">
           ✅ Your pet is at an ideal weight! Maintain current feeding.
         </div>
 
@@ -1447,7 +1449,7 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;">
 
       <div style="background:#FFFFFF;border-radius:20px;padding:28px 24px;border:1.5px solid rgba(68,134,244,0.15);box-shadow:0 4px 24px rgba(68,134,244,0.08);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4486F4,#6BA8F7);border-radius:4px 4px 0 0;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4486F4,#60A5FA);border-radius:4px 4px 0 0;"></div>
         <div style="width:52px;height:52px;background:linear-gradient(135deg,#EBF3FF,#DBEAFE);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:16px;">📋</div>
         <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:1rem;color:#1E293B;margin-bottom:4px;">AAFCO 2023</div>
         <div style="font-size:.78rem;font-weight:600;color:#4486F4;margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em;">Association of American Feed Control Officials</div>
@@ -1529,13 +1531,13 @@
           <li class="muted">✗ Pet recipes</li>
           <li class="muted">✗ Yearly billing</li>
         </ul>
-        <a href="https://apps.apple.com/app/mypetdex/id6772248051" target="_blank" class="btn-secondary" style="color:#1E293B;border-color:#4486F4;" style="display:flex;justify-content:center;">📱 Download Free</a>
+        <a href="https://app.mypetdex.app" target="_blank" class="btn-secondary" style="color:#1E293B;border-color:#3B82F6;" style="display:flex;justify-content:center;">Get Started Free</a>
       </div>
 
       <!-- PLUS -->
       <div class="price-card featured reveal">
         <div class="popular-badge">Most Popular</div>
-        <div style="font-size:.7rem;font-weight:700;background:linear-gradient(135deg,#4486F4,#6366f1);color:#fff;padding:3px 10px;border-radius:10px;display:inline-block;margin-bottom:6px;">🎁 1 Month Free</div>
+        <div style="font-size:.7rem;font-weight:700;background:linear-gradient(135deg,#3B82F6,#6366f1);color:#fff;padding:3px 10px;border-radius:10px;display:inline-block;margin-bottom:6px;">🎁 1 Month Free</div>
         <div class="price-tier">Plus</div>
         <div class="price-amount"><sup>$</sup><span id="plus-price">2.99</span></div>
         <div class="price-period" style="color:#64748B;">per month</div>
@@ -1550,7 +1552,7 @@
           <li>Pet recipes</li>
           <li>Yearly billing option</li>
         </ul>
-        <a href="https://apps.apple.com/app/mypetdex/id6772248051" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;">📱 Download on App Store →</a>
+        <a href="https://app.mypetdex.app?plan=plus" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;">Join Early Access — Try 1 Month Free →</a>
       </div>
 
       <!-- FAMILY -->
@@ -1570,7 +1572,7 @@
           <li>Pet recipes</li>
           <li>Yearly billing option</li>
         </ul>
-        <a href="https://apps.apple.com/app/mypetdex/id6772248051" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;">📱 Download on App Store →</a>
+        <a href="https://app.mypetdex.app?plan=family" target="_blank" class="btn-primary" style="color:#FFFFFF;" style="display:flex;justify-content:center;background:linear-gradient(135deg,#34d399,#10b981);color:#0a0e1a;">Join Early Access — Try 1 Month Free →</a>
       </div>
 
     </div>
@@ -1605,7 +1607,7 @@
 <section id="shop" style="padding:80px 5% 16px;background:#F0F4FF;">
   <div style="max-width:1100px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:48px;">
-      <div style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4486F4;margin-bottom:12px;">🛒 Pet Shop</div>
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B82F6;margin-bottom:12px;">🛒 Pet Shop</div>
       <h2 style="font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;color:#1E293B;margin-bottom:12px;">Shop Top-Rated Pet Products</h2>
       <p style="color:#64748B;max-width:500px;margin:0 auto;">Handpicked Amazon's Choice & Best Sellers — recommended for pet owners.</p>
       <p style="color:#94a3b8;font-size:.8rem;margin-top:8px;">⚠️ Prices shown are approximate and may vary. You will pay the current price at checkout.</p>
@@ -1616,24 +1618,24 @@
         <div style="font-family:'Outfit',sans-serif;font-weight:900;font-size:1.3rem;color:#1E293B;margin-bottom:8px;">Amazon Products</div>
         <p style="color:#64748B;font-size:.9rem;margin-bottom:20px;">Top-rated pet supplies, food, toys and health products — delivered fast with Prime.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
-          <span style="background:#4486F420;color:#4486F4;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🏷️ Pet Tags</span>
-          <span style="background:#4486F420;color:#4486F4;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">💊 Vitamins</span>
-          <span style="background:#4486F420;color:#4486F4;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🌿 Wellness Tips</span>
-          <span style="background:#4486F420;color:#4486F4;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">💧 Fountains</span>
+          <span style="background:#3B82F620;color:#3B82F6;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🏷️ Pet Tags</span>
+          <span style="background:#3B82F620;color:#3B82F6;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">💊 Vitamins</span>
+          <span style="background:#3B82F620;color:#3B82F6;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🌿 Wellness Tips</span>
+          <span style="background:#3B82F620;color:#3B82F6;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">💧 Fountains</span>
         </div>
-        <a href="https://www.amazon.com/s?k=pet+supplies&tag=mypetdex20-20" target="_blank" style="display:inline-block;background:#4486F4;color:#fff;padding:12px 28px;border-radius:12px;font-weight:800;font-size:.9rem;text-decoration:none;">Shop on Amazon →</a>
+        <a href="https://www.amazon.com/s?k=pet+supplies&tag=mypetdex20-20" target="_blank" style="display:inline-block;background:#3B82F6;color:#fff;padding:12px 28px;border-radius:12px;font-weight:800;font-size:.9rem;text-decoration:none;">Shop on Amazon →</a>
       </div>
-      <div style="background:#FFFFFF;border-radius:20px;padding:32px;border:2px dashed #E2E8F0;text-align:center;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:16px;right:16px;background:#F59E0B;color:#fff;font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:20px;">COMING SOON</div>
+      <div style="background:#FFFFFF;border-radius:20px;padding:32px;border:1px solid #E2E8F0;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:16px;right:16px;background:#E53935;color:#fff;font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:20px;">NEW</div>
         <div style="font-size:48px;margin-bottom:12px;">🛍️</div>
         <div style="font-family:'Outfit',sans-serif;font-weight:900;font-size:1.3rem;color:#1E293B;margin-bottom:8px;">Chewy Products</div>
         <p style="color:#64748B;font-size:.9rem;margin-bottom:20px;">America's #1 pet pharmacy and retailer — vet-approved products, auto-ship & more.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
-          <span style="background:#F59E0B20;color:#F59E0B;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">💊 Rx Meds</span>
-          <span style="background:#F59E0B20;color:#F59E0B;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🍖 Premium Food</span>
-          <span style="background:#F59E0B20;color:#F59E0B;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🪮 Grooming</span>
+          <span style="background:#E5393520;color:#E53935;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">💊 Rx Meds</span>
+          <span style="background:#E5393520;color:#E53935;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🍖 Premium Food</span>
+          <span style="background:#E5393520;color:#E53935;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;">🪮 Grooming</span>
         </div>
-        <button disabled style="display:inline-block;background:#E2E8F0;color:#94a3b8;padding:12px 28px;border-radius:12px;font-weight:800;font-size:.9rem;border:none;cursor:not-allowed;">Coming Soon</button>
+        <a href="https://chewy.sjv.io/c/7270969/2846786/32975" target="_blank" style="display:inline-block;background:#E53935;color:#fff;padding:12px 28px;border-radius:12px;font-weight:800;font-size:.9rem;text-decoration:none;">Shop on Chewy →</a>
       </div>
     </div>
     <p style="text-align:center;color:#94a3b8;font-size:.8rem;">MyPetDex earns a small commission on purchases — at no extra cost to you.</p>
@@ -1645,7 +1647,7 @@
     <div class="cta-inner reveal">
       <h2>Your pet deserves the best care possible.<br/>Join MyPetDex — it's free to get started.</h2>
       <p>Be part of a growing community of pet owners who never miss a vaccine, vet visit, or moment of care.</p>
-      <a href="https://apps.apple.com/app/mypetdex/id6772248051" class="btn-primary" style="color:#FFFFFF;" style="display:inline-flex;">📱 Download on App Store →</a>
+      <a href="https://app.mypetdex.app" class="btn-primary" style="color:#FFFFFF;" style="display:inline-flex;">🐾 Join the Early Access Waitlist</a>
       <div class="cta-note" style="color:#1E293B;">Free plan available · No payment due today · Cancel anytime</div>
     </div>
   </div>
@@ -1700,14 +1702,14 @@
           <label style="display:block;font-size:.8rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Message * <span id="char-count" style="font-weight:400;text-transform:none;">(minimum 20 characters)</span></label>
           <textarea id="contact-message" name="message" required placeholder="Tell us what's on your mind..." rows="5" oninput="updateCharCount(this)" style="width:100%;padding:12px 16px;border-radius:10px;border:1.5px solid #E2E8F0;font-size:.95rem;font-family:inherit;background:#fff;box-sizing:border-box;resize:vertical;"></textarea>
         </div>
-        <button type="submit" style="width:100%;background:#4486F4;color:#fff;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;border:none;cursor:pointer;font-family:inherit;">Send Message 🐾</button>
+        <button type="submit" style="width:100%;background:#3B82F6;color:#fff;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;border:none;cursor:pointer;font-family:inherit;">Send Message 🐾</button>
       </form>
     </div>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:32px;text-align:center;max-width:500px;margin-left:auto;margin-right:auto;">
       <div style="background:#F5F8FF;border-radius:16px;padding:24px;">
         <div style="font-size:1.8rem;margin-bottom:8px;">📧</div>
         <div style="font-weight:700;color:#1E293B;font-size:.9rem;">Email Support</div>
-        <a href="mailto:help@mypetdex.app" style="color:#4486F4;font-size:.85rem;text-decoration:none;">help@mypetdex.app</a>
+        <a href="mailto:help@mypetdex.app" style="color:#3B82F6;font-size:.85rem;text-decoration:none;">help@mypetdex.app</a>
         <div style="color:#64748b;font-size:.8rem;margin-top:4px;">We reply within 24–48 hours</div>
       </div>
       <div style="background:#F5F8FF;border-radius:16px;padding:24px;">
@@ -1772,7 +1774,7 @@ function submitContactForm(e) {
     <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
       <a href="https://wa.me/?text=Check%20out%20MyPetDex%20%E2%80%94%20the%20complete%20digital%20home%20for%20your%20pet!%20%F0%9F%90%BE%20https://home.mypetdex.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;">📱 Share on WhatsApp</a>
       <a href="https://www.facebook.com/sharer/sharer.php?u=https://home.mypetdex.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#1877F2;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;">📘 Share on Facebook</a>
-      <button onclick="navigator.clipboard.writeText('https://home.mypetdex.app');this.textContent='✓ Copied!';setTimeout(()=>this.textContent='🔗 Copy Link',2000)" style="display:inline-flex;align-items:center;gap:8px;background:#4486F4;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;font-family:inherit;">🔗 Copy Link</button>
+      <button onclick="navigator.clipboard.writeText('https://home.mypetdex.app');this.textContent='✓ Copied!';setTimeout(()=>this.textContent='🔗 Copy Link',2000)" style="display:inline-flex;align-items:center;gap:8px;background:#3B82F6;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;font-family:inherit;">🔗 Copy Link</button>
     </div>
   </div>
 </section>
@@ -1795,11 +1797,11 @@ function submitContactForm(e) {
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="#demo">Demo</a>
-        <a href="https://apps.apple.com/app/mypetdex/id6772248051" target="_blank">Download App</a>
+        <a href="https://app.mypetdex.app/sign-in?role=owner" target="_blank">Sign Up</a>
       </div>
       <div class="footer-col">
         <h4>For Businesses</h4>
-        <a href="/for-providers.html">For Providers</a>
+        <a href="https://app.mypetdex.app/sign-in?role=provider">Service Providers</a>
         
       </div>
       <div class="footer-col">
@@ -1813,7 +1815,7 @@ function submitContactForm(e) {
       <div style="font-size:.82rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:6px;">🔒 Privacy-first — your data is never sold</div>
       <div style="font-size:.82rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:6px;">🐾 Built by pet owners, for pet owners</div>
       <div style="font-size:.82rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:6px;">✅ Free plan, always available</div>
-      <div style="font-size:.82rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:6px;">📱 iOS app available now · Android coming soon</div>
+      <div style="font-size:.82rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:6px;">📱 iOS & Android coming soon</div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 MyPetDex. All rights reserved.</span>
@@ -2064,7 +2066,7 @@ function calcCalories() {
     if (chatCount >= 3) {
       const limitMsg = document.createElement('div');
       limitMsg.className = 'msg msg-bot';
-      limitMsg.innerHTML = "🐾 You have used your 3 free questions! <a href='https://apps.apple.com/app/mypetdex/id6772248051' target='_blank' style='color:#4486F4;font-weight:700;'>Download the app free</a> for unlimited AI pet advice!";
+      limitMsg.innerHTML = "🐾 You have used your 3 free questions! <a href='https://app.mypetdex.app' style='color:#3B82F6;font-weight:700;'>Create a free account</a> to get unlimited AI pet advice in the app!";
       messages.appendChild(limitMsg);
       messages.scrollTop = messages.scrollHeight;
       input.value = '';
@@ -2140,10 +2142,10 @@ function switchBilling() {
 <!-- Mobile Sticky CTA -->
 <div id="mobile-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px 20px;box-shadow:0 -2px 12px rgba(0,0,0,.12);z-index:999;justify-content:center;">
   <div style="width:100%;max-width:400px;">
-    <a href="https://apps.apple.com/app/mypetdex/id6772248051" style="display:block;width:100%;background:#4486F4;color:#fff;text-align:center;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;">
-      📱 Download on App Store — Free
+    <a href="https://app.mypetdex.app" style="display:block;width:100%;background:#3B82F6;color:#fff;text-align:center;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;">
+      🐾 Join the iOS & Android Waitlist
     </a>
-    <div style="text-align:center;font-size:.72rem;color:#64748b;margin-top:6px;">Free plan available · iOS app live now</div>
+    <div style="text-align:center;font-size:.72rem;color:#64748b;margin-top:6px;">Free during early access · No payment due today</div>
   </div>
 </div>
 <style>
@@ -2175,21 +2177,21 @@ function togglePillar(btn) {
 </script>
 <style>
 /* Scroll progress bar */
-#progress-bar { position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#4486F4,#6366f1);width:0%;z-index:9999;transition:width .1s; }
+#progress-bar { position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#3B82F6,#6366f1);width:0%;z-index:9999;transition:width .1s; }
 
 /* Back to top */
-#back-to-top { position:fixed;bottom:90px;right:24px;width:44px;height:44px;background:#4486F4;color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(68,134,244,0.4);z-index:998;transition:all .2s; }
-#back-to-top:hover { transform:translateY(-3px);box-shadow:0 8px 20px rgba(68,134,244,0.5); }
+#back-to-top { position:fixed;bottom:90px;right:24px;width:44px;height:44px;background:#3B82F6;color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(59,130,246,0.4);z-index:998;transition:all .2s; }
+#back-to-top:hover { transform:translateY(-3px);box-shadow:0 8px 20px rgba(59,130,246,0.5); }
 
 /* Stats */
-.stat-number { font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,#4486F4,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.stat-number { font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,#3B82F6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
 @media(max-width:768px) { .stats-grid { grid-template-columns:1fr 1fr !important; } }
 
 /* Testimonials */
 .testimonials-track { display:grid;grid-template-columns:repeat(4,1fr);gap:24px; }
 .testimonial-card { background:#fff;border-radius:20px;padding:28px;box-shadow:0 4px 24px rgba(0,0,0,.06);border:1px solid #E2E8F0; }
 .t-dot { width:10px;height:10px;border-radius:50%;background:#E2E8F0;cursor:pointer;transition:background .2s; }
-.t-dot.active { background:#4486F4; }
+.t-dot.active { background:#3B82F6; }
 @media(max-width:900px) { .testimonials-track { grid-template-columns:1fr 1fr !important; } }
 @media(max-width:600px) { .testimonials-track { grid-template-columns:1fr !important; } }
 
@@ -2208,10 +2210,10 @@ function togglePillar(btn) {
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1E293B;color:#fff;padding:16px 24px;z-index:9999;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.2);">
   <div style="flex:1;min-width:200px;font-size:.85rem;color:#CBD5E1;line-height:1.6;">
     🍪 We use cookies to improve your experience. By using MyPetDex, you agree to our 
-    <a href="/privacy.html" style="color:#4486F4;text-decoration:none;font-weight:700;">Privacy Policy</a>.
+    <a href="/privacy.html" style="color:#3B82F6;text-decoration:none;font-weight:700;">Privacy Policy</a>.
   </div>
   <div style="display:flex;gap:10px;flex-shrink:0;">
-    <button onclick="acceptCookies()" style="background:#4486F4;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;">Accept All</button>
+    <button onclick="acceptCookies()" style="background:#3B82F6;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;">Accept All</button>
     <button onclick="declineCookies()" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:10px 20px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;">Essential Only</button>
   </div>
 </div>
@@ -2387,7 +2389,7 @@ function loadReviews() {
         <div style="font-size:1.1rem;margin-bottom:12px;">${stars}</div>
         <p style="color:#1E293B;font-size:.95rem;line-height:1.6;margin-bottom:16px;">"${r.text}"</p>
         <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#4486F4,#6366f1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.95rem;flex-shrink:0;">${r.name.charAt(0)}</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#6366f1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.95rem;flex-shrink:0;">${r.name.charAt(0)}</div>
           <div>
             <div style="font-weight:700;font-size:.9rem;color:#1E293B;">${r.name}</div>
             <div style="font-size:.8rem;color:#64748b;">${r.pet} owner · ${r.city}</div>
@@ -2403,7 +2405,7 @@ function loadReviews() {
     current = index;
     container.style.transform = `translateX(-${index * 100}%)`;
     dotsContainer.querySelectorAll('.r-dot').forEach((d, i) => {
-      d.style.background = i === index ? '#4486F4' : '#E2E8F0';
+      d.style.background = i === index ? '#3B82F6' : '#E2E8F0';
       d.style.width = i === index ? '24px' : '10px';
     });
   }
@@ -2411,7 +2413,7 @@ function loadReviews() {
   for (let i = 0; i < pages; i++) {
     const dot = document.createElement('div');
     dot.className = 'r-dot';
-    dot.style.cssText = `height:10px;width:${i===0?'24px':'10px'};border-radius:5px;background:${i===0?'#4486F4':'#E2E8F0'};cursor:pointer;transition:all 0.3s ease;`;
+    dot.style.cssText = `height:10px;width:${i===0?'24px':'10px'};border-radius:5px;background:${i===0?'#3B82F6':'#E2E8F0'};cursor:pointer;transition:all 0.3s ease;`;
     dot.onclick = () => goTo(i);
     dotsContainer.appendChild(dot);
   }

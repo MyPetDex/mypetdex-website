@@ -1239,7 +1239,7 @@
         <div class="section-label">AI Powered</div>
         <h2 class="section-title" style="color:#1E293B;">AI-powered<br/>pet care assistant</h2>
         <p class="section-sub">Ask about diet, training, breed care, and general wellness. Our AI assistant gives instant, informational guidance tailored to your pet — not a substitute for veterinary advice.
-<p style="margin-top:12px;padding:10px 14px;background:#fef9c3;border-left:3px solid #eab308;border-radius:6px;font-size:.8rem;color:#713f12;">⚠️ <strong>Important:</strong> AI responses are informational only and not a substitute for professional veterinary advice. Always consult your vet for medical decisions.</p></p>
+<p style="margin-top:12px;padding:10px 14px;background:#fef9c3;border-left:3px solid #eab308;border-radius:6px;font-size:.8rem;color:#713f12;">⚠️ <strong>Important:</strong> MyPetDex Assistant provides informational guidance grounded in established veterinary sources. Always consult your veterinarian for medical decisions.</p></p>
         <br/>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px;">
           <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;"><span style="color:#3B82F6;">✓</span> "What foods are toxic for dogs?"</li>
@@ -1265,6 +1265,10 @@
             <input type="text" class="chat-input" id="chatInput" placeholder="Ask about your pet..." />
             <button class="chat-send" id="chatSend" onclick="sendChat()">➤</button>
           </div>
+        </div>
+        <div style="text-align:center; margin-top:14px; font-size:12px; color:#888; line-height:1.8;">
+          <span style="font-weight:600; color:#555;">AI responses grounded in guidance from:</span><br>
+          VCA Animal Hospitals &nbsp;·&nbsp; American Kennel Club &nbsp;·&nbsp; PetMD &nbsp;·&nbsp; ASPCA &nbsp;·&nbsp; Merck Veterinary Manual
         </div>
       </div>
     </div>
@@ -2063,6 +2067,30 @@ function calcCalories() {
 
   /* ── AI CHAT ── */
   const PROXY_URL = 'https://us-central1-mypetdex-c4315.cloudfunctions.net/aiProxy';
+  let chatReplyCount = 0;
+  let chatLimitReached = false;
+
+  function showChatLimit() {
+    if (chatLimitReached) return;
+    chatLimitReached = true;
+    const messages = document.getElementById('chatMessages');
+    const input = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('chatSend');
+    const limitMsg = document.createElement('div');
+    limitMsg.className = 'msg msg-bot';
+    limitMsg.innerHTML = `
+      <div style="font-weight:700;margin-bottom:8px;">🔒 You've reached the demo limit.</div>
+      <div style="margin-bottom:12px;">Sign up free to keep chatting with MyPetDex Assistant — personalized to your pet.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://app.mypetdex.app" style="background:#4486F4;color:#fff;padding:8px 16px;border-radius:8px;font-weight:700;text-decoration:none;font-size:13px;">Create Free Account →</a>
+        <a href="https://app.mypetdex.app" style="border:2px solid #4486F4;color:#4486F4;padding:8px 16px;border-radius:8px;font-weight:700;text-decoration:none;font-size:13px;">Sign In</a>
+      </div>
+    `;
+    messages.appendChild(limitMsg);
+    messages.scrollTop = messages.scrollHeight;
+    input.disabled = true;
+    sendBtn.disabled = true;
+  }
 
   async function sendChat() {
     const input = document.getElementById('chatInput');
@@ -2070,20 +2098,12 @@ function calcCalories() {
     const userText = input.value.trim();
     if (!userText) return;
 
-    // 3-question limit
-    const chatCount = parseInt(sessionStorage.getItem('chatCount') || '0');
-    if (chatCount >= 3) {
-      const limitMsg = document.createElement('div');
-      limitMsg.className = 'msg msg-bot';
-      limitMsg.innerHTML = "🐾 You have used your 3 free questions! <a href='https://app.mypetdex.app' style='color:#3B82F6;font-weight:700;'>Create a free account</a> to get unlimited AI pet advice in the app!";
-      messages.appendChild(limitMsg);
-      messages.scrollTop = messages.scrollHeight;
-      input.value = '';
-      input.disabled = true;
-      document.getElementById('chatSend').disabled = true;
+    if (chatReplyCount >= 5) {
+      showChatLimit();
       return;
     }
-    sessionStorage.setItem('chatCount', chatCount + 1);
+
+    demoPaused = true;
 
     // User message
     const userMsg = document.createElement('div');
@@ -2118,6 +2138,11 @@ function calcCalories() {
       botMsg.className = 'msg msg-bot';
       botMsg.textContent = reply;
       messages.appendChild(botMsg);
+      chatReplyCount++;
+
+      if (chatReplyCount >= 5) {
+        showChatLimit();
+      }
     } catch(error) {
       typing.remove();
       const errMsg = document.createElement('div');
@@ -2296,7 +2321,7 @@ const demoConversation = [
   { role: 'user', text: 'Is chicken safe for dogs?' },
   { role: 'bot', text: 'Yes! Plain cooked chicken is great for dogs — high in protein and easy to digest. Avoid seasoning, bones, and raw chicken. 🐕' },
   { role: 'user', text: 'How often should I bathe my dog?' },
-  { role: 'bot', text: 'Most dogs need a bath every 4-6 weeks. Dogs with oily coats may need more frequent baths, while those with dry skin need less. 🛁' },
+  { role: 'bot', text: 'Most dogs need a bath every 4-6 weeks. Dogs with oily coats may need more frequent baths, while those with dry skin need less. 🛁', source: 'vcahospitals.com' },
   { role: 'user', text: 'What foods are toxic for cats?' },
   { role: 'bot', text: 'Cats should never eat onions, garlic, chocolate, grapes, or xylitol. These can cause serious illness. Always check before sharing human food! 🐱' },
 ];
@@ -2336,7 +2361,7 @@ function runDemoChat() {
     chatMessages.appendChild(typing);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     setTimeout(() => {
-      typing.innerHTML = msg.text;
+      typing.innerHTML = msg.text + (msg.source ? `<div style="font-size:11px; color:#4486F4; margin-top:6px;">Source: ${msg.source}</div>` : '');
       chatMessages.scrollTop = chatMessages.scrollHeight;
       demoIndex++;
       setTimeout(runDemoChat, 3000);

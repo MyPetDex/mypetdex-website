@@ -230,6 +230,8 @@
       border-bottom: 1px solid var(--border);
     }
     .product-card:last-child { border-bottom: none; }
+    .product-thumb { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; background: #f1f5f9; flex-shrink: 0; border: 1px solid var(--border); }
+    .product-thumb-placeholder { width: 52px; height: 52px; border-radius: 10px; background: #f1f5f9; flex-shrink: 0; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 22px; }
     .store-badge { padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; color: var(--white); flex-shrink: 0; }
     .product-info { flex: 1; min-width: 0; }
     .product-title { font-size: 14px; font-weight: 700; color: var(--dark); }
@@ -237,6 +239,9 @@
     .product-url { font-size: 11px; color: var(--brand); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .btn-delete { background: #FEE2E2; color: var(--red); padding: 7px 12px; border-radius: 8px; border: none; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; }
     .btn-delete:hover { opacity: 0.8; }
+    .btn-edit { background: #EFF6FF; color: #2563EB; padding: 7px 12px; border-radius: 8px; border: none; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; }
+    .btn-edit:hover { opacity: 0.8; }
+    .product-actions { display: flex; gap: 6px; flex-shrink: 0; }
 
     /* ── Modal ── */
     .modal-overlay {
@@ -503,7 +508,7 @@
 <div class="modal-overlay hidden" id="productModal">
   <div class="modal-box">
     <div class="modal-header">
-      <div class="modal-title">Add Product Link</div>
+      <div class="modal-title" id="productModalTitle">Add Product Link</div>
       <button class="modal-close" onclick="closeAddProduct()">×</button>
     </div>
     <div class="form-field">
@@ -513,10 +518,6 @@
     <div class="form-field">
       <label class="form-label">Product URL *</label>
       <input class="form-input" id="pUrl" type="url" placeholder="https://amazon.com/..." />
-    </div>
-    <div class="form-field">
-      <label class="form-label">Image URL (optional)</label>
-      <input class="form-input" id="pImage" type="url" placeholder="https://..." />
     </div>
     <div class="form-field">
       <label class="form-label">Store</label>
@@ -537,6 +538,10 @@
         <span class="chip" onclick="selectChip('cat',this,'Accessories')">Accessories</span>
         <span class="chip" onclick="selectChip('cat',this,'Other')">Other</span>
       </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label">Image URL (optional)</label>
+      <input class="form-input" id="pImage" type="url" placeholder="Right-click product image → Copy Image Address" />
     </div>
     <div class="form-field">
       <label class="form-label">Price (optional)</label>
@@ -911,18 +916,27 @@ function renderProducts() {
   const storeColors = { Amazon: '#FF9900', Chewy: '#0073CF', Other: '#64748B' };
   document.getElementById('productsList').innerHTML = allProducts.map(p => `
     <div class="product-card" id="prod-${p.id}">
-      ${p.imageUrl ? '<img src="' + p.imageUrl + '" style="width:48px;height:48px;border-radius:8px;object-fit:cover;margin-right:8px;">' : ''}
+      ${p.imageUrl
+        ? `<img class="product-thumb" src="${escAttr(p.imageUrl)}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" /><div class="product-thumb-placeholder" style="display:none">${p.store === 'Chewy' ? '🛒' : '📦'}</div>`
+        : `<div class="product-thumb-placeholder">${p.store === 'Chewy' ? '🛒' : '📦'}</div>`
+      }
       <span class="store-badge" style="background:${storeColors[p.store] || '#64748B'}">${escHtml(p.store || 'Other')}</span>
       <div class="product-info">
         <div class="product-title">${escHtml(p.title)}</div>
         <div class="product-meta">${escHtml(p.category || '')}${p.price ? ' · ' + escHtml(p.price) : ''}${p.description ? ' · ' + escHtml(p.description) : ''}</div>
         <div class="product-url">${escHtml(p.url)}</div>
       </div>
-      <button class="btn-delete" onclick="deleteProduct('${p.id}', '${escAttr(p.title)}')">Remove</button>
+      <div class="product-actions">
+        <button class="btn-edit" onclick="openEditProduct('${p.id}')">Edit</button>
+        <button class="btn-delete" onclick="deleteProduct('${p.id}', '${escAttr(p.title)}')">Remove</button>
+      </div>
     </div>`).join('');
 }
 
+let editingProductId = null;
+
 function openAddProduct() {
+  editingProductId = null;
   document.getElementById('pTitle').value = '';
   document.getElementById('pUrl').value = '';
   document.getElementById('pImage').value = '';
@@ -932,8 +946,34 @@ function openAddProduct() {
   productCat = 'Food';
   document.querySelectorAll('#storeChips .chip').forEach((c, i) => c.classList.toggle('active', i === 0));
   document.querySelectorAll('#catChips .chip').forEach((c, i) => c.classList.toggle('active', i === 0));
+  document.getElementById('productModalTitle').textContent = 'Add Product Link';
   document.getElementById('submitProduct').disabled = false;
   document.getElementById('submitProduct').textContent = 'Add Product';
+  document.getElementById('productModal').classList.remove('hidden');
+}
+
+function openEditProduct(id) {
+  const p = allProducts.find(x => x.id === id);
+  if (!p) return;
+  editingProductId = id;
+  document.getElementById('pTitle').value = p.title || '';
+  document.getElementById('pUrl').value = p.url || '';
+  document.getElementById('pImage').value = p.imageUrl || '';
+  document.getElementById('pPrice').value = p.price || '';
+  document.getElementById('pDesc').value = p.description || '';
+  // Set store chip
+  productStore = p.store || 'Amazon';
+  document.querySelectorAll('#storeChips .chip').forEach(c => {
+    c.classList.toggle('active', c.textContent === productStore);
+  });
+  // Set category chip
+  productCat = p.category || 'Food';
+  document.querySelectorAll('#catChips .chip').forEach(c => {
+    c.classList.toggle('active', c.textContent === productCat);
+  });
+  document.getElementById('productModalTitle').textContent = 'Edit Product';
+  document.getElementById('submitProduct').disabled = false;
+  document.getElementById('submitProduct').textContent = 'Save Changes';
   document.getElementById('productModal').classList.remove('hidden');
 }
 
@@ -961,14 +1001,27 @@ async function addProduct() {
       imageUrl: document.getElementById('pImage').value.trim(),
       price: document.getElementById('pPrice').value.trim(),
       description: document.getElementById('pDesc').value.trim(),
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     };
-    const ref = await db.collection('featured_products').add(data);
-    allProducts.unshift({ id: ref.id, ...data });
-    renderProducts();
-    closeAddProduct();
-    showToast('Product added ✓', 'success');
-  } catch(e) { showToast('Error: ' + e.message, 'error'); btn.disabled = false; btn.textContent = 'Add Product'; }
+    if (editingProductId) {
+      await db.collection('featured_products').doc(editingProductId).update(data);
+      const idx = allProducts.findIndex(p => p.id === editingProductId);
+      if (idx !== -1) allProducts[idx] = { ...allProducts[idx], ...data };
+      renderProducts();
+      closeAddProduct();
+      showToast('Product updated ✓', 'success');
+    } else {
+      data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+      const ref = await db.collection('featured_products').add(data);
+      allProducts.unshift({ id: ref.id, ...data });
+      renderProducts();
+      closeAddProduct();
+      showToast('Product added ✓', 'success');
+    }
+  } catch(e) {
+    showToast('Error: ' + e.message, 'error');
+    btn.disabled = false;
+    btn.textContent = editingProductId ? 'Save Changes' : 'Add Product';
+  }
 }
 
 async function deleteProduct(id, title) {

@@ -1522,7 +1522,7 @@
             <p style="margin:0;font-size:.83rem;line-height:1.55;color:#1E293B;font-weight:600;">Every recipe in MyPetDex is checked against AAFCO's minimum nutrient profiles — so portions are never just a guess.</p>
           </div>
         </div>
-        <span class="nutri-tap-pd" style="color:#4486F4;background:#EBF3FF;">Why it matters <span class="nutri-tap-pd-chevron">⌄</span></span>
+        <span class="nutri-tap-pd" style="color:#4486F4;background:#EBF3FF;--pulse:rgba(68,134,244,.45);">Why it matters <span class="nutri-tap-pd-chevron">⌄</span></span>
       </div>
 
       <div class="nutri-card-pd" tabindex="0" role="button" aria-expanded="false" onclick="toggleNutriCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleNutriCard(this);}" style="background:#FFFFFF;border-radius:20px;padding:28px 24px;border:1.5px solid rgba(68,134,244,0.15);box-shadow:0 4px 24px rgba(68,134,244,0.08);position:relative;overflow:hidden;cursor:pointer;">
@@ -1537,7 +1537,7 @@
             <p style="margin:0;font-size:.83rem;line-height:1.55;color:#1E293B;font-weight:600;">Real ingredient data, not guesswork — so calorie and nutrient math for homemade meals is actually accurate.</p>
           </div>
         </div>
-        <span class="nutri-tap-pd" style="color:#10B981;background:#ECFDF5;">Why it matters <span class="nutri-tap-pd-chevron">⌄</span></span>
+        <span class="nutri-tap-pd" style="color:#10B981;background:#ECFDF5;--pulse:rgba(16,185,129,.45);">Why it matters <span class="nutri-tap-pd-chevron">⌄</span></span>
       </div>
 
       <div class="nutri-card-pd" tabindex="0" role="button" aria-expanded="false" onclick="toggleNutriCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleNutriCard(this);}" style="background:#FFFFFF;border-radius:20px;padding:28px 24px;border:1.5px solid rgba(68,134,244,0.15);box-shadow:0 4px 24px rgba(68,134,244,0.08);position:relative;overflow:hidden;cursor:pointer;">
@@ -1552,7 +1552,7 @@
             <p style="margin:0;font-size:.83rem;line-height:1.55;color:#1E293B;font-weight:600;">Same RER formula vets use in the clinic — so our calorie calculator gives portion guidance you can actually trust.</p>
           </div>
         </div>
-        <span class="nutri-tap-pd" style="color:#F59E0B;background:#FFFBEB;">Why it matters <span class="nutri-tap-pd-chevron">⌄</span></span>
+        <span class="nutri-tap-pd" style="color:#F59E0B;background:#FFFBEB;--pulse:rgba(245,158,11,.45);">Why it matters <span class="nutri-tap-pd-chevron">⌄</span></span>
       </div>
 
     </div>
@@ -2327,18 +2327,34 @@ function toggleFeatItem(item) {
 </script>
 <style>
 /* Nutrition card accordion */
-.nutri-more-pd { display:grid; grid-template-rows:0fr; opacity:0; transition:grid-template-rows .38s cubic-bezier(.2,.8,.2,1), opacity .28s ease; }
-.nutri-more-pd-inner { min-height:0; overflow:hidden; display:flex; gap:10px; align-items:flex-start; border-radius:12px; padding:0 14px; transition:padding .32s ease; }
+.nutri-more-pd { display:grid; grid-template-rows:0fr; opacity:0; perspective:700px; transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1), opacity .3s ease; }
+.nutri-more-pd-inner {
+  min-height:0; overflow:hidden; display:flex; gap:10px; align-items:flex-start;
+  border-radius:12px; padding:0 14px;
+  transform:rotateX(-75deg); transform-origin:top center;
+  transition:padding .32s ease, transform .5s cubic-bezier(.2,.7,.3,1.15);
+}
 .nutri-card-pd[data-open="true"] .nutri-more-pd { grid-template-rows:1fr; opacity:1; margin-top:14px; }
-.nutri-card-pd[data-open="true"] .nutri-more-pd-inner { padding:12px 14px; }
-.nutri-tap-pd { display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:6px 12px; border-radius:999px; font-size:.75rem; font-weight:700; transition:transform .2s ease; }
-.nutri-card-pd:hover .nutri-tap-pd { transform:translateX(3px); }
-.nutri-tap-pd-chevron { font-size:.68rem; display:inline-block; transition:transform .3s ease; }
+.nutri-card-pd[data-open="true"] .nutri-more-pd-inner { padding:12px 14px; transform:rotateX(0deg); }
+.nutri-tap-pd {
+  display:inline-flex; align-items:center; gap:7px; margin-top:18px;
+  padding:9px 18px; border-radius:999px; font-size:.85rem; font-weight:800;
+  transition:transform .2s ease;
+  animation:nutriTapPulse 2.4s ease-in-out infinite;
+}
+.nutri-card-pd:hover .nutri-tap-pd { transform:translateX(3px) scale(1.04); }
+.nutri-card-pd[data-open="true"] .nutri-tap-pd { animation:none; }
+@keyframes nutriTapPulse {
+  0% { box-shadow:0 0 0 0 var(--pulse, rgba(59,130,246,.4)); }
+  65% { box-shadow:0 0 0 10px rgba(0,0,0,0); }
+  100% { box-shadow:0 0 0 0 rgba(0,0,0,0); }
+}
+.nutri-tap-pd-chevron { font-size:.72rem; display:inline-block; transition:transform .3s ease; }
 .nutri-card-pd[data-open="true"] .nutri-tap-pd-chevron { transform:rotate(180deg); }
 .nutri-card-pd { transition:transform .22s ease, box-shadow .22s ease; }
 .nutri-card-pd:hover { transform:translateY(-4px); }
 @media (prefers-reduced-motion: reduce) {
-  .nutri-more-pd, .nutri-more-pd-inner, .nutri-tap-pd-chevron, .nutri-card-pd { transition:none; }
+  .nutri-more-pd, .nutri-more-pd-inner, .nutri-tap-pd-chevron, .nutri-card-pd, .nutri-tap-pd { transition:none; animation:none; }
 }
 
 /* Expandable feature items (+ accordion) */

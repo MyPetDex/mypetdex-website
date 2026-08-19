@@ -65,21 +65,24 @@
 
     /* ─── NAV ────────────────────────────────────────────────── */
     nav {
-      background: rgba(37,99,235,0.82) !important;
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(37,99,235,0.78) !important;
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      width: min(94%, 1240px);
       z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 5%;
-      border-bottom: 1px solid rgba(255,255,255,.15);
-      box-shadow: 0 10px 30px rgba(15,23,42,.1);
-      transition: padding .3s ease, box-shadow .3s ease, background .3s ease;
+      padding: 14px 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 16px 44px rgba(15,23,42,.2), 0 0 0 1px rgba(255,255,255,.06) inset;
+      transition: padding .3s ease, box-shadow .3s ease, background .3s ease, top .3s ease, border-radius .3s ease;
     }
     nav.scrolled {
-      padding: 12px 5%;
-      background: rgba(29,64,175,.92) !important;
-      box-shadow: 0 14px 36px rgba(15,23,42,.22);
+      top: 10px;
+      padding: 10px 26px;
+      background: rgba(29,64,175,.88) !important;
+      box-shadow: 0 18px 48px rgba(15,23,42,.28), 0 0 0 1px rgba(255,255,255,.06) inset;
     }
     .nav-logo { display:flex; align-items:center; gap:11px; }
     .nav-logo span.paw { font-size:1.6rem; filter: drop-shadow(0 0 8px var(--neon)); }
@@ -779,7 +782,7 @@
     /* ─── MOBILE ─────────────────────────────────────────────── */
     @media(max-width:600px){
       /* Nav */
-      nav { background: #3B82F6 !important; padding:14px 5%; }
+      nav { background: rgba(37,99,235,.92) !important; padding:12px 20px; width:92%; border-radius:26px; top:10px; }
 
       /* Hero */
       #hero { padding:90px 5% 50px; min-height:auto; }
@@ -1023,11 +1026,13 @@
     <span class="pd-marquee-item">🤖 AI PET ASSISTANT</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">📍 FIND LOCAL VETS</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">🧮 CALORIE CALCULATOR</span><span class="pd-marquee-dot">🐾</span>
+    <span class="pd-marquee-item">🍖 CUSTOM PET RECIPES</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">❤️ PET ADOPTION</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">🔔 VACCINE REMINDERS</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">🤖 AI PET ASSISTANT</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">📍 FIND LOCAL VETS</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">🧮 CALORIE CALCULATOR</span><span class="pd-marquee-dot">🐾</span>
+    <span class="pd-marquee-item">🍖 CUSTOM PET RECIPES</span><span class="pd-marquee-dot">🐾</span>
     <span class="pd-marquee-item">❤️ PET ADOPTION</span><span class="pd-marquee-dot">🐾</span>
   </div>
 </div>
@@ -1106,36 +1111,64 @@
       <div class="pillar-content open">
       <div class="features-grid features-grid--4">
         <div class="feat-item reveal feat-item--health" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">💉</span>
-            <span class="feat-item-title">Vaccine Records</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">💉</span>
+                <span class="feat-item-title">Vaccine Records</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Store every vaccination with dates, due dates, and vet notes. Never scramble for paperwork again.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Store every vaccination with dates, due dates, and vet notes. Never scramble for paperwork again.</p></div></div>
         </div>
         <div class="feat-item reveal feat-item--health" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">🔔</span>
-            <span class="feat-item-title">Smart Reminders</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">🔔</span>
+                <span class="feat-item-title">Smart Reminders</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Get email reminders for upcoming vaccines, vet appointments, and medications — automatically.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Get email reminders for upcoming vaccines, vet appointments, and medications — automatically.</p></div></div>
         </div>
         <div class="feat-item reveal feat-item--health" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">📸</span>
-            <span class="feat-item-title">Pet Profiles & Photos</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">📸</span>
+                <span class="feat-item-title">Pet Profiles & Photos</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Create rich profiles with photos, breed info, birthday, and health history for every pet.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Create rich profiles with photos, breed info, birthday, and health history for every pet.</p></div></div>
         </div>
         <div class="feat-item reveal feat-item--health" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">🧠</span>
-            <span class="feat-item-title">AI Pet Assistant</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">🧠</span>
+                <span class="feat-item-title">AI Pet Assistant</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Get personalized pet care guidance powered by AI — for training, breed care, and general wellness. Nutrition recipes are sourced from our AAFCO/USDA verified library, not generated from scratch.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Get personalized pet care guidance powered by AI — for training, breed care, and general wellness. Nutrition recipes are sourced from our AAFCO/USDA verified library, not generated from scratch.</p></div></div>
         </div>
       </div>
       </div>
@@ -1153,20 +1186,34 @@
       <div class="pillar-content">
       <div class="features-grid">
         <div class="feat-item reveal feat-item--nutrition" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">🧮</span>
-            <span class="feat-item-title">Calorie Calculator</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">🧮</span>
+                <span class="feat-item-title">Calorie Calculator</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Calculate your pet's daily calorie needs based on weight, activity level, and life stage.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Calculate your pet's daily calorie needs based on weight, activity level, and life stage.</p></div></div>
         </div>
         <div class="feat-item reveal feat-item--nutrition" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">🍖</span>
-            <span class="feat-item-title">Pet Recipes</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">🍖</span>
+                <span class="feat-item-title">Pet Recipes</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Discover healthy, homemade meal ideas your dog or cat will love — curated and community-shared.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Discover healthy, homemade meal ideas your dog or cat will love — curated and community-shared.</p></div></div>
         </div>
       </div>
       </div>
@@ -1184,28 +1231,49 @@
       <div class="pillar-content">
       <div class="features-grid">
         <div class="feat-item reveal feat-item--services" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">📍</span>
-            <span class="feat-item-title">Local Service Providers</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">📍</span>
+                <span class="feat-item-title">Local Service Providers</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Find vets, groomers, trainers, and dog walkers near you. Filter by location and read reviews.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Find vets, groomers, trainers, and dog walkers near you. Filter by location and read reviews.</p></div></div>
         </div>
         <div class="feat-item reveal feat-item--services" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">❤️</span>
-            <span class="feat-item-title">Pet Adoption</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">❤️</span>
+                <span class="feat-item-title">Pet Adoption</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Find adoptable dogs and cats near you. Connect directly with local shelters and rescues.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Find adoptable dogs and cats near you. Connect directly with local shelters and rescues.</p></div></div>
         </div>
         <div class="feat-item reveal feat-item--services" onclick="toggleFeatItem(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFeatItem(this);}">
-          <div class="feat-item-head">
-            <span class="feat-item-icon">🏢</span>
-            <span class="feat-item-title">Provider Dashboard</span>
-            <span class="feat-item-plus">+</span>
+          <div class="feat-item-inner">
+            <div class="feat-item-face feat-item-front">
+              <div class="feat-item-head">
+                <span class="feat-item-icon">🏢</span>
+                <span class="feat-item-title">Provider Dashboard</span>
+                <span class="feat-item-plus">+</span>
+              </div>
+            </div>
+            <div class="feat-item-face feat-item-back">
+              <p class="feat-item-desc">Are you a vet, groomer, or trainer? List your services and reach local pet owners for free.</p>
+              <span class="feat-item-back-hint">↺ Tap to flip back</span>
+            </div>
           </div>
-          <div class="feat-item-body"><div class="feat-item-body-inner"><p class="feat-item-desc">Are you a vet, groomer, or trainer? List your services and reach local pet owners for free.</p></div></div>
         </div>
       </div>
     </div>
@@ -1607,22 +1675,22 @@
     </div>
 
     <!-- Trust bar -->
-    <div style="background:#FFFFFF;border-radius:16px;padding:20px 32px;border:1px solid rgba(68,134,244,0.12);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:1.3rem;">✅</span>
-        <span style="font-size:.88rem;font-weight:600;color:#1E293B;">100% public-domain data sources</span>
+    <div style="background:#FFFFFF;border-radius:16px;padding:22px 32px;border:1px solid rgba(68,134,244,0.12);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;">
+      <div style="display:flex;align-items:center;gap:11px;">
+        <span style="font-size:1.5rem;">✅</span>
+        <span style="font-size:1rem;font-weight:700;color:#1E293B;">100% public-domain data sources</span>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:1.3rem;">🐾</span>
-        <span style="font-size:.88rem;font-weight:600;color:#1E293B;">Covers dogs & cats, all life stages</span>
+      <div style="display:flex;align-items:center;gap:11px;">
+        <span style="font-size:1.5rem;">🐾</span>
+        <span style="font-size:1rem;font-weight:700;color:#1E293B;">Covers dogs & cats, all life stages</span>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span style="font-size:1.3rem;">⚕️</span>
-        <span style="font-size:.88rem;font-weight:600;color:#1E293B;">Always confirm with your vet</span>
+      <div style="display:flex;align-items:center;gap:11px;">
+        <span style="font-size:1.5rem;">⚕️</span>
+        <span style="font-size:1rem;font-weight:700;color:#1E293B;">Always confirm with your vet</span>
       </div>
     </div>
 
-    <p style="text-align:center;color:#94a3b8;font-size:.78rem;font-style:italic;margin-top:16px;">Nutrition estimates are informational only and do not replace professional veterinary advice.</p>
+    <p style="text-align:center;color:#64748B;font-size:.88rem;font-style:italic;margin-top:18px;">Nutrition estimates are informational only and do not replace professional veterinary advice.</p>
   </div>
 </section>
 
@@ -2406,43 +2474,55 @@ function toggleFeatItem(item) {
   .nutri-more-pd, .nutri-more-pd-inner, .nutri-tap-pd-chevron, .nutri-card-pd, .nutri-tap-pd { transition:none; animation:none; }
 }
 
-/* Expandable feature items (+ accordion) */
-.feat-item { background:#fff; border-radius:16px; border:1px solid #E2E8F0; padding:20px 22px; cursor:pointer; transition:box-shadow .2s ease, transform .2s ease, border-color .2s ease; outline:none; }
-.feat-item:hover { transform:translateY(-3px); }
-.feat-item:focus-visible { box-shadow:0 0 0 3px rgba(59,130,246,.35); border-color:#3B82F6; }
+/* Flippable feature cards */
+.feat-item { background:transparent; border:none; padding:0; cursor:pointer; outline:none; perspective:1400px; transition:transform .25s ease; }
+.feat-item:hover { transform:translateY(-4px); }
+.feat-item:focus-visible .feat-item-face { box-shadow:0 0 0 3px rgba(59,130,246,.4); }
+.feat-item-inner {
+  position:relative; width:100%; min-height:134px;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.2,.8,.2,1.05);
+}
+.feat-item[data-open="true"] .feat-item-inner { transform:rotateY(180deg); }
+.feat-item-face {
+  position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  background:#fff; border-radius:16px; border:1px solid #E2E8F0;
+  padding:20px 22px; display:flex; flex-direction:column; justify-content:center;
+  box-shadow:0 2px 10px rgba(15,23,42,.05); transition:box-shadow .25s ease, border-color .25s ease;
+}
+.feat-item:hover .feat-item-face { box-shadow:0 12px 28px rgba(15,23,42,.12); }
+.feat-item-back { transform:rotateY(180deg); justify-content:space-between; }
 .feat-item-head { display:flex; align-items:center; gap:12px; }
-.feat-item-icon { font-size:1.25rem; width:40px; height:40px; min-width:40px; background:#EFF6FF; border-radius:10px; display:flex; align-items:center; justify-content:center; transition:background .25s ease; }
+.feat-item-icon { font-size:1.25rem; width:40px; height:40px; min-width:40px; background:#EFF6FF; border-radius:10px; display:flex; align-items:center; justify-content:center; }
 .feat-item-title { font-weight:700; font-size:1rem; color:#1E293B; flex:1; }
 .feat-item-plus {
   width:28px; height:28px; min-width:28px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   font-size:1.1rem; font-weight:600; line-height:1; color:#3B82F6; background:#EFF6FF;
-  transition:transform .3s ease, background .25s ease, color .25s ease;
+  transition:transform .3s ease;
 }
-.feat-item[data-open="true"] .feat-item-plus { transform:rotate(135deg); }
-.feat-item-body { display:grid; grid-template-rows:0fr; opacity:0; transition:grid-template-rows .35s cubic-bezier(.2,.8,.2,1), opacity .25s ease; }
-.feat-item-body-inner { min-height:0; overflow:hidden; }
-.feat-item[data-open="true"] .feat-item-body { grid-template-rows:1fr; opacity:1; margin-top:12px; }
-.feat-item-desc { color:#64748B; font-size:.88rem; line-height:1.65; margin:0; padding-top:2px; }
+.feat-item:hover .feat-item-plus { transform:rotate(90deg); }
+.feat-item-desc { color:#64748B; font-size:.88rem; line-height:1.6; margin:0; }
+.feat-item-back-hint { font-size:.72rem; font-weight:700; color:#94A3B8; margin-top:10px; }
 @media (prefers-reduced-motion: reduce) {
-  .feat-item, .feat-item-plus, .feat-item-body, .feat-item-icon { transition:none; }
+  .feat-item, .feat-item-inner, .feat-item-plus, .feat-item-face { transition:none; }
 }
 
 /* Per-section color coding */
 .feat-item--health .feat-item-icon { background:#EFF6FF; }
 .feat-item--health .feat-item-plus { background:#EFF6FF; color:#3B82F6; }
-.feat-item--health[data-open="true"] .feat-item-plus { background:#3B82F6; color:#fff; }
-.feat-item--health:hover { border-color:rgba(59,130,246,.35); box-shadow:0 10px 24px rgba(59,130,246,.12); }
+.feat-item--health .feat-item-back { border-top:3px solid #3B82F6; }
+.feat-item--health .feat-item-back-hint { color:#3B82F6; }
 
 .feat-item--nutrition .feat-item-icon { background:#FFF3E8; }
 .feat-item--nutrition .feat-item-plus { background:#FFF3E8; color:#C2601A; }
-.feat-item--nutrition[data-open="true"] .feat-item-plus { background:#C2601A; color:#fff; }
-.feat-item--nutrition:hover { border-color:rgba(194,96,26,.3); box-shadow:0 10px 24px rgba(194,96,26,.12); }
+.feat-item--nutrition .feat-item-back { border-top:3px solid #C2601A; }
+.feat-item--nutrition .feat-item-back-hint { color:#C2601A; }
 
 .feat-item--services .feat-item-icon { background:#E6FBF6; }
 .feat-item--services .feat-item-plus { background:#E6FBF6; color:#0F766E; }
-.feat-item--services[data-open="true"] .feat-item-plus { background:#0F766E; color:#fff; }
-.feat-item--services:hover { border-color:rgba(15,118,110,.3); box-shadow:0 10px 24px rgba(15,118,110,.12); }
+.feat-item--services .feat-item-back { border-top:3px solid #0F766E; }
+.feat-item--services .feat-item-back-hint { color:#0F766E; }
 
 /* 4-column health grid on desktop only — avoids orphaned card in a 3-col grid */
 @media (min-width:769px) {

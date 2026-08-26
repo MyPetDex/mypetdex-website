@@ -2331,7 +2331,10 @@ function calcCalories() {
       const data = await res.json();
       typing.remove();
 
-      const reply = data?.content?.[0]?.text || "Sorry, I couldn't reach the AI right now. Please try again!";
+      if (!res.ok || !data?.content?.[0]?.text) {
+        console.error('AI Chat backend error:', res.status, data);
+      }
+      const reply = data?.content?.[0]?.text || (data?.error ? `⚠️ AI error: ${typeof data.error === 'string' ? data.error : JSON.stringify(data.error)}` : "Sorry, I couldn't reach the AI right now. Please try again!");
       const botMsg = document.createElement('div');
       botMsg.className = 'msg msg-bot';
       botMsg.textContent = reply;

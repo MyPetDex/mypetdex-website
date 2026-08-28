@@ -28,16 +28,25 @@
 
     nav {
       background: var(--blue);
-      padding: 16px 5%;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      width: min(94%, 1100px);
+      z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 16px 40px rgba(15,23,42,.2), 0 0 0 1px rgba(255,255,255,.06) inset;
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { height: 36px; width: 36px; object-fit: contain; border-radius: 50%; }
-    .nav-logo .brand { font-family: var(--font-h); font-weight: 800; font-size: 1.2rem; color: #fff; }
-    .nav-back { color: rgba(255,255,255,0.9); font-size: .88rem; font-weight: 600; text-decoration: none; }
+    .nav-logo img { height: 36px; width: 36px; object-fit: contain; border-radius: 50%; box-shadow: 0 0 0 3px rgba(255,255,255,.28); }
+    .nav-logo .brand { font-family: var(--font-h); font-weight: 800; font-size: 1.15rem; color: #fff; }
+    .nav-back { color: rgba(255,255,255,0.9); font-size: .85rem; font-weight: 600; text-decoration: none; }
     .nav-back:hover { color: #fff; }
+    @media (max-width: 640px) { nav { padding: 10px 18px; width: 92%; } }
 
-    .hero { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dk) 100%); color: #fff; text-align: center; padding: 64px 5% 56px; }
+    .hero { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dk) 100%); color: #fff; text-align: center; padding: 130px 5% 56px; }
     .hero-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); padding:6px 16px; border-radius:20px; font-size:.8rem; font-weight:700; margin-bottom:20px; }
     .hero h1 { font-family: var(--font-h); font-weight: 800; font-size: clamp(1.8rem,4vw,2.6rem); line-height:1.2; margin-bottom:16px; }
     .hero p { max-width: 620px; margin: 0 auto; color: rgba(255,255,255,.9); font-size: 1.02rem; }
@@ -98,9 +107,19 @@
     .cta-band p { color:rgba(255,255,255,.9); margin-bottom:24px; }
     .cta-band a { display:inline-block; background:#fff; color:var(--blue-dk); font-weight:700; padding:13px 28px; border-radius:50px; text-decoration:none; }
 
-    footer { background:#1E293B; color:rgba(255,255,255,.7); text-align:center; padding:28px 5%; font-size:.82rem; }
-    footer a { color:rgba(255,255,255,.85); text-decoration:none; margin:0 8px; }
-    footer a:hover { text-decoration:underline; }
+    footer {
+      background: var(--blue); color: rgba(255,255,255,0.85);
+      padding: 40px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      font-size: 0.85rem;
+    }
+    .footer-logo { font-family: var(--font-h); font-weight: 800; font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .footer-logo img { height: 30px; width: 30px; object-fit: contain; border-radius: 50%; }
+    .footer-links { display: flex; gap: 20px; font-size: 0.85rem; }
+    .footer-links a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-links a:hover { color: #fff; }
+    @media (max-width: 640px) { footer { flex-direction: column; text-align: center; } }
 
     @media (max-width:760px) {
       .example-grid, .activity-grid, .stage-grid, .trust-grid { grid-template-columns: 1fr; }
@@ -271,13 +290,14 @@
   </div>
 
   <footer>
-    <div>© 2026 MyPetDex. All rights reserved.</div>
-    <div style="margin-top:8px;">
-      <a href="https://home.mypetdex.app">Home</a>·
-      <a href="https://home.mypetdex.app#calculator">Calculator</a>·
-      <a href="privacy.html">Privacy</a>·
-      <a href="terms.html">Terms</a>
+    <div class="footer-logo"><img src="/images/logo.png" alt="MyPetDex" /> MyPetDex</div>
+    <div class="footer-links">
+      <a href="https://home.mypetdex.app">Home</a>
+      <a href="https://home.mypetdex.app#calculator">Calculator</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
     </div>
+    <div style="font-size:0.78rem;">© 2026 MyPetDex</div>
   </footer>
 
 </body>

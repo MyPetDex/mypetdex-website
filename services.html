@@ -264,18 +264,24 @@
 
     /* FOOTER */
     footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.78rem;
-      color: var(--muted);
+      background: var(--blue); color: rgba(255,255,255,0.85);
+      padding: 40px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      font-size: 0.85rem;
     }
-    footer a { color: var(--blue); }
+    .footer-logo { font-family: var(--font-h); font-weight: 800; font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .footer-logo img { height: 30px; width: 30px; object-fit: contain; border-radius: 50%; }
+    .footer-links { display: flex; gap: 20px; font-size: 0.85rem; }
+    .footer-links a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-links a:hover { color: #fff; }
 
     /* MOBILE */
     @media (max-width: 640px) {
       .service-grid { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; }
       .section { padding: 48px 5%; }
+      footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -419,9 +425,15 @@
   </div>
 
   <footer>
-    &copy; 2025 MyPetDex &nbsp;·&nbsp;
-    <a href="https://home.mypetdex.app/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="https://home.mypetdex.app/terms.html">Terms of Service</a>
+    <div class="footer-logo"><img src="/images/logo.png" alt="MyPetDex" /> MyPetDex</div>
+    <div class="footer-links">
+      <a href="https://home.mypetdex.app">Home</a>
+      <a href="/for-providers.html">For Providers</a>
+      <a href="/for-shelters.html">For Shelters</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+    <div style="font-size:0.78rem;">© 2026 MyPetDex</div>
   </footer>
 
 </body>

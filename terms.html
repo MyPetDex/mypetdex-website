@@ -146,15 +146,19 @@
     .highlight-box strong { color: #4486F4; }
 
     footer {
-      position: relative; z-index: 1;
-      border-top: 1px solid var(--border);
-      padding: 32px 5%;
-      text-align: center;
-      font-size: .82rem;
-      color: var(--muted);
+      background: #4486F4; color: rgba(255,255,255,0.85);
+      padding: 40px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      font-size: .85rem;
     }
-    footer a { color: #4486F4; }
+    .footer-logo { font-family: var(--font-h); font-weight: 800; font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .footer-logo img { height: 30px; width: 30px; object-fit: contain; border-radius: 50%; }
+    .footer-links { display: flex; gap: 20px; font-size: .85rem; }
+    footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    footer a:hover { color: #fff; }
     .footer-heart { color: #ff6ef7; }
+    @media(max-width:600px) { footer { flex-direction: column; text-align: center; } }
 
     @media(max-width:600px) {
       main { padding: 40px 5% 80px; }
@@ -255,8 +259,13 @@
 </main>
 
 <footer>
-  <p>© 2026 MyPetDex. All rights reserved. Made with <span class="footer-heart">♥</span> for pets everywhere.</p>
-  <p style="margin-top:8px;"><a href="/">Home</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="mailto:help@mypetdex.app">Contact</a></p>
+  <div class="footer-logo"><img src="/images/logo.png" alt="MyPetDex" /> MyPetDex</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="mailto:help@mypetdex.app">Contact</a>
+  </div>
+  <div style="font-size:.78rem;">© 2026 MyPetDex. Made with <span class="footer-heart">♥</span> for pets everywhere.</div>
 </footer>
 
 </body>

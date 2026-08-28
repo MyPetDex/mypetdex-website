@@ -32,10 +32,18 @@
     /* NAV */
     nav {
       background: var(--blue);
-      padding: 16px 5%;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      width: min(94%, 1100px);
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 16px 40px rgba(15,23,42,.2), 0 0 0 1px rgba(255,255,255,.06) inset;
     }
     .nav-logo {
       display: flex;
@@ -43,22 +51,23 @@
       gap: 10px;
       text-decoration: none;
     }
-    .nav-logo img { height: 36px; width: 36px; object-fit: contain; border-radius: 50%; }
+    .nav-logo img { height: 36px; width: 36px; object-fit: contain; border-radius: 50%; box-shadow: 0 0 0 3px rgba(255,255,255,.28); }
     .nav-logo .brand {
       font-family: var(--font-h);
       font-weight: 800;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: #fff;
     }
-    .nav-back { color: rgba(255,255,255,0.85); font-size: 0.88rem; font-weight: 500; text-decoration: none; }
+    .nav-back { color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
     .nav-back:hover { color: #fff; }
+    @media (max-width: 640px) { nav { padding: 10px 18px; width: 92%; } }
 
     /* HERO */
     .hero {
       background: linear-gradient(160deg, #4486F4 0%, #3570D4 100%);
       color: #fff;
       text-align: center;
-      padding: 60px 20px 56px;
+      padding: 110px 20px 56px;
     }
     .hero-badge {
       display: inline-flex;

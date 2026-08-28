@@ -46,26 +46,33 @@
     }
 
     nav {
-      position: sticky; top: 0;
+      background: #4486F4;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      width: min(94%, 1100px);
       z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 5%;
-      background: #4486F4;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 16px 40px rgba(15,23,42,.2), 0 0 0 1px rgba(255,255,255,.06) inset;
     }
     .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-    .nav-logo img { height:36px; width:36px; border-radius:50%; object-fit:contain; }
+    .nav-logo img { height:36px; width:36px; border-radius:50%; object-fit:contain; box-shadow: 0 0 0 3px rgba(255,255,255,.28); }
     .nav-logo .brand {
       font-family: var(--font-h);
-      font-weight: 800; font-size: 1.25rem;
+      font-weight: 800; font-size: 1.15rem;
       color: #FFFFFF;
     }
     .nav-back {
-      font-size: .88rem; color: rgba(255,255,255,0.85);
+      font-size: .85rem; font-weight:600; color: rgba(255,255,255,0.9);
       border: 1px solid rgba(255,255,255,0.4);
       padding: 8px 18px; border-radius: 50px;
       transition: color .2s, background .2s;
     }
     .nav-back:hover { color: #fff; background: rgba(255,255,255,0.15); text-decoration: none; }
+    @media (max-width: 640px) { nav { padding: 10px 18px; width: 92%; } }
 
     .hero-bg {
       position: fixed; inset: 0; z-index: 0;
@@ -79,7 +86,7 @@
       position: relative; z-index: 1;
       max-width: 780px;
       margin: 0 auto;
-      padding: 60px 5% 100px;
+      padding: 110px 5% 100px;
     }
 
     .page-label {

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Complete Pet Calorie Guide – MyPetDex</title>
+  <meta name="description" content="How MyPetDex calculates your dog or cat's daily calorie needs — the RER/MER veterinary formula, activity levels, life-stage nutrition, and worked examples." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --blue:   #3B82F6;
+      --blue-dk:#2563EB;
+      --ink:    #1E293B;
+      --muted:  #64748B;
+      --border: #E2E8F0;
+      --font-h: 'Outfit', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--ink); background: #fff; overflow-x: hidden; line-height: 1.6; }
+    a { color: inherit; }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 5%; }
+
+    nav {
+      background: var(--blue);
+      padding: 16px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 36px; width: 36px; object-fit: contain; border-radius: 50%; }
+    .nav-logo .brand { font-family: var(--font-h); font-weight: 800; font-size: 1.2rem; color: #fff; }
+    .nav-back { color: rgba(255,255,255,0.9); font-size: .88rem; font-weight: 600; text-decoration: none; }
+    .nav-back:hover { color: #fff; }
+
+    .hero { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dk) 100%); color: #fff; text-align: center; padding: 64px 5% 56px; }
+    .hero-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); padding:6px 16px; border-radius:20px; font-size:.8rem; font-weight:700; margin-bottom:20px; }
+    .hero h1 { font-family: var(--font-h); font-weight: 800; font-size: clamp(1.8rem,4vw,2.6rem); line-height:1.2; margin-bottom:16px; }
+    .hero p { max-width: 620px; margin: 0 auto; color: rgba(255,255,255,.9); font-size: 1.02rem; }
+    .hero-cta { display:inline-block; margin-top:26px; background:#fff; color:var(--blue-dk); font-weight:700; padding:13px 26px; border-radius:50px; text-decoration:none; font-size:.95rem; }
+
+    .section { padding: 56px 5%; }
+    .section-label { font-size:.78rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--blue); margin-bottom:10px; }
+    .section h2 { font-family: var(--font-h); font-weight:800; font-size: clamp(1.4rem,3vw,1.9rem); margin-bottom:14px; }
+    .section > .container > p.lead { color: var(--muted); margin-bottom: 28px; font-size: 1rem; }
+    .alt-bg { background: #F8FAFF; }
+
+    .formula-box {
+      background: #fff; border: 1.5px solid var(--border); border-radius: 16px;
+      padding: 24px 28px; margin: 22px 0; text-align:center;
+      font-family: var(--font-h); font-weight:700; font-size:1.15rem; color: var(--blue-dk);
+      box-shadow: 0 2px 10px rgba(15,23,42,.04);
+    }
+    .formula-box small { display:block; font-family: var(--font-b); font-weight:400; font-size:.82rem; color: var(--muted); margin-top:8px; }
+
+    .example-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; margin-top: 24px; }
+    .example-card { background:#fff; border:1px solid var(--border); border-radius:16px; padding:22px; box-shadow:0 2px 10px rgba(15,23,42,.04); }
+    .example-card h3 { font-family: var(--font-h); font-size:1rem; margin-bottom:10px; color: var(--ink); }
+    .example-card .row { display:flex; justify-content:space-between; font-size:.85rem; color:var(--muted); padding:4px 0; border-bottom:1px dashed var(--border); }
+    .example-card .row:last-of-type { border-bottom:none; }
+    .example-card .result { margin-top:14px; text-align:center; background:#EFF6FF; border-radius:10px; padding:12px; }
+    .example-card .result strong { font-family:var(--font-h); font-size:1.3rem; color:var(--blue-dk); display:block; }
+    .example-card .result span { font-size:.75rem; color:var(--muted); }
+
+    .activity-grid, .stage-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:16px; margin-top:20px; }
+    .info-card { background:#fff; border:1px solid var(--border); border-radius:14px; padding:20px 22px; }
+    .info-card h4 { font-family:var(--font-h); font-size:.98rem; margin-bottom:6px; color:var(--ink); }
+    .info-card .mult { color:var(--blue-dk); font-weight:700; }
+    .info-card p { font-size:.88rem; color:var(--muted); margin:0; }
+
+    .trust-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:22px; }
+    .trust-card { background:#fff; border:1px solid var(--border); border-radius:16px; padding:22px; text-align:center; }
+    .trust-card .ic { font-size:1.8rem; margin-bottom:10px; }
+    .trust-card h4 { font-family:var(--font-h); font-size:.95rem; margin-bottom:6px; }
+    .trust-card p { font-size:.82rem; color:var(--muted); }
+    .trust-link { display:inline-block; margin-top:22px; font-weight:700; color:var(--blue-dk); text-decoration:none; font-size:.9rem; }
+    .trust-link:hover { text-decoration:underline; }
+
+    .tips-list { margin-top:18px; display:flex; flex-direction:column; gap:12px; }
+    .tips-list div { background:#fff; border:1px solid var(--border); border-radius:12px; padding:14px 18px; font-size:.9rem; color:var(--ink); }
+    .tips-list b { color: var(--blue-dk); }
+
+    details.faq { background:#fff; border:1px solid var(--border); border-radius:14px; padding:16px 20px; margin-bottom:12px; }
+    details.faq summary { cursor:pointer; font-weight:700; font-size:.95rem; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+    details.faq summary::-webkit-details-marker { display:none; }
+    details.faq summary::after { content:'+'; font-size:1.2rem; color:var(--blue); font-weight:400; }
+    details.faq[open] summary::after { content:'–'; }
+    details.faq p { margin-top:10px; font-size:.88rem; color:var(--muted); }
+
+    .disclaimer { background:#FEF9C3; border-left:3px solid #EAB308; border-radius:8px; padding:14px 16px; font-size:.85rem; color:#713F12; margin:24px 0; }
+
+    .cta-band { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dk) 100%); color:#fff; text-align:center; padding:56px 5%; }
+    .cta-band h2 { font-family:var(--font-h); font-weight:800; font-size: clamp(1.4rem,3vw,1.9rem); margin-bottom:14px; }
+    .cta-band p { color:rgba(255,255,255,.9); margin-bottom:24px; }
+    .cta-band a { display:inline-block; background:#fff; color:var(--blue-dk); font-weight:700; padding:13px 28px; border-radius:50px; text-decoration:none; }
+
+    footer { background:#1E293B; color:rgba(255,255,255,.7); text-align:center; padding:28px 5%; font-size:.82rem; }
+    footer a { color:rgba(255,255,255,.85); text-decoration:none; margin:0 8px; }
+    footer a:hover { text-decoration:underline; }
+
+    @media (max-width:760px) {
+      .example-grid, .activity-grid, .stage-grid, .trust-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://home.mypetdex.app" class="nav-logo">
+      <img src="/images/logo.png" alt="MyPetDex" />
+      <span class="brand">MyPetDex</span>
+    </a>
+    <a href="https://home.mypetdex.app" class="nav-back">← Back to home</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">🧮 Nutrition Science</div>
+    <h1>The Complete Pet Calorie Guide</h1>
+    <p>The exact veterinary formula behind MyPetDex's Calorie Calculator — how it works, worked examples, and why you can trust the numbers.</p>
+    <a href="https://home.mypetdex.app#calculator" class="hero-cta">Try the Calculator →</a>
+  </section>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2>The RER &amp; MER Formula</h2>
+      <p class="lead">MyPetDex doesn't guess at portions. Every recommendation starts from Resting Energy Requirement (RER) — the calories your pet's body burns at complete rest — then adjusts for how active they are and what life stage they're in.</p>
+
+      <div class="formula-box">
+        RER = 70 × (body weight in kg)<sup>0.75</sup>
+        <small>The 0.75 exponent accounts for metabolic scaling — smaller pets burn more calories per pound than larger ones.</small>
+      </div>
+
+      <p style="color:var(--muted);font-size:.92rem;margin-top:18px;">From there, we calculate Maintenance Energy Requirement (MER) — the number that actually tells you how much to feed:</p>
+
+      <div class="formula-box" style="margin-top:14px;">
+        MER = RER × Activity Factor × Life Stage Factor
+        <small>Body condition score (BCS) is then layered on top to fine-tune for pets who need to gain, lose, or maintain weight.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="section alt-bg">
+    <div class="container">
+      <div class="section-label">Worked Examples</div>
+      <h2>See the Math in Action</h2>
+      <p class="lead">Three real scenarios, calculated step by step using the same formula that powers the calculator.</p>
+
+      <div class="example-grid">
+        <div class="example-card">
+          <h3>🐕 Adult, 25 lb, moderate activity</h3>
+          <div class="row"><span>Weight</span><span>25 lb → 11.3 kg</span></div>
+          <div class="row"><span>RER</span><span>≈ 432 kcal</span></div>
+          <div class="row"><span>Activity ×</span><span>1.4 (moderate)</span></div>
+          <div class="row"><span>Life stage ×</span><span>1.0 (adult)</span></div>
+          <div class="result"><strong>≈ 605 kcal/day</strong><span>Maintenance Energy Requirement</span></div>
+        </div>
+        <div class="example-card">
+          <h3>🐾 Puppy, 15 lb, active</h3>
+          <div class="row"><span>Weight</span><span>15 lb → 6.8 kg</span></div>
+          <div class="row"><span>RER</span><span>≈ 295 kcal</span></div>
+          <div class="row"><span>Activity ×</span><span>1.6 (active)</span></div>
+          <div class="row"><span>Life stage ×</span><span>1.75 (growth)</span></div>
+          <div class="result"><strong>≈ 825 kcal/day</strong><span>Maintenance Energy Requirement</span></div>
+        </div>
+        <div class="example-card">
+          <h3>🦴 Senior, 50 lb, sedentary</h3>
+          <div class="row"><span>Weight</span><span>50 lb → 22.7 kg</span></div>
+          <div class="row"><span>RER</span><span>≈ 727 kcal</span></div>
+          <div class="row"><span>Activity ×</span><span>1.2 (sedentary)</span></div>
+          <div class="row"><span>Life stage ×</span><span>0.8 (senior)</span></div>
+          <div class="result"><strong>≈ 628 kcal/day</strong><span>Adjusted −10% for mild overweight BCS</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-label">Activity Multipliers</div>
+      <h2>How Active Is Your Pet, Really?</h2>
+      <p class="lead">This is the single biggest factor pet owners get wrong. A "moderate" estimate on the food bag rarely fits an individual pet.</p>
+      <div class="activity-grid">
+        <div class="info-card"><h4>Sedentary <span class="mult">×1.2</span></h4><p>Rests most of the day, brief bathroom-break walks only. Typical for senior pets or those with mobility limits.</p></div>
+        <div class="info-card"><h4>Moderate <span class="mult">×1.4</span></h4><p>30–60 minutes of walking or play daily. Fits most household pets with a regular routine.</p></div>
+        <div class="info-card"><h4>Active <span class="mult">×1.6</span></h4><p>1–2 hours of daily exercise — hiking, running, swimming, or extended play sessions.</p></div>
+        <div class="info-card"><h4>Very Active <span class="mult">×2.0</span></h4><p>Working, sporting, or competition animals with 3+ hours of intense daily activity.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section alt-bg">
+    <div class="container">
+      <div class="section-label">Life Stage Nutrition</div>
+      <h2>Calorie Needs Change With Age</h2>
+      <div class="stage-grid">
+        <div class="info-card"><h4>Puppies &amp; Kittens <span class="mult">×1.75</span></h4><p>Growing bodies need significantly more energy. Feed a growth-formulated food until fully grown (typically 12–24 months, depending on breed size).</p></div>
+        <div class="info-card"><h4>Adults <span class="mult">×1.0</span></h4><p>Maintenance needs. The focus shifts to holding a healthy weight and body condition long-term.</p></div>
+        <div class="info-card"><h4>Seniors <span class="mult">×0.8</span></h4><p>Metabolism slows with age, but protein needs stay high. Senior-formulated food with joint support is worth considering.</p></div>
+        <div class="info-card"><h4>Special cases</h4><p>Pregnancy, nursing, illness, and post-surgery recovery all change energy needs — these require a vet's guidance, not a calculator.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-label">Adjusting Over Time</div>
+      <h2>The Calculator Is a Starting Point</h2>
+      <p class="lead">Every pet's metabolism is a little different. Recheck body condition every 2–4 weeks and adjust from there.</p>
+      <div class="tips-list">
+        <div><b>Ideal condition:</b> Ribs easily felt but not visible, a visible waist from above, and an abdominal tuck from the side.</div>
+        <div><b>Gaining weight?</b> Reduce daily portions by 10–15%.</div>
+        <div><b>Losing weight?</b> Increase daily portions by 10–15%.</div>
+        <div><b>Sudden or dramatic changes?</b> Talk to your vet — it could signal a health issue, not just a feeding one.</div>
+      </div>
+      <div class="disclaimer">⚠️ <strong>Important:</strong> This calculator provides an estimate only and does not replace professional veterinary advice. Always confirm feeding plans with your vet, especially for pets with health conditions.</div>
+    </div>
+  </div>
+
+  <div class="section alt-bg">
+    <div class="container">
+      <div class="section-label">Why Trust These Numbers</div>
+      <h2>Built on the Same Standards Vets Use</h2>
+      <div class="trust-grid">
+        <div class="trust-card"><div class="ic">📋</div><h4>AAFCO 2023</h4><p>The official U.S. nutrient profile standard for pet food, covering every life stage.</p></div>
+        <div class="trust-card"><div class="ic">🌿</div><h4>USDA FoodData Central</h4><p>400,000+ ingredient entries from the U.S. government's public nutrition database.</p></div>
+        <div class="trust-card"><div class="ic">⚖️</div><h4>WSAVA Guidelines</h4><p>The global RER formula used by veterinarians worldwide — the same one powering this calculator.</p></div>
+      </div>
+      <div style="text-align:center;">
+        <a href="https://home.mypetdex.app#nutrition" class="trust-link">See our full data sources →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2>Common Questions</h2>
+      <details class="faq" open>
+        <summary>How accurate is this calculator?</summary>
+        <p>It uses the same RER/MER formula taught in veterinary nutrition programs and referenced by WSAVA. It's a strong starting point, but every pet's metabolism varies — treat the result as a baseline to adjust from, not a fixed rule.</p>
+      </details>
+      <details class="faq">
+        <summary>Should I adjust for my pet's breed?</summary>
+        <p>Some breeds run leaner or heavier metabolisms than average (sighthounds vs. brachycephalic breeds, for example). Start with the calculated number, then adjust based on body condition over a few weeks.</p>
+      </details>
+      <details class="faq">
+        <summary>How often should I feed my pet?</summary>
+        <p>Most adult dogs and cats do well on 2 meals a day. Puppies and kittens typically need 3–4 smaller meals to support growth and blood sugar stability.</p>
+      </details>
+      <details class="faq">
+        <summary>Do treats count toward the daily total?</summary>
+        <p>Yes — treats should make up no more than about 10% of daily calories. Large or frequent treats can throw off the whole calculation.</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h2>Track it all in one place</h2>
+    <p>Calorie targets, vaccine records, reminders, and more — free during early access.</p>
+    <a href="https://app.mypetdex.app">🐾 Join the Early Access Waitlist</a>
+  </div>
+
+  <footer>
+    <div>© 2026 MyPetDex. All rights reserved.</div>
+    <div style="margin-top:8px;">
+      <a href="https://home.mypetdex.app">Home</a>·
+      <a href="https://home.mypetdex.app#calculator">Calculator</a>·
+      <a href="privacy.html">Privacy</a>·
+      <a href="terms.html">Terms</a>
+    </div>
+  </footer>
+
+</body>
+</html>

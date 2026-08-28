@@ -138,8 +138,8 @@
       <p style="color:var(--muted);font-size:.92rem;margin-top:18px;">From there, we calculate Maintenance Energy Requirement (MER) — the number that actually tells you how much to feed:</p>
 
       <div class="formula-box" style="margin-top:14px;">
-        MER = RER × Activity Factor × Life Stage Factor
-        <small>Body condition score (BCS) is then layered on top to fine-tune for pets who need to gain, lose, or maintain weight.</small>
+        MER = RER × Life Stage &amp; Activity Factor × Body Condition Adjustment
+        <small>Spayed/neutered pets get a slightly lower factor than intact pets at the same activity level, since fixed pets typically have a slower metabolism.</small>
       </div>
     </div>
   </div>
@@ -148,32 +148,32 @@
     <div class="container">
       <div class="section-label">Worked Examples</div>
       <h2>See the Math in Action</h2>
-      <p class="lead">Three real scenarios, calculated step by step using the same formula that powers the calculator.</p>
+      <p class="lead">Three real scenarios, calculated step by step using the exact same lookup table as the calculator on our homepage.</p>
 
       <div class="example-grid">
         <div class="example-card">
-          <h3>🐕 Adult, 25 lb, moderate activity</h3>
+          <h3>🐕 Adult, 25 lb, moderate activity, neutered</h3>
           <div class="row"><span>Weight</span><span>25 lb → 11.3 kg</span></div>
           <div class="row"><span>RER</span><span>≈ 432 kcal</span></div>
-          <div class="row"><span>Activity ×</span><span>1.4 (moderate)</span></div>
-          <div class="row"><span>Life stage ×</span><span>1.0 (adult)</span></div>
+          <div class="row"><span>Life stage &amp; activity ×</span><span>1.4</span></div>
+          <div class="row"><span>BCS (ideal) ×</span><span>1.0</span></div>
           <div class="result"><strong>≈ 605 kcal/day</strong><span>Maintenance Energy Requirement</span></div>
         </div>
         <div class="example-card">
-          <h3>🐾 Puppy, 15 lb, active</h3>
+          <h3>🐾 Puppy, 15 lb (6.8 kg)</h3>
           <div class="row"><span>Weight</span><span>15 lb → 6.8 kg</span></div>
           <div class="row"><span>RER</span><span>≈ 295 kcal</span></div>
-          <div class="row"><span>Activity ×</span><span>1.6 (active)</span></div>
-          <div class="row"><span>Life stage ×</span><span>1.75 (growth)</span></div>
-          <div class="result"><strong>≈ 825 kcal/day</strong><span>Maintenance Energy Requirement</span></div>
+          <div class="row"><span>Puppy factor ×</span><span>2.5 (2–10 kg tier)</span></div>
+          <div class="row"><span>BCS (ideal) ×</span><span>1.0</span></div>
+          <div class="result"><strong>≈ 738 kcal/day</strong><span>Maintenance Energy Requirement</span></div>
         </div>
         <div class="example-card">
-          <h3>🦴 Senior, 50 lb, sedentary</h3>
+          <h3>🦴 Senior, 50 lb, neutered</h3>
           <div class="row"><span>Weight</span><span>50 lb → 22.7 kg</span></div>
           <div class="row"><span>RER</span><span>≈ 727 kcal</span></div>
-          <div class="row"><span>Activity ×</span><span>1.2 (sedentary)</span></div>
-          <div class="row"><span>Life stage ×</span><span>0.8 (senior)</span></div>
-          <div class="result"><strong>≈ 628 kcal/day</strong><span>Adjusted −10% for mild overweight BCS</span></div>
+          <div class="row"><span>Senior factor ×</span><span>1.2</span></div>
+          <div class="row"><span>BCS (6, mildly over) ×</span><span>0.9</span></div>
+          <div class="result"><strong>≈ 786 kcal/day</strong><span>Maintenance Energy Requirement</span></div>
         </div>
       </div>
     </div>
@@ -181,27 +181,32 @@
 
   <div class="section">
     <div class="container">
-      <div class="section-label">Activity Multipliers</div>
-      <h2>How Active Is Your Pet, Really?</h2>
-      <p class="lead">This is the single biggest factor pet owners get wrong. A "moderate" estimate on the food bag rarely fits an individual pet.</p>
-      <div class="activity-grid">
-        <div class="info-card"><h4>Sedentary <span class="mult">×1.2</span></h4><p>Rests most of the day, brief bathroom-break walks only. Typical for senior pets or those with mobility limits.</p></div>
-        <div class="info-card"><h4>Moderate <span class="mult">×1.4</span></h4><p>30–60 minutes of walking or play daily. Fits most household pets with a regular routine.</p></div>
-        <div class="info-card"><h4>Active <span class="mult">×1.6</span></h4><p>1–2 hours of daily exercise — hiking, running, swimming, or extended play sessions.</p></div>
-        <div class="info-card"><h4>Very Active <span class="mult">×2.0</span></h4><p>Working, sporting, or competition animals with 3+ hours of intense daily activity.</p></div>
+      <div class="section-label">Life Stage &amp; Activity Factors</div>
+      <h2>The Exact Table Our Calculator Uses</h2>
+      <p class="lead">This is the single biggest factor pet owners get wrong — and it changes depending on whether your pet is spayed/neutered or intact.</p>
+      <div class="activity-grid" style="grid-template-columns:1fr;">
+        <div class="info-card"><h4>Puppy / Kitten <span class="mult">×2.0 – 3.0</span></h4><p>Based on current weight, not activity: under 2 kg ×3.0, 2–10 kg ×2.5, over 10 kg ×2.0. Growing bodies need significantly more energy regardless of how active they seem.</p></div>
+        <div class="info-card"><h4>Adult — Low activity (indoor) <span class="mult">×1.2 neutered / ×1.4 intact</span></h4><p>Brief bathroom-break walks only, rests most of the day.</p></div>
+        <div class="info-card"><h4>Adult — Moderate activity <span class="mult">×1.4 neutered / ×1.6 intact</span></h4><p>30–60 minutes of walking or play daily — fits most household pets.</p></div>
+        <div class="info-card"><h4>Adult — High activity (outdoor/sport) <span class="mult">×1.6 neutered / ×1.8 intact</span></h4><p>1–2+ hours of daily exercise — hiking, running, swimming, working/sporting dogs.</p></div>
+        <div class="info-card"><h4>Senior <span class="mult">×1.2 neutered / ×1.4 intact</span></h4><p>Metabolism slows with age, but protein needs stay high. Senior-formulated food with joint support is worth considering.</p></div>
+        <div class="info-card"><h4>Pregnant <span class="mult">×2.0</span></h4><p>Energy needs rise sharply, especially in the final third of pregnancy.</p></div>
+        <div class="info-card"><h4>Nursing <span class="mult">×3.0 dogs / ×2.5 cats</span></h4><p>The highest energy demand of any life stage — nursing mothers may need to eat multiple times their normal maintenance amount.</p></div>
       </div>
     </div>
   </div>
 
   <div class="section alt-bg">
     <div class="container">
-      <div class="section-label">Life Stage Nutrition</div>
-      <h2>Calorie Needs Change With Age</h2>
+      <div class="section-label">Body Condition Adjustment</div>
+      <h2>Fine-Tuning for Your Pet's Actual Body</h2>
+      <p class="lead">The life-stage factor gets a final nudge based on where your pet sits on the 9-point Body Condition Score (BCS) scale — pulling the target up for underweight pets and down for overweight ones.</p>
       <div class="stage-grid">
-        <div class="info-card"><h4>Puppies &amp; Kittens <span class="mult">×1.75</span></h4><p>Growing bodies need significantly more energy. Feed a growth-formulated food until fully grown (typically 12–24 months, depending on breed size).</p></div>
-        <div class="info-card"><h4>Adults <span class="mult">×1.0</span></h4><p>Maintenance needs. The focus shifts to holding a healthy weight and body condition long-term.</p></div>
-        <div class="info-card"><h4>Seniors <span class="mult">×0.8</span></h4><p>Metabolism slows with age, but protein needs stay high. Senior-formulated food with joint support is worth considering.</p></div>
-        <div class="info-card"><h4>Special cases</h4><p>Pregnancy, nursing, illness, and post-surgery recovery all change energy needs — these require a vet's guidance, not a calculator.</p></div>
+        <div class="info-card"><h4>1–2 — Very thin / thin <span class="mult">×1.3 / ×1.2</span></h4><p>Portions increased to help rebuild healthy weight.</p></div>
+        <div class="info-card"><h4>3–4 — Underweight / lean <span class="mult">×1.1 / ×1.05</span></h4><p>A small boost above baseline maintenance.</p></div>
+        <div class="info-card"><h4>5 — Ideal <span class="mult">×1.0</span></h4><p>No adjustment — this is the target most pets should be maintained at.</p></div>
+        <div class="info-card"><h4>6–7 — Overweight <span class="mult">×0.9 / ×0.8</span></h4><p>Portions reduced to bring weight back down gradually.</p></div>
+        <div class="info-card"><h4>8–9 — Obese / severely obese <span class="mult">×0.7 / ×0.6</span></h4><p>A significant reduction — pair with your vet's guidance for a safe weight-loss plan.</p></div>
       </div>
     </div>
   </div>

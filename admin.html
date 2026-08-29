@@ -752,16 +752,16 @@ function userRowHTML(u) {
         <div class="user-name">${escHtml(name)}</div>
         <div class="user-email">${escHtml(u.email || '—')}${created ? ' · ' + created : ''}</div>
         <div class="tag-row">
-          <span class="tag" style="background:${color}">${u.role || 'owner'}</span>
+          <span class="tag" style="background:${color}">${u.role === 'pending_provider' ? '⏳ pending provider' : (u.role || 'owner')}</span>
           <span class="tag" style="background:${planColor};color:${planTextColor}">${u.plan || 'free'}</span>
           ${u.verified ? '<span class="tag" style="background:#4486F4">✓ verified</span>' : ''}
           ${u.disabled ? '<span class="tag" style="background:#EF4444">disabled</span>' : ''}
         </div>
       </div>
       <div class="user-actions">
-        ${(u.role === 'provider' || u.role === 'shelter') ? `
+        ${(u.role === 'provider' || u.role === 'pending_provider' || u.role === 'shelter') ? `
           <button class="action-btn ${u.verified ? 'btn-unverify' : 'btn-verify'}"
-            onclick="toggleVerified('${u.id}', ${!!u.verified})">
+            onclick="toggleVerified('${u.id}', ${!!u.verified}, '${u.role}')">
             ${u.verified ? 'Unverify' : 'Verify'}
           </button>` : ''}
         <button class="action-btn ${u.disabled ? 'btn-enable' : 'btn-disable'}"
@@ -772,13 +772,30 @@ function userRowHTML(u) {
     </div>`;
 }
 
-async function toggleVerified(uid, current) {
+async function toggleVerified(uid, current, role) {
   try {
-    await db.collection('users').doc(uid).update({ verified: !current });
+    const updates = {
+      verified: !current,
+      approved: !current,
+    };
+    // When verifying a pending provider, promote their role so they appear in Explore
+    if (!current && (role === 'pending_provider' || role === 'provider')) {
+      updates.role = 'provider';
+      updates.approvedAt = firebase.firestore.FieldValue.serverTimestamp();
+    }
+    // When unverifying a provider, demote back to pending
+    if (current && role === 'provider') {
+      updates.role = 'pending_provider';
+    }
+    await db.collection('users').doc(uid).update(updates);
     const u = allUsers.find(x => x.id === uid);
-    if (u) u.verified = !current;
+    if (u) {
+      u.verified = !current;
+      u.approved = !current;
+      if (updates.role) u.role = updates.role;
+    }
     renderUsers();
-    showToast(current ? 'User unverified' : 'User verified ✓', 'success');
+    showToast(current ? 'Provider unverified' : 'Provider approved ✓ — app will update in real time', 'success');
   } catch(e) { showToast('Error: ' + e.message, 'error'); }
 }
 

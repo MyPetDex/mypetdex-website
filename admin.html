@@ -642,8 +642,14 @@ async function loadUsers() {
 
 async function loadApplications() {
   try {
-    const snap = await db.collection('users').where('role', '==', 'shelter').get();
-    allApplications = snap.docs.map(d => ({ id: d.id, ...d.data() })).filter(u => u.status !== 'approved');
+    // Load both shelter applications AND pending provider applications
+    const [shelterSnap, providerSnap] = await Promise.all([
+      db.collection('users').where('role', '==', 'shelter').get(),
+      db.collection('users').where('role', '==', 'pending_provider').get(),
+    ]);
+    const shelterApps = shelterSnap.docs.map(d => ({ id: d.id, ...d.data(), appType: 'shelter' })).filter(u => u.status !== 'approved');
+    const providerApps = providerSnap.docs.map(d => ({ id: d.id, ...d.data(), appType: 'provider' }));
+    allApplications = [...providerApps, ...shelterApps];
     allApplications.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
     renderApplications();
     const count = allApplications.length;
@@ -680,16 +686,20 @@ async function loadProducts() {
 // ── Overview ──
 function updateOverview() {
   const owners = allUsers.filter(u => u.role === 'owner').length;
+  // Providers = approved providers only; pending_provider = awaiting approval
   const providers = allUsers.filter(u => u.role === 'provider').length;
+  const pendingProviders = allUsers.filter(u => u.role === 'pending_provider').length;
   const shelters = allUsers.filter(u => u.role === 'shelter').length;
-  const plus = allUsers.filter(u => u.plan === 'plus').length;
-  const family = allUsers.filter(u => u.plan === 'family').length;
-  const free = allUsers.filter(u => !u.plan || u.plan === 'free').length;
+  // Plans: only count pet owners (providers/shelters don't pay for plans)
+  const plus = allUsers.filter(u => u.role === 'owner' && u.plan === 'plus').length;
+  const family = allUsers.filter(u => u.role === 'owner' && u.plan === 'family').length;
+  const free = allUsers.filter(u => u.role === 'owner' && (!u.plan || u.plan === 'free')).length;
   const revenue = plus * PLAN_PRICES.plus + family * PLAN_PRICES.family;
 
-  document.getElementById('statTotal').textContent = allUsers.length;
+  // Total users = pet owners only (the ones who subscribe)
+  document.getElementById('statTotal').textContent = owners;
   document.getElementById('statOwners').textContent = owners;
-  document.getElementById('statProviders').textContent = providers;
+  document.getElementById('statProviders').textContent = providers + (pendingProviders > 0 ? ` (+${pendingProviders} pending)` : '');
   document.getElementById('statShelters').textContent = shelters;
   document.getElementById('statPlus').textContent = plus;
   document.getElementById('statFamily').textContent = family;
@@ -815,33 +825,43 @@ function renderApplications() {
     document.getElementById('appsList').innerHTML = '<div class="empty-state"><div class="empty-icon">✅</div><p>No pending applications</p></div>';
     return;
   }
-  document.getElementById('appsList').innerHTML = allApplications.map(app => `
+  document.getElementById('appsList').innerHTML = allApplications.map(app => {
+    const isProvider = app.appType === 'provider' || app.role === 'pending_provider';
+    const color = isProvider ? '#4486F4' : '#F59E0B';
+    const label = isProvider ? '🛠 Service Provider' : '🏠 Shelter';
+    const name = isProvider
+      ? (app.businessName || app.displayName || app.email || '?')
+      : (app.shelterName || app.displayName || '—');
+    return `
     <div class="app-card" id="app-${app.id}">
-      <div class="avatar" style="background:#F59E0B">${(app.shelterName || app.email || '?').charAt(0).toUpperCase()}</div>
+      <div class="avatar" style="background:${color}">${name.charAt(0).toUpperCase()}</div>
       <div class="app-info">
-        <div class="app-name">${escHtml(app.shelterName || app.displayName || '—')}</div>
+        <div class="app-name">${escHtml(name)} <span style="font-size:11px;font-weight:500;color:#64748B">${label}</span></div>
         <div class="app-email">${escHtml(app.email || '—')}</div>
         <div class="app-meta">
-          ${app.address ? '📍 ' + escHtml(app.address) + '<br>' : ''}
-          ${app.zip ? '📮 ZIP: ' + escHtml(app.zip) + '<br>' : ''}
+          ${app.serviceType ? '🔧 Service: <strong>' + escHtml(app.serviceType) + '</strong><br>' : ''}
+          ${app.city || app.state ? '📍 ' + escHtml([app.city, app.state].filter(Boolean).join(', ')) + '<br>' : (app.address ? '📍 ' + escHtml(app.address) + '<br>' : '')}
           ${app.phone ? '📞 ' + escHtml(app.phone) + '<br>' : ''}
           ${app.createdAt?.toDate ? '📅 Applied ' + app.createdAt.toDate().toLocaleDateString() : ''}
-          ${app.status ? ' · Status: <strong>' + escHtml(app.status) + '</strong>' : ''}
         </div>
       </div>
       <div class="app-actions">
-        <button class="btn-approve" onclick="approveApplication('${app.id}')">Approve</button>
-        <button class="btn-reject" onclick="rejectApplication('${app.id}')">Reject</button>
+        <button class="btn-approve" onclick="approveApplication('${app.id}', '${isProvider ? 'provider' : 'shelter'}')">Approve</button>
+        <button class="btn-reject" onclick="rejectApplication('${app.id}', '${isProvider ? 'provider' : 'shelter'}')">Reject</button>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
-async function approveApplication(uid) {
+async function approveApplication(uid, type) {
   try {
-    await db.collection('users').doc(uid).update({ status: 'approved', verified: true });
+    const updates = type === 'provider'
+      ? { role: 'provider', approved: true, verified: true, approvedAt: firebase.firestore.FieldValue.serverTimestamp() }
+      : { status: 'approved', verified: true };
+    await db.collection('users').doc(uid).update(updates);
     allApplications = allApplications.filter(a => a.id !== uid);
     const u = allUsers.find(x => x.id === uid);
-    if (u) { u.status = 'approved'; u.verified = true; }
+    if (u) Object.assign(u, updates);
     renderApplications();
     updateOverview();
     const count = allApplications.length;
@@ -849,14 +869,18 @@ async function approveApplication(uid) {
     badge.textContent = count;
     badge.classList.toggle('hidden', count === 0);
     document.getElementById('overviewApps').textContent = count;
-    showToast('Shelter approved ✓', 'success');
+    showToast(type === 'provider' ? 'Provider approved ✓ — app updates in real time' : 'Shelter approved ✓', 'success');
   } catch(e) { showToast('Error: ' + e.message, 'error'); }
 }
 
-async function rejectApplication(uid) {
-  if (!confirm('Reject this shelter application? This will delete the account.')) return;
+async function rejectApplication(uid, type) {
+  const label = type === 'provider' ? 'provider application' : 'shelter application';
+  if (!confirm(`Reject this ${label}?`)) return;
   try {
-    await db.collection('users').doc(uid).update({ status: 'rejected' });
+    const updates = type === 'provider'
+      ? { role: 'rejected_provider', approved: false }
+      : { status: 'rejected' };
+    await db.collection('users').doc(uid).update(updates);
     allApplications = allApplications.filter(a => a.id !== uid);
     renderApplications();
     const count = allApplications.length;
